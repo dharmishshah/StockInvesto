@@ -1,0 +1,1 @@
+{"name":"PORT1","stocks":{"AAPL":{"tickerSymbol":"AAPL","totalCostBasis":2088.1548,"volume":12.0,"date":"2018-11-23","transactions":[{"date":"2018-11-23","volume":12.0,"type":"Buy","costPerStock":172.29,"transactionCostBasis":2088.1548,"transactionCommission":20.6748}],"totalCommission":20.6748}}}
