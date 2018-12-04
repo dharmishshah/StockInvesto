@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="23" failures="0" name="StockControllerTest" time="2.88" errors="0" skipped="0">
+<testsuite tests="23" failures="0" name="StockControllerTest" time="2.952" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\bin"/>
@@ -61,27 +61,27 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="StockControllerTest" name="testOneTimeInvestmentCustomWeighted" time="0.029"/>
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentCustomWeighted" time="0.021"/>
   <testcase classname="StockControllerTest" name="testBlankInputOutput" time="0"/>
-  <testcase classname="StockControllerTest" name="testInvalidAddStockPortfolio" time="2.539"/>
+  <testcase classname="StockControllerTest" name="testInvalidAddStockPortfolio" time="2.333"/>
   <testcase classname="StockControllerTest" name="testMultipleOneTimeInvestmentEqualWeighted" time="0.019"/>
-  <testcase classname="StockControllerTest" name="testAddPortfolioAddStockMultipleDate" time="0.021"/>
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStockMultipleDate" time="0.02"/>
   <testcase classname="StockControllerTest" name="testBlankInput" time="0"/>
-  <testcase classname="StockControllerTest" name="testInvalidViewPortfolio" time="0.002"/>
-  <testcase classname="StockControllerTest" name="testMultipleDCAInvestmentEqualWeighted" time="0.042"/>
-  <testcase classname="StockControllerTest" name="testDCAInvestmentCustomWeighted" time="0.038"/>
-  <testcase classname="StockControllerTest" name="testOneTimeInvestmentEqualWeighted" time="0.018"/>
-  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddStock" time="0.013"/>
-  <testcase classname="StockControllerTest" name="testInvalidChoice" time="0"/>
-  <testcase classname="StockControllerTest" name="testSimpleBuyingStock" time="0.014"/>
-  <testcase classname="StockControllerTest" name="testAddStockWithCommission" time="0.011"/>
-  <testcase classname="StockControllerTest" name="testDuplicatePortfolio" time="0"/>
-  <testcase classname="StockControllerTest" name="testAddAndViewMultiplePortfolio" time="0.003"/>
+  <testcase classname="StockControllerTest" name="testInvalidViewPortfolio" time="0.001"/>
+  <testcase classname="StockControllerTest" name="testMultipleDCAInvestmentEqualWeighted" time="0.067"/>
+  <testcase classname="StockControllerTest" name="testDCAInvestmentCustomWeighted" time="0.106"/>
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentEqualWeighted" time="0.112"/>
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddStock" time="0.023"/>
+  <testcase classname="StockControllerTest" name="testInvalidChoice" time="0.001"/>
+  <testcase classname="StockControllerTest" name="testSimpleBuyingStock" time="0.017"/>
+  <testcase classname="StockControllerTest" name="testAddStockWithCommission" time="0.009"/>
+  <testcase classname="StockControllerTest" name="testDuplicatePortfolio" time="0.001"/>
+  <testcase classname="StockControllerTest" name="testAddAndViewMultiplePortfolio" time="0.007"/>
   <testcase classname="StockControllerTest" name="testAddAndViewPortfolio" time="0.001"/>
-  <testcase classname="StockControllerTest" name="testInvalidAddStockWithCommission" time="0.04"/>
-  <testcase classname="StockControllerTest" name="testAddPortfolioAddStock" time="0.025"/>
+  <testcase classname="StockControllerTest" name="testInvalidAddStockWithCommission" time="0.032"/>
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStock" time="0.089"/>
   <testcase classname="StockControllerTest" name="testBlankOutput" time="0"/>
-  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddMultipleStock" time="0.021"/>
-  <testcase classname="StockControllerTest" name="testAddPortfolio" time="0.001"/>
-  <testcase classname="StockControllerTest" name="testDCAInvestmentEqualWeighted" time="0.037"/>
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddMultipleStock" time="0.01"/>
+  <testcase classname="StockControllerTest" name="testAddPortfolio" time="0.006"/>
+  <testcase classname="StockControllerTest" name="testDCAInvestmentEqualWeighted" time="0.053"/>
 </testsuite>

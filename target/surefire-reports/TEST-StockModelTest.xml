@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="17" failures="0" name="StockModelTest" time="1.938" errors="0" skipped="0">
+<testsuite tests="17" failures="0" name="StockModelTest" time="1.643" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\bin"/>
@@ -61,21 +61,21 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="StockModelTest" name="testAddStockInvalid1" time="0.001"/>
-  <testcase classname="StockModelTest" name="testStockCostBasisInvalid" time="0.016"/>
-  <testcase classname="StockModelTest" name="testInvalidDate" time="0.011"/>
-  <testcase classname="StockModelTest" name="testStockEvaluationInvalid" time="0.012"/>
-  <testcase classname="StockModelTest" name="testCostPriceEvaluation" time="0.013"/>
-  <testcase classname="StockModelTest" name="testUpdateStock" time="0.011"/>
-  <testcase classname="StockModelTest" name="testAddStock" time="0.01"/>
-  <testcase classname="StockModelTest" name="testInvalidTickerSymbol" time="1.742"/>
-  <testcase classname="StockModelTest" name="testStockEvaluation" time="0.02"/>
-  <testcase classname="StockModelTest" name="testUpdateStockTransactions" time="0.03"/>
-  <testcase classname="StockModelTest" name="testStockCostPriceInvalid" time="0.023"/>
-  <testcase classname="StockModelTest" name="testCostPriceEvaluation1" time="0.013"/>
-  <testcase classname="StockModelTest" name="testCostPriceEvaluation2" time="0.014"/>
-  <testcase classname="StockModelTest" name="testCostPriceEvaluation3" time="0.006"/>
-  <testcase classname="StockModelTest" name="testUpdateStockInvalid1" time="0.006"/>
-  <testcase classname="StockModelTest" name="testCostBasisEvaluation" time="0.005"/>
+  <testcase classname="StockModelTest" name="testAddStockInvalid1" time="0.012"/>
+  <testcase classname="StockModelTest" name="testStockCostBasisInvalid" time="0.04"/>
+  <testcase classname="StockModelTest" name="testInvalidDate" time="0.006"/>
+  <testcase classname="StockModelTest" name="testStockEvaluationInvalid" time="0.008"/>
+  <testcase classname="StockModelTest" name="testCostPriceEvaluation" time="0.01"/>
+  <testcase classname="StockModelTest" name="testUpdateStock" time="0.008"/>
+  <testcase classname="StockModelTest" name="testAddStock" time="0.015"/>
+  <testcase classname="StockModelTest" name="testInvalidTickerSymbol" time="1.46"/>
+  <testcase classname="StockModelTest" name="testStockEvaluation" time="0.009"/>
+  <testcase classname="StockModelTest" name="testUpdateStockTransactions" time="0.003"/>
+  <testcase classname="StockModelTest" name="testStockCostPriceInvalid" time="0.012"/>
+  <testcase classname="StockModelTest" name="testCostPriceEvaluation1" time="0.012"/>
+  <testcase classname="StockModelTest" name="testCostPriceEvaluation2" time="0.016"/>
+  <testcase classname="StockModelTest" name="testCostPriceEvaluation3" time="0.009"/>
+  <testcase classname="StockModelTest" name="testUpdateStockInvalid1" time="0.007"/>
+  <testcase classname="StockModelTest" name="testCostBasisEvaluation" time="0.009"/>
   <testcase classname="StockModelTest" name="testEmptyStockData" time="0.001"/>
 </testsuite>
