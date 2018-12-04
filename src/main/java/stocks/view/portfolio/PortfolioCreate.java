@@ -11,7 +11,6 @@ import java.util.Map;
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
-import stocks.controller.PortfolioGUIController;
 
 /**
  *

@@ -6,7 +6,6 @@
 package stocks.view.portfolio;
 
 import stocks.controller.GUIController;
-import stocks.controller.PortfolioGUIController;
 
 /**
  *

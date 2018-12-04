@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.util.Map;
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
-import stocks.controller.PortfolioGUIController;
 import stocks.view.GUIView;
 
 /**
