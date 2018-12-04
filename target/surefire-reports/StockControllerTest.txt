@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: StockControllerTest
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 20, Skipped: 0, Time elapsed: 122.091 sec <<< FAILURE!
-testOneTimeInvestmentCustomWeighted(StockControllerTest)  Time elapsed: 6.29 sec  <<< ERROR!
+Tests run: 23, Failures: 0, Errors: 20, Skipped: 0, Time elapsed: 119.247 sec <<< FAILURE!
+testOneTimeInvestmentCustomWeighted(StockControllerTest)  Time elapsed: 5.58 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -13,7 +13,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testOneTimeInvestmentCustomWeighted(StockControllerTest.java:1474)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -36,7 +36,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
 	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-testInvalidAddStockPortfolio(StockControllerTest)  Time elapsed: 26.638 sec  <<< ERROR!
+testInvalidAddStockPortfolio(StockControllerTest)  Time elapsed: 26.262 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -47,7 +47,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testInvalidAddStockPortfolio(StockControllerTest.java:911)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -70,7 +70,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
 	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-testMultipleOneTimeInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 5.524 sec  <<< ERROR!
+testMultipleOneTimeInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 4.835 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -81,7 +81,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testMultipleOneTimeInvestmentEqualWeighted(StockControllerTest.java:1330)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -104,7 +104,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
 	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-testAddPortfolioAddStockMultipleDate(StockControllerTest)  Time elapsed: 4.972 sec  <<< ERROR!
+testAddPortfolioAddStockMultipleDate(StockControllerTest)  Time elapsed: 4.852 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -115,7 +115,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testAddPortfolioAddStockMultipleDate(StockControllerTest.java:436)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -138,35 +138,35 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
 	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
-testInvalidViewPortfolio(StockControllerTest)  Time elapsed: 4.981 sec  <<< ERROR!
+testInvalidViewPortfolio(StockControllerTest)  Time elapsed: 4.649 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testMultipleDCAInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 5.025 sec  <<< ERROR!
+testMultipleDCAInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 4.703 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testDCAInvestmentCustomWeighted(StockControllerTest)  Time elapsed: 4.72 sec  <<< ERROR!
+testDCAInvestmentCustomWeighted(StockControllerTest)  Time elapsed: 4.878 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testOneTimeInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 4.823 sec  <<< ERROR!
+testOneTimeInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 4.809 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddMultiplePortfolioAddStock(StockControllerTest)  Time elapsed: 4.845 sec  <<< ERROR!
+testAddMultiplePortfolioAddStock(StockControllerTest)  Time elapsed: 4.806 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testInvalidChoice(StockControllerTest)  Time elapsed: 5.529 sec  <<< ERROR!
+testInvalidChoice(StockControllerTest)  Time elapsed: 4.925 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testSimpleBuyingStock(StockControllerTest)  Time elapsed: 4.709 sec  <<< ERROR!
+testSimpleBuyingStock(StockControllerTest)  Time elapsed: 4.807 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddStockWithCommission(StockControllerTest)  Time elapsed: 5.738 sec  <<< ERROR!
+testAddStockWithCommission(StockControllerTest)  Time elapsed: 4.811 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testDuplicatePortfolio(StockControllerTest)  Time elapsed: 4.714 sec  <<< ERROR!
+testDuplicatePortfolio(StockControllerTest)  Time elapsed: 4.757 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddAndViewMultiplePortfolio(StockControllerTest)  Time elapsed: 4.765 sec  <<< ERROR!
+testAddAndViewMultiplePortfolio(StockControllerTest)  Time elapsed: 4.742 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddAndViewPortfolio(StockControllerTest)  Time elapsed: 4.739 sec  <<< ERROR!
+testAddAndViewPortfolio(StockControllerTest)  Time elapsed: 4.825 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testInvalidAddStockWithCommission(StockControllerTest)  Time elapsed: 4.868 sec  <<< ERROR!
+testInvalidAddStockWithCommission(StockControllerTest)  Time elapsed: 4.901 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddPortfolioAddStock(StockControllerTest)  Time elapsed: 4.872 sec  <<< ERROR!
+testAddPortfolioAddStock(StockControllerTest)  Time elapsed: 4.808 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddMultiplePortfolioAddMultipleStock(StockControllerTest)  Time elapsed: 4.766 sec  <<< ERROR!
+testAddMultiplePortfolioAddMultipleStock(StockControllerTest)  Time elapsed: 4.842 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testAddPortfolio(StockControllerTest)  Time elapsed: 4.755 sec  <<< ERROR!
+testAddPortfolio(StockControllerTest)  Time elapsed: 5.01 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-testDCAInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 4.814 sec  <<< ERROR!
+testDCAInvestmentEqualWeighted(StockControllerTest)  Time elapsed: 5.439 sec  <<< ERROR!
 java.lang.OutOfMemoryError: Java heap space

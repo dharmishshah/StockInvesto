@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="23" failures="0" name="StockControllerTest" time="122.092" errors="20" skipped="0">
+<testsuite tests="23" failures="0" name="StockControllerTest" time="119.248" errors="20" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\bin"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="StockControllerTest" name="testOneTimeInvestmentCustomWeighted" time="6.29">
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentCustomWeighted" time="5.58">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -72,7 +72,7 @@
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testOneTimeInvestmentCustomWeighted(StockControllerTest.java:1474)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -98,7 +98,7 @@
 </error>
   </testcase>
   <testcase classname="StockControllerTest" name="testBlankInputOutput" time="0"/>
-  <testcase classname="StockControllerTest" name="testInvalidAddStockPortfolio" time="26.638">
+  <testcase classname="StockControllerTest" name="testInvalidAddStockPortfolio" time="26.262">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -109,7 +109,7 @@
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testInvalidAddStockPortfolio(StockControllerTest.java:911)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -133,8 +133,53 @@
 	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
 </error>
+    <system-err>java.io.IOException: Server returned HTTP response code: 503 for URL: https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&amp;outputsize=full&amp;symbol=QWERTY123&amp;apikey=SBLPS6ZZ1HFAR8VM&amp;datatype=csv
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1838)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1439)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at java.net.URL.openStream(URL.java:1038)
+	at stocks.model.stock.StockModel.getLatestStockData(StockModel.java:384)
+	at stocks.model.stock.StockModel.getCostPriceStock(StockModel.java:207)
+	at stocks.model.stock.StockModel.addNewStock(StockModel.java:107)
+	at stocks.model.stock.StockModel.addNewStock(StockModel.java:29)
+	at stocks.model.portfolio.PortfolioModel.addStock(PortfolioModel.java:165)
+	at stocks.controller.StockController.addStock(StockController.java:564)
+	at stocks.controller.StockController.handleBuyStockByVolume(StockController.java:166)
+	at stocks.controller.StockController.handleOperation(StockController.java:105)
+	at StockControllerTest.testInvalidAddStockPortfolio(StockControllerTest.java:911)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</system-err>
   </testcase>
-  <testcase classname="StockControllerTest" name="testMultipleOneTimeInvestmentEqualWeighted" time="5.524">
+  <testcase classname="StockControllerTest" name="testMultipleOneTimeInvestmentEqualWeighted" time="4.835">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -145,7 +190,7 @@
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testMultipleOneTimeInvestmentEqualWeighted(StockControllerTest.java:1330)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -170,7 +215,7 @@
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddPortfolioAddStockMultipleDate" time="4.972">
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStockMultipleDate" time="4.852">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 	at java.util.Arrays.copyOf(Arrays.java:3332)
 	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
@@ -181,7 +226,7 @@
 	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
 	at java.lang.StringBuffer.append(StringBuffer.java:340)
 	at java.lang.StringBuffer.append(StringBuffer.java:97)
-	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:40)
 	at stocks.controller.StockController.handleOperation(StockController.java:78)
 	at StockControllerTest.testAddPortfolioAddStockMultipleDate(StockControllerTest.java:436)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -207,68 +252,68 @@
 </error>
   </testcase>
   <testcase classname="StockControllerTest" name="testBlankInput" time="0"/>
-  <testcase classname="StockControllerTest" name="testInvalidViewPortfolio" time="4.981">
+  <testcase classname="StockControllerTest" name="testInvalidViewPortfolio" time="4.649">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testMultipleDCAInvestmentEqualWeighted" time="5.025">
+  <testcase classname="StockControllerTest" name="testMultipleDCAInvestmentEqualWeighted" time="4.703">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testDCAInvestmentCustomWeighted" time="4.72">
+  <testcase classname="StockControllerTest" name="testDCAInvestmentCustomWeighted" time="4.878">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testOneTimeInvestmentEqualWeighted" time="4.823">
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentEqualWeighted" time="4.809">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddStock" time="4.845">
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddStock" time="4.806">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testInvalidChoice" time="5.529">
+  <testcase classname="StockControllerTest" name="testInvalidChoice" time="4.925">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testSimpleBuyingStock" time="4.709">
+  <testcase classname="StockControllerTest" name="testSimpleBuyingStock" time="4.807">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddStockWithCommission" time="5.738">
+  <testcase classname="StockControllerTest" name="testAddStockWithCommission" time="4.811">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testDuplicatePortfolio" time="4.714">
+  <testcase classname="StockControllerTest" name="testDuplicatePortfolio" time="4.757">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddAndViewMultiplePortfolio" time="4.765">
+  <testcase classname="StockControllerTest" name="testAddAndViewMultiplePortfolio" time="4.742">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddAndViewPortfolio" time="4.739">
+  <testcase classname="StockControllerTest" name="testAddAndViewPortfolio" time="4.825">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testInvalidAddStockWithCommission" time="4.868">
+  <testcase classname="StockControllerTest" name="testInvalidAddStockWithCommission" time="4.901">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddPortfolioAddStock" time="4.872">
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStock" time="4.808">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testBlankOutput" time="0.001"/>
-  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddMultipleStock" time="4.766">
+  <testcase classname="StockControllerTest" name="testBlankOutput" time="0.002"/>
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddMultipleStock" time="4.842">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testAddPortfolio" time="4.755">
+  <testcase classname="StockControllerTest" name="testAddPortfolio" time="5.01">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
-  <testcase classname="StockControllerTest" name="testDCAInvestmentEqualWeighted" time="4.814">
+  <testcase classname="StockControllerTest" name="testDCAInvestmentEqualWeighted" time="5.439">
     <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
 </error>
   </testcase>
