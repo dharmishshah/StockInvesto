@@ -1,8 +1,9 @@
-package stocks.view;
+package stocks.view.investment;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Map;
+import stocks.view.InvestmentViewOperations;
 
 /**
  * The following class implements all the functions of the InvestmentViewOperations. The operations

@@ -19,7 +19,7 @@ import stocks.model.stock.Stock;
 import stocks.model.strategy.DCA;
 import stocks.model.strategy.Strategy;
 import stocks.model.strategy.StrategyOperations;
-import stocks.view.InvestmentView;
+import stocks.view.investment.InvestmentView;
 import stocks.view.InvestmentViewOperations;
 
 /**
