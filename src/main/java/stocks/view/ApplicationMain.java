@@ -6,6 +6,8 @@
 package stocks.view;
 
 import java.awt.CardLayout;
+import stocks.controller.GUIController;
+import stocks.controller.PortfolioGUIController;
 import stocks.view.investment.InvestmentMain;
 import stocks.view.portfolio.PortfolioMain;
 import stocks.view.stock.StockMain;
@@ -15,12 +17,15 @@ import stocks.view.stock.StockMain;
  * @author Dharmish
  */
 public class ApplicationMain extends javax.swing.JFrame {
+    
+    GUIController controller;
 
     /**
      * Creates new form ApplicationMain
      */
-    public ApplicationMain() {
+    public ApplicationMain(GUIController controller) {
         initComponents();
+        this.controller = controller;
     }
 
     /**
@@ -127,7 +132,7 @@ public class ApplicationMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void portfolioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioBtnActionPerformed
-        PortfolioMain pf = new PortfolioMain();
+        PortfolioMain pf = new PortfolioMain(controller);
         jSplitPane3.setRightComponent(pf);
     }//GEN-LAST:event_portfolioBtnActionPerformed
 
@@ -175,7 +180,7 @@ public class ApplicationMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ApplicationMain().setVisible(true);
+                new ApplicationMain(new GUIController()).setVisible(true);
             }
         });
     }

@@ -5,17 +5,28 @@
  */
 package stocks.view.portfolio;
 
+import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
+import java.util.Map;
+import javax.swing.JTextField;
+import stocks.controller.GUIController;
+import stocks.view.GUIView;
+import stocks.controller.PortfolioGUIController;
+
 /**
  *
  * @author Dharmish
  */
-public class PortfolioCreate extends javax.swing.JPanel {
+public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
+    GUIController controller;
+    
 
     /**
      * Creates new form PortfolioCreate
      */
-    public PortfolioCreate() {
+    public PortfolioCreate(GUIController controller) {
         initComponents();
+        controller.setCreateView(this);
     }
 
     /**
@@ -28,21 +39,21 @@ public class PortfolioCreate extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        portfolioNameTxt = new javax.swing.JTextField();
+        savePortfolioBtn = new javax.swing.JButton();
 
         jLabel1.setText("Enter portfolio name");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        portfolioNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                portfolioNameTxtActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        savePortfolioBtn.setText("Save");
+        savePortfolioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                savePortfolioBtnActionPerformed(evt);
             }
         });
 
@@ -54,8 +65,8 @@ public class PortfolioCreate extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(portfolioNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(savePortfolioBtn))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -64,25 +75,42 @@ public class PortfolioCreate extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(portfolioNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(savePortfolioBtn)
                 .addContainerGap(215, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    public String getPortfolioName(){
+        return portfolioNameTxt.getText();
+    }
+    
+    public void addActionListener(ActionListener listener){
+        savePortfolioBtn.addActionListener(listener);    
+    }
+    
+    public void clearTextData(JTextField fieldName){
+        fieldName.setText("");
+    }
+    
+     public void setSummaryData(Map<String, Map<String, Double>> data){
+         int a = 10;
+     }
+    
+    
+    private void savePortfolioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePortfolioBtnActionPerformed
+       
+    }//GEN-LAST:event_savePortfolioBtnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void portfolioNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioNameTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_portfolioNameTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField portfolioNameTxt;
+    private javax.swing.JButton savePortfolioBtn;
     // End of variables declaration//GEN-END:variables
 }

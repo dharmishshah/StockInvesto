@@ -5,17 +5,22 @@
  */
 package stocks.view.portfolio;
 
+import stocks.controller.GUIController;
+import stocks.controller.PortfolioGUIController;
+
 /**
  *
  * @author Dharmish
  */
 public class PortfolioMain extends javax.swing.JSplitPane {
 
+     GUIController controller;
     /**
      * Creates new form PortfolioMain
      */
-    public PortfolioMain() {
+    public PortfolioMain(GUIController controller) {
         initComponents();
+        this.controller = controller;
     }
 
     /**
@@ -74,7 +79,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,20 +92,23 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(160, Short.MAX_VALUE)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void portfolioCreateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioCreateBtnActionPerformed
-       jSplitPane1.setRightComponent(new PortfolioCreate());
+       jSplitPane1.setRightComponent(new PortfolioCreate(controller));
     }//GEN-LAST:event_portfolioCreateBtnActionPerformed
 
     private void portfolioViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioViewBtnActionPerformed
-        jSplitPane1.setRightComponent(new PortfolioView());
+        jSplitPane1.setRightComponent(new PortfolioView(controller));
     }//GEN-LAST:event_portfolioViewBtnActionPerformed
 
 

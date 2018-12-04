@@ -5,17 +5,29 @@
  */
 package stocks.view.portfolio;
 
+import java.awt.event.ActionListener;
+import java.util.Map;
+import javax.swing.JTextField;
+import stocks.controller.GUIController;
+import stocks.controller.PortfolioGUIController;
+import stocks.view.GUIView;
+
 /**
  *
  * @author Dharmish
  */
-public class PortfolioView extends javax.swing.JPanel {
+public class PortfolioView extends javax.swing.JPanel implements GUIView{
+     
+    GUIController controller;
+    
 
     /**
      * Creates new form PortfolioView
      */
-    public PortfolioView() {
+    public PortfolioView(GUIController controller) {
         initComponents();
+        controller.setDisplayView(this);
+        
     }
 
     /**
@@ -30,10 +42,18 @@ public class PortfolioView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        summaryViewBtn = new javax.swing.JButton();
 
         jLabel1.setText("Summary");
 
         jScrollPane1.setViewportView(jTextPane1);
+
+        summaryViewBtn.setText("View");
+        summaryViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                summaryViewBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,25 +64,50 @@ public class PortfolioView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 336, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(summaryViewBtn)
+                            .addComponent(jLabel1))
+                        .addGap(0, 325, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
+                .addComponent(summaryViewBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void summaryViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryViewBtnActionPerformed
+        
+    }//GEN-LAST:event_summaryViewBtnActionPerformed
+       
+    
+     public void  setSummaryData(Map<String, Map<String, Double>> data){
+         int a = 10;
+     }
+    
+    public String getPortfolioName(){
+        return null;
+    }
+    
+    public void addActionListener(ActionListener listener){
+        summaryViewBtn.addActionListener(listener);    
+    }
+    
+    public void clearTextData(JTextField fieldName){
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton summaryViewBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,11 +5,15 @@
  */
 package stocks.view.investment;
 
+import stocks.controller.GUIController;
+
 /**
  *
  * @author Dharmish
  */
 public class InvestmentMain extends javax.swing.JPanel {
+    
+    GUIController controller;
 
     /**
      * Creates new form InvestmentMain

@@ -3,31 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="7c6242fe-8fea-4cde-8312-71160a0ded75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/InvestmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/InvestmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/PortfolioMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/PortfolioMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/StockMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/StockMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/AlphaVantageDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/AlphaVantageDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateDeserializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateDeserializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentViewOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentViewOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/PortfolioMain$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/PortfolioMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/StockMain$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/StockMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/PortfolioGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/PortfolioGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/PortfolioGUIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -283,7 +271,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543882127699" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543893677475" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -364,6 +352,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
