@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="23" failures="0" name="StockControllerTest" time="122.092" errors="20" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\bin"/>
+    <property name="java.vm.version" value="25.20-b23"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\NEU Study\Fall 18\GStocks"/>
+    <property name="java.runtime.version" value="1.8.0_20-b26"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="E:\Work\software\Java\jdk1.8.0_20\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Dharmish\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 8.1"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="E:\Work\software\Java\jdk1.8.0_20\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\iCLS Client\;E:\Work\software\gcc\bin;E:\Work\software\gcc\libexec\gcc\x86_64-w64-mingw32\7.2.0;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\CrSSL\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files (x86)\Brackets\command;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\PharosSystems\Core;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\Users\Dharmish\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Dharmish\AppData\Local\Programs\Python\Python37-32\;C:\Users\Dharmish\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Dharmish\AppData\Local\Programs\Python\Python37\;C:\Users\Dharmish\AppData\Local\Microsoft\WindowsApps;C:\Users\Dharmish\AppData\Roaming\npm;C:\Program Files\Git\bin\;C:\Program Files\Git\cmd\;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.3"/>
+    <property name="user.home" value="C:\Users\Dharmish"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="Dharmish"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="E:\Work\software\Java\jdk1.8.0_20\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_20"/>
+    <property name="java.ext.dirs" value="E:\Work\software\Java\jdk1.8.0_20\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\lib\resources.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\rt.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\sunrsasign.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\jsse.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\jce.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\charsets.jar;E:\Work\software\Java\jdk1.8.0_20\jre\lib\jfr.jar;E:\Work\software\Java\jdk1.8.0_20\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 8.2\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentCustomWeighted" time="6.29">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3332)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:421)
+	at java.lang.StringBuffer.append(StringBuffer.java:272)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
+	at java.lang.StringBuffer.append(StringBuffer.java:340)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.controller.StockController.handleOperation(StockController.java:78)
+	at StockControllerTest.testOneTimeInvestmentCustomWeighted(StockControllerTest.java:1474)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testBlankInputOutput" time="0"/>
+  <testcase classname="StockControllerTest" name="testInvalidAddStockPortfolio" time="26.638">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3332)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:421)
+	at java.lang.StringBuffer.append(StringBuffer.java:272)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
+	at java.lang.StringBuffer.append(StringBuffer.java:340)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.controller.StockController.handleOperation(StockController.java:78)
+	at StockControllerTest.testInvalidAddStockPortfolio(StockControllerTest.java:911)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testMultipleOneTimeInvestmentEqualWeighted" time="5.524">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3332)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:421)
+	at java.lang.StringBuffer.append(StringBuffer.java:272)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
+	at java.lang.StringBuffer.append(StringBuffer.java:340)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.controller.StockController.handleOperation(StockController.java:78)
+	at StockControllerTest.testMultipleOneTimeInvestmentEqualWeighted(StockControllerTest.java:1330)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStockMultipleDate" time="4.972">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3332)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:421)
+	at java.lang.StringBuffer.append(StringBuffer.java:272)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:457)
+	at java.lang.StringBuffer.append(StringBuffer.java:340)
+	at java.lang.StringBuffer.append(StringBuffer.java:97)
+	at stocks.view.InvestmentView.displayMessage(InvestmentView.java:39)
+	at stocks.controller.StockController.handleOperation(StockController.java:78)
+	at StockControllerTest.testAddPortfolioAddStockMultipleDate(StockControllerTest.java:436)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testBlankInput" time="0"/>
+  <testcase classname="StockControllerTest" name="testInvalidViewPortfolio" time="4.981">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testMultipleDCAInvestmentEqualWeighted" time="5.025">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testDCAInvestmentCustomWeighted" time="4.72">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testOneTimeInvestmentEqualWeighted" time="4.823">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddStock" time="4.845">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testInvalidChoice" time="5.529">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testSimpleBuyingStock" time="4.709">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddStockWithCommission" time="5.738">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testDuplicatePortfolio" time="4.714">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddAndViewMultiplePortfolio" time="4.765">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddAndViewPortfolio" time="4.739">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testInvalidAddStockWithCommission" time="4.868">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddPortfolioAddStock" time="4.872">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testBlankOutput" time="0.001"/>
+  <testcase classname="StockControllerTest" name="testAddMultiplePortfolioAddMultipleStock" time="4.766">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testAddPortfolio" time="4.755">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+  <testcase classname="StockControllerTest" name="testDCAInvestmentEqualWeighted" time="4.814">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+</error>
+  </testcase>
+</testsuite>
