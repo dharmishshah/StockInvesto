@@ -1,4 +1,4 @@
-package stocks.view.investment;
+package stocks.view;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
