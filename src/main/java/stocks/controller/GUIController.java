@@ -50,8 +50,10 @@ public class GUIController
 		ButtonListener buttonListener = new ButtonListener();
 
 		buttonClickedMap.put("Save",()->{
-			String text = createportfolioView.getPortfolioName();
+			String text = 
+                                createportfolioView.getTextFieldData("portfolioNameTxt");
                         portfolioOperations.addPortfolio(text);
+                        createportfolioView.clearTextFieldData("portfolioNameTxt");
 		});
                 buttonListener.setButtonClickedActionMap(buttonClickedMap);
                 this.createportfolioView.addActionListener(buttonListener);

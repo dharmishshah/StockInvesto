@@ -16,13 +16,15 @@ import javax.swing.JTextField;
 public interface GUIView {
     
     
-    String getPortfolioName();
-    
     void addActionListener(ActionListener listener);
     
-    void clearTextData(JTextField fieldName);
-    
     void setSummaryData( Map<String, Map<String, Double>> data);
+    
+    String getTextFieldData(String fieldName);
+    
+    void clearTextFieldData(String fieldName);
+    
+    void setErrorMessage(String fieldName, String message);
     
     
     

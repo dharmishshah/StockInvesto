@@ -5,6 +5,7 @@
  */
 package stocks.view.portfolio;
 
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Map;
 import javax.swing.JTextField;
@@ -27,6 +28,10 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
         initComponents();
         controller.setDisplayView(this);
         
+    }
+
+    public PortfolioView(LayoutManager layoutManager, boolean b) {
+        super(layoutManager, b);
     }
 
     /**
@@ -90,7 +95,22 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
      public void  setSummaryData(Map<String, Map<String, Double>> data){
          int a = 10;
      }
-    
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+        return null;
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+
+    }
+
     public String getPortfolioName(){
         return null;
     }

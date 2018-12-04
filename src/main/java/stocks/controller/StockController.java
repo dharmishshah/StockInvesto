@@ -120,13 +120,7 @@ public class StockController implements IStockController {
             handleStrategyInput(scan);
             break;
           case 7:
-            portfolioOperations.savePortfolios();
-            break;
-          case 8:
-            portfolioOperations.loadPortfolios();
-            break;
-          case 9:
-            return;
+           return;
           default:
             investmentViewOperations.displayMessage(appendable, StockConstants.ERROR_INVALID_MENU);
         }

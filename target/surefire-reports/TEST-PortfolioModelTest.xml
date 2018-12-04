@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="PortfolioModelTest" time="0.262" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="PortfolioModelTest" time="0.304" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="E:\Work\software\Java\jdk1.8.0_20\jre\bin"/>
@@ -61,16 +61,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioDuplicate" time="0.019"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioDuplicate" time="0.022"/>
   <testcase classname="PortfolioModelTest" name="testAddPortfolioMultiple" time="0"/>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddStockDetails" time="0.096"/>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddMultipleSameStock" time="0.025"/>
-  <testcase classname="PortfolioModelTest" name="testAddMultiplePortfolioAddStock" time="0.026"/>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddMultipleStock" time="0.018"/>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddStock" time="0.008"/>
-  <testcase classname="PortfolioModelTest" name="testAddPortfolioInvalid" time="0"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddStockDetails" time="0.114"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddMultipleSameStock" time="0.028"/>
+  <testcase classname="PortfolioModelTest" name="testAddMultiplePortfolioAddStock" time="0.023"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddMultipleStock" time="0.025"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioAddStock" time="0.007"/>
+  <testcase classname="PortfolioModelTest" name="testAddPortfolioInvalid" time="0.001"/>
   <testcase classname="PortfolioModelTest" name="testAddStockPortfolioInvalid" time="0.001"/>
-  <testcase classname="PortfolioModelTest" name="testAddMultiplePortfolioAddMultipleStock" time="0.011"/>
+  <testcase classname="PortfolioModelTest" name="testAddMultiplePortfolioAddMultipleStock" time="0.01"/>
   <testcase classname="PortfolioModelTest" name="testEmptyStockData" time="0"/>
   <testcase classname="PortfolioModelTest" name="testAddPortfolio" time="0"/>
 </testsuite>

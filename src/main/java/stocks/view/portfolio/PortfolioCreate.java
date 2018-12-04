@@ -8,6 +8,7 @@ package stocks.view.portfolio;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -18,7 +19,42 @@ import stocks.view.GUIView;
  */
 public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
     GUIController controller;
-    
+
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+         try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+         
+        return null;
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            portfolioName.setText("");
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+
+    }
 
     /**
      * Creates new form PortfolioCreate
@@ -81,23 +117,11 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public String getPortfolioName(){
-        return portfolioNameTxt.getText();
-    }
-    
     public void addActionListener(ActionListener listener){
         savePortfolioBtn.addActionListener(listener);    
     }
     
-    public void clearTextData(JTextField fieldName){
-        fieldName.setText("");
-    }
-    
-     public void setSummaryData(Map<String, Map<String, Double>> data){
-         int a = 10;
-     }
-    
-    
+     
     private void savePortfolioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePortfolioBtnActionPerformed
        
     }//GEN-LAST:event_savePortfolioBtnActionPerformed
