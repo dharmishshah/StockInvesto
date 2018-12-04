@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c6242fe-8fea-4cde-8312-71160a0ded75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/InvestmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/InvestmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/PortfolioMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/PortfolioMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/StockMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/StockMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/AlphaVantageDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/AlphaVantageDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateDeserializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateDeserializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/utils/LocalDateSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentViewOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentViewOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/PortfolioMain$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/PortfolioMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/StockMain$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/StockMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/InvestmentView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/stock/StockMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/stock/StockMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/stock/StockMain.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -79,9 +59,18 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1137334294">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
+            <state relative-caret-position="714">
               <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
             </state>
           </provider>
@@ -168,6 +157,12 @@
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -184,11 +179,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+    <option name="width" value="1945" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -283,7 +278,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543882127699" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pdpAssignment8" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -354,6 +352,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543860741537</updated>
+      <workItem from="1543888282065" duration="75000" />
     </task>
     <servers />
   </component>
@@ -362,21 +361,20 @@
       <configuration name="PortfolioModelTest" configurationId="JUnit" />
     </history-entry>
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="75000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21860817" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CheckStyle" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3289689" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
@@ -384,14 +382,20 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" weight="0.32980332" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
     </layout>
     <layout-to-restore>
       <window_info id="Image Layers" order="0" />
@@ -422,6 +426,9 @@
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -454,23 +461,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/stock/StockOperations.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://E:/Work/software/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/time/format/DateTimeFormatter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/StockModelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/Work/software/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/time/format/DateTimeFormatter.class" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/StockModelTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -478,13 +470,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Work/software/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/time/LocalDate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/Work/software/Java/jdk1.8.0_20/jre/lib/rt.jar!/java/time/LocalDate.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/StockConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -502,43 +488,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar!/org/codehaus/jackson/map/ObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="1816" selection-start-line="1816" selection-end-line="1816" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/deser/std/StdDeserializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="280" column="11" lean-forward="true" selection-start-line="280" selection-start-column="11" selection-end-line="280" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/ser/std/StdSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13-sources.jar!/org/codehaus/jackson/JsonGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar!/org/codehaus/jackson/map/ObjectMapper.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/deser/std/StdDeserializer.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/ser/std/StdSerializer.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13-sources.jar!/org/codehaus/jackson/JsonGenerator.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/utils/LocalDateDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,21 +503,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/ObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="2471" selection-start-line="2471" selection-end-line="2471" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3-sources.jar!/com/fasterxml/jackson/databind/ObjectMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/stock/TransactionType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -572,53 +518,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/PortfolioModelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/StockControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/StockControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/StockModelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/PortfolioModelTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/StockControllerTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/stock/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,6 +544,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/StockModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/StockControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/PortfolioModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -645,7 +570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="714">
           <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
         </state>
       </provider>
