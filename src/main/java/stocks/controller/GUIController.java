@@ -209,20 +209,17 @@ public class GUIController
 	}
 
 
-  private void configureStockDisplayButtonListener() {
+  private void configureOneTimeInvestmentButtonListener() {
     Map<String,Runnable> buttonClickedMap =
             new HashMap<String,Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-
-    buttonClickedMap.put("VPSViewStock",()->{
-      String portfolioId = displayStockView.getComboFieldData("VPSPortfolioId");
-      int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
-      Map<String, Map<String, Double>> resultMap =
-              portfolioOperations.displayStocks(portId, LocalDate.now());
-      this.displayStockView.setSummaryData(resultMap);
+    buttonClickedMap.put("createOneTime",()->{
+      String text = oneTimeInvestmentView.getTextFieldData("portfolioNameTxt");
+      portfolioOperations.addPortfolio(text);
+      oneTimeInvestmentView.clearTextFieldData("portfolioNameTxt");
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
-    this.displayStockView.addActionListener(buttonListener);
+    this.oneTimeInvestmentView.addActionListener(buttonListener);
   }
 
 
