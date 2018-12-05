@@ -5,6 +5,7 @@
  */
 package stocks.view.stock;
 
+import stocks.controller.GUIController;
 import stocks.view.investment.InvestmentMain;
 
 /**
@@ -12,12 +13,15 @@ import stocks.view.investment.InvestmentMain;
  * @author Dharmish
  */
 public class StockMain extends javax.swing.JPanel {
+    
+    GUIController controller;
 
     /**
      * Creates new form StockMain
      */
-    public StockMain() {
+    public StockMain(GUIController controller) {
         initComponents();
+        this.controller = controller;
     }
 
     /**
@@ -110,17 +114,17 @@ public class StockMain extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyStockByVolumeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyStockByVolumeBtnActionPerformed
-        BuyStockByVolume pf = new BuyStockByVolume();
+        BuyStockByVolume pf = new BuyStockByVolume(controller);
         jSplitPane1.setRightComponent(pf);
     }//GEN-LAST:event_buyStockByVolumeBtnActionPerformed
 
     private void viewStocksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewStocksBtnActionPerformed
-        ViewPortfolioStocks pf = new ViewPortfolioStocks();
+        ViewPortfolioStocks pf = new ViewPortfolioStocks(controller);
         jSplitPane1.setRightComponent(pf);
     }//GEN-LAST:event_viewStocksBtnActionPerformed
 
     private void buyStockByAmountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyStockByAmountBtnActionPerformed
-       BuyStockByAmount pf = new BuyStockByAmount();
+       BuyStockByAmount pf = new BuyStockByAmount(controller);
         jSplitPane1.setRightComponent(pf);
     }//GEN-LAST:event_buyStockByAmountBtnActionPerformed
 

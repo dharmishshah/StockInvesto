@@ -5,17 +5,57 @@
  */
 package stocks.view.stock;
 
+import java.awt.event.ActionListener;
+import java.util.Map;
+
+import stocks.controller.GUIController;
+import stocks.view.GUIView;
+
 /**
  *
  * @author Animesh Mane
  */
-public class BuyStockByVolume extends javax.swing.JPanel {
+public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
+    
+    GUIController controller;
 
     /**
      * Creates new form BuyStockByVolume
      */
-    public BuyStockByVolume() {
+    public BuyStockByVolume(GUIController controller) {
         initComponents();
+        this.controller = controller;
+        controller.setBuyStockByAmountView(this);
+    }
+
+    @Override
+    public void addActionListener(ActionListener listener) {
+
+    }
+
+    @Override
+    public void setSummaryData(Map<String, Map<String, Double>> data) {
+
+    }
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+        return null;
+    }
+
+    @Override
+    public String getComboFieldData(String fieldName) {
+        return null;
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+
     }
 
     /**

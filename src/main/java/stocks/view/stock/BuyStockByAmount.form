@@ -23,17 +23,18 @@
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="byAmountSave" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="BSASave" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="byAmountTickerSymbolTxt" alignment="0" max="32767" attributes="0"/>
-                      <Component id="byAmountCommissionRateTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BSAPortfolioId" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BSATickerSymbolTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BSACommissionRateTxt" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="byAmountAmountTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BSAAmountTxt" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="byAmountDateTxt" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                  <Component id="BSADateTxt" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                  <Component id="BSAErrorLbl" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="256" max="32767" attributes="0"/>
+              <EmptySpace pref="114" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,26 +44,28 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+              <Component id="BSAPortfolioId" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="byAmountTickerSymbolTxt" min="-2" max="-2" attributes="0"/>
+              <Component id="BSATickerSymbolTxt" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="byAmountCommissionRateTxt" min="-2" max="-2" attributes="0"/>
+              <Component id="BSACommissionRateTxt" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="byAmountAmountTxt" min="-2" max="-2" attributes="0"/>
+              <Component id="BSAAmountTxt" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="byAmountDateTxt" min="-2" max="-2" attributes="0"/>
+              <Component id="BSADateTxt" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="byAmountSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Component id="BSASave" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BSAErrorLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,7 +76,7 @@
         <Property name="text" type="java.lang.String" value="SELECT PORTFOLIO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="BSAPortfolioId">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -108,18 +111,20 @@
         <Property name="text" type="java.lang.String" value="ENTER DATE (MM/DD/YYYY)"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="byAmountTickerSymbolTxt">
+    <Component class="javax.swing.JTextField" name="BSATickerSymbolTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="byAmountCommissionRateTxt">
+    <Component class="javax.swing.JTextField" name="BSACommissionRateTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="byAmountAmountTxt">
+    <Component class="javax.swing.JTextField" name="BSAAmountTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="byAmountDateTxt">
+    <Component class="javax.swing.JTextField" name="BSADateTxt">
     </Component>
-    <Component class="javax.swing.JButton" name="byAmountSave">
+    <Component class="javax.swing.JButton" name="BSASave">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="BSAErrorLbl">
     </Component>
   </SubComponents>
 </Form>

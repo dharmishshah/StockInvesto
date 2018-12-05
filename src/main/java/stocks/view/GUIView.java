@@ -22,6 +22,8 @@ public interface GUIView {
     
     String getTextFieldData(String fieldName);
     
+    String getComboFieldData(String fieldName);
+    
     void clearTextFieldData(String fieldName);
     
     void setErrorMessage(String fieldName, String message);

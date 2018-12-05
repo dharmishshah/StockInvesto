@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import stocks.listener.ButtonListener;
@@ -18,29 +19,68 @@ public class GUIController
 {
 	 //Variable represents the portfolio operations.
         private final PortfolioOperations<Portfolio> portfolioOperations;
+        private DateTimeFormatter formatter;
 	private GUIView createportfolioView;
         private GUIView displayPortfolioView;
+        private GUIView buyStockByAmountView;
+        private GUIView buyStockByVolumeView;
+        private GUIView displayStockView;
 	
 	public GUIController()
 	{   
             Map<String, Map<String, Map<String, Double>>> stockData = new HashMap<String, Map<String,
             Map<String, Double>>>();
             this.portfolioOperations = new PortfolioModel(stockData);
+            this.formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	}
 
-	public void setCreateView(GUIView create)
+	public void setPortfolioCreateView(GUIView create)
 	{
-		createportfolioView = create;
+		this.createportfolioView = create;
 		//create and set the keyboard listener
 		configurePortfolioCreateButtonListener();
 	}
         
-        public void setDisplayView(GUIView create)
+        public void setPortfolioDisplayView(GUIView displayPortfolioView)
 	{
-		displayPortfolioView = create;
+		this.displayPortfolioView = displayPortfolioView;
 		//create and set the keyboard listener
 		configurePortfolioDisplayButtonListener();
 	}
+        
+        
+        public void setBuyStockByAmountView(GUIView buyStockByAmountView)
+	{
+		this.buyStockByAmountView = buyStockByAmountView;
+		//create and set the keyboard listener
+		configureBuyStockByAmountViewButtonListener();
+	}
+        
+        
+        public void setBuyStockByVolumeView(GUIView buyStockByVolumeView)
+	{
+		this.buyStockByVolumeView = buyStockByVolumeView;
+		//create and set the keyboard listener
+		configureBuyStockByVolumeButtonListener();
+	}
+        
+        
+        public void setStockDisplayView(GUIView displayStockView)
+	{
+		this.displayStockView = displayStockView;
+		//create and set the keyboard listener
+		configureStockDisplayButtonListener();
+                
+	}
+        
+        
+        public String getExistingPortfolios(){
+           String portfolios = portfolioOperations.toString();
+            if (portfolioOperations.toString().isEmpty()) {
+                return "";
+            } 
+            return portfolios;
+        }
 
     
 
@@ -49,7 +89,7 @@ public class GUIController
                         new HashMap<String,Runnable>();
 		ButtonListener buttonListener = new ButtonListener();
 
-		buttonClickedMap.put("Save",()->{
+		buttonClickedMap.put("createPortfolio",()->{
 			String text = 
                                 createportfolioView.getTextFieldData("portfolioNameTxt");
                         portfolioOperations.addPortfolio(text);
@@ -67,7 +107,7 @@ public class GUIController
                         new HashMap<String,Runnable>();
 		ButtonListener buttonListener = new ButtonListener();
                
-                 buttonClickedMap.put("View",()->{
+                 buttonClickedMap.put("viewPortfolio",()->{
 			 Map<String, Map<String, Double>> resultMap = 
                                  portfolioOperations.displayPortfolios(
                                          LocalDate.now());
@@ -76,6 +116,67 @@ public class GUIController
                  buttonListener.setButtonClickedActionMap(buttonClickedMap);
                  this.displayPortfolioView.addActionListener(buttonListener);
 	}
-
+        
+        
+        private void configureBuyStockByAmountViewButtonListener() {
+		Map<String,Runnable> buttonClickedMap = 
+                        new HashMap<String,Runnable>();
+		ButtonListener buttonListener = new ButtonListener();
+               
+                buttonClickedMap.put("BSASave",()->{
+                String portfolioId = buyStockByAmountView.getComboFieldData("BSAPortfolioId");
+                String tickerSymbol = buyStockByAmountView.getTextFieldData("BSATickerSymbolTxt");
+                String amount = buyStockByAmountView.getTextFieldData("BSAAmountTxt");
+                String date = buyStockByAmountView.getTextFieldData("BSADateTxt");
+                String commissionRate = buyStockByAmountView.getTextFieldData("BSACommissionRateTxt");
+               try {
+            int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
+            double amountInvested = Double.parseDouble(amount);
+            LocalDate d = LocalDate.parse(date,formatter);
+            double commRate = Double.parseDouble(commissionRate);
+            portfolioOperations.addStockByAmount(portId, tickerSymbol, amountInvested, d, commRate);
+                     } catch (IllegalArgumentException iae) {
+                        this.buyStockByAmountView.setErrorMessage("BSAErrorLbl", iae.getMessage());
+                     }
+                        buyStockByAmountView.getTextFieldData("BSATickerSymbolTxt");
+                buyStockByAmountView.getTextFieldData("BSAAmountTxt");
+                buyStockByAmountView.getTextFieldData("BSADateTxt");
+                buyStockByAmountView.getTextFieldData("BSACommissionRateTxt");
+		});
+                 buttonListener.setButtonClickedActionMap(buttonClickedMap);
+                 this.buyStockByAmountView.addActionListener(buttonListener);
+	}
+        
+        private void configureBuyStockByVolumeButtonListener() {
+		Map<String,Runnable> buttonClickedMap = 
+                        new HashMap<String,Runnable>();
+		ButtonListener buttonListener = new ButtonListener();
+               
+                 buttonClickedMap.put("BSVSave",()->{
+			 Map<String, Map<String, Double>> resultMap = 
+                                 portfolioOperations.displayPortfolios(
+                                         LocalDate.now());
+                         this.displayPortfolioView.setSummaryData(resultMap);
+		});
+                 buttonListener.setButtonClickedActionMap(buttonClickedMap);
+                 this.buyStockByVolumeView.addActionListener(buttonListener);
+	}
+        
+        private void configureStockDisplayButtonListener() {
+		Map<String,Runnable> buttonClickedMap = 
+                        new HashMap<String,Runnable>();
+		ButtonListener buttonListener = new ButtonListener();
+               
+                 buttonClickedMap.put("VPSViewStock",()->{
+                     String portfolioId = displayStockView.getComboFieldData("VPSPortfolioId");
+                      int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
+			 Map<String, Map<String, Double>> resultMap = 
+                                 portfolioOperations.displayStocks(portId, LocalDate.now());
+                         this.displayStockView.setSummaryData(resultMap);
+		});
+                 buttonListener.setButtonClickedActionMap(buttonClickedMap);
+                 this.displayStockView.addActionListener(buttonListener);
+	}
+        
 
 }

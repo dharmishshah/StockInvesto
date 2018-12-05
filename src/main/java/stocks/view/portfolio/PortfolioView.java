@@ -8,7 +8,11 @@ package stocks.view.portfolio;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Map;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
 
@@ -26,12 +30,9 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
      */
     public PortfolioView(GUIController controller) {
         initComponents();
-        controller.setDisplayView(this);
+        controller.setPortfolioDisplayView(this);
+        summaryViewBtn.setActionCommand("viewPortfolio");
         
-    }
-
-    public PortfolioView(LayoutManager layoutManager, boolean b) {
-        super(layoutManager, b);
     }
 
     /**
@@ -43,18 +44,31 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         summaryViewBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
         jLabel1.setText("Summary");
 
-        jScrollPane1.setViewportView(jTextPane1);
-
-        summaryViewBtn.setText("View Portfolios");
+        summaryViewBtn.setText("View");
         summaryViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 summaryViewBtnActionPerformed(evt);
@@ -63,6 +77,19 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
 
         jLabel2.setText("ENTER DATE(MM/DD/YYYY)");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,14 +97,15 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
-                            .addComponent(summaryViewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 249, Short.MAX_VALUE)))
+                            .addComponent(jTextField1))
+                        .addGap(18, 18, 18)
+                        .addComponent(summaryViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -86,14 +114,14 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(summaryViewBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(summaryViewBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,11 +131,51 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
        
     
      public void  setSummaryData(Map<String, Map<String, Double>> data){
-         int a = 10;
+         String[] columns = new String[] {
+            "Portfolio Id", "Portfolio Name", "Stock Cost Basis", "Stock Value",
+             "Volume", "Commission"
+        };
+         
+         //actual data for the table in a 2d array
+         Object[][] dataTable = new Object[data!=null?data.size():0][6];
+         if(data != null){
+             int i = 0;
+             int j = 0;
+             for(Map.Entry<String, Map<String,Double>> entry:data.entrySet()){
+             String tickerSymbol = entry.getKey();
+             
+             
+             Map<String,Double> values = entry.getValue();
+             Double costBasis = values.get("costBasis");
+             Double valueBasis = values.get("totalValue");
+             Double volume = values.get("volume");
+             Double commissionRate = values.get("commission");
+             
+             dataTable[i][0] = i + 1;
+             dataTable[i][1] = tickerSymbol;
+             dataTable[i][2] = costBasis;
+             dataTable[i][3] = valueBasis;
+             dataTable[i][4] = volume;
+             dataTable[i][5] = commissionRate;
+             i++;
+             
+            }
+         }
+        //create table with data
+        JTable table = new JTable(dataTable, columns);
+        table.setVisible(true);
+        TableModel tm =  new DefaultTableModel(dataTable, columns);
+        jScrollPane1.setViewportView(new JTable(tm));
+
      }
 
     @Override
     public String getTextFieldData(String fieldName) {
+        return null;
+    }
+
+    @Override
+    public String getComboFieldData(String fieldName) {
         return null;
     }
 
@@ -137,8 +205,10 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton summaryViewBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,8 @@ package stocks.view.portfolio;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
@@ -34,6 +36,12 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
             throw new IllegalArgumentException("No such field found.\n");
         }
     }
+    
+    
+    @Override
+    public String getComboFieldData(String fieldName) {
+         return null;
+    }
 
     @Override
     public void clearTextFieldData(String fieldName) {
@@ -59,7 +67,8 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
      */
     public PortfolioCreate(GUIController controller) {
         initComponents();
-        controller.setCreateView(this);
+        controller.setPortfolioCreateView(this);
+        savePortfolioBtn.setActionCommand("createPortfolio");
     }
 
     /**
@@ -121,6 +130,8 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
 
     @Override
     public void setSummaryData(Map<String, Map<String, Double>> data) {
+        
+         
 
     }
 

@@ -135,7 +135,7 @@ public class ApplicationMain extends javax.swing.JFrame {
     }//GEN-LAST:event_portfolioBtnActionPerformed
 
     private void stockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockBtnActionPerformed
-        StockMain pf = new StockMain();
+        StockMain pf = new StockMain(controller);
         jSplitPane1.setRightComponent(pf); 
     }//GEN-LAST:event_stockBtnActionPerformed
 

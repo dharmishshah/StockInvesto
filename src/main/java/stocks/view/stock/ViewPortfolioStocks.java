@@ -5,17 +5,127 @@
  */
 package stocks.view.stock;
 
+import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
+import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import stocks.controller.GUIController;
+import stocks.view.GUIView;
+
 /**
  *
  * @author Animesh Mane
  */
-public class ViewPortfolioStocks extends javax.swing.JPanel {
+public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
+    
+    GUIController controller;
+
+   
 
     /**
      * Creates new form ViewPortfolioStocks
      */
-    public ViewPortfolioStocks() {
+    public ViewPortfolioStocks(GUIController controller) {
         initComponents();
+        this.controller = controller;
+        controller.setStockDisplayView(this);
+        
+        VPSViewStockBtn.setActionCommand("VPSViewStock");
+        
+        VPSPortfolioId.removeAllItems();
+        VPSPortfolioId.addItem("Select");
+        String portfolios = controller.getExistingPortfolios();
+        if(!portfolios.isEmpty()){
+            String[] portfolioList = portfolios.substring(1).split("\n");
+            for(String port:portfolioList){
+                VPSPortfolioId.addItem(port);
+            }
+        }
+    }
+
+    @Override
+    public void addActionListener(ActionListener listener) {
+        VPSViewStockBtn.addActionListener(listener);
+    }
+
+    @Override
+    public void setSummaryData(Map<String, Map<String, Double>> data) {
+        String[] columns = new String[] {
+           "Ticker Symbol", "Stock Cost Basis", "Stock Value",
+             "Volume", "Commission"
+        };
+         
+         //actual data for the table in a 2d array
+         Object[][] dataTable = new Object[data!=null?data.size():0][5];
+         if(data != null){
+             int i = 0;
+             int j = 0;
+             for(Map.Entry<String, Map<String,Double>> entry:data.entrySet()){
+             String tickerSymbol = entry.getKey();
+             
+             Map<String,Double> values = entry.getValue();
+             Double costBasis = values.get("costBasis");
+             Double valueBasis = values.get("totalValue");
+             Double volume = values.get("volume");
+             Double commissionRate = values.get("commission");
+             
+             dataTable[i][0] = tickerSymbol;
+             dataTable[i][1] = costBasis;
+             dataTable[i][2] = valueBasis;
+             dataTable[i][3] = volume;
+             dataTable[i][4] = commissionRate;
+             i++;
+             
+            }
+         }
+        //create table with data
+        JTable table = new JTable(dataTable, columns);
+        table.setVisible(true);
+        TableModel tm =  new DefaultTableModel(dataTable, columns);
+        jScrollPane2.setViewportView(new JTable(tm));
+    }
+    
+     @Override
+    public String getComboFieldData(String fieldName) {
+       try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
+            return (String)portfolioName.getSelectedItem();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+
     }
 
     /**
@@ -30,19 +140,34 @@ public class ViewPortfolioStocks extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        VPSViewStockBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        VPSPortfolioId = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Summary");
 
         jLabel2.setText("ENTER DATE (MM/DD/YYYY)");
 
-        jButton1.setText("View Stocks");
+        VPSViewStockBtn.setText("View Stocks");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jLabel3.setText("SELECT PORTFOLIO");
+
+        VPSPortfolioId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -51,40 +176,52 @@ public class ViewPortfolioStocks extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VPSViewStockBtn)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(VPSPortfolioId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(VPSPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(10, 10, 10)
+                .addComponent(VPSViewStockBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> VPSPortfolioId;
+    private javax.swing.JButton VPSViewStockBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
