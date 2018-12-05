@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -120,12 +121,30 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
 
     @Override
     public void clearTextFieldData(String fieldName) {
-
+        try{
+               Object o = this; // The object you want to inspect
+               Class<?> c = o.getClass();
+               Field f = c.getDeclaredField(fieldName);
+               f.setAccessible(true);
+               JTextField portfolioName = (JTextField) f.get(o);
+               portfolioName.setText("");
+           }catch(NoSuchFieldException | IllegalAccessException i){
+               throw new IllegalArgumentException("No such field found.\n");
+           }
     }
 
     @Override
     public void setErrorMessage(String fieldName, String message) {
-
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JLabel portfolioName = (JLabel) f.get(o);
+            portfolioName.setText(message);
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     /**
@@ -139,12 +158,13 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        VPSDateTxt = new javax.swing.JTextField();
         VPSViewStockBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         VPSPortfolioId = new javax.swing.JComboBox<>();
+        VPSErrorLbl = new javax.swing.JLabel();
 
         jLabel1.setText("Summary");
 
@@ -188,9 +208,12 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(VPSDateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(VPSPortfolioId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(43, 43, 43))))
+                        .addGap(43, 43, 43))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(VPSErrorLbl)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +224,7 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
                     .addComponent(VPSPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VPSDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(10, 10, 10)
                 .addComponent(VPSViewStockBtn)
@@ -209,12 +232,16 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(VPSErrorLbl)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField VPSDateTxt;
+    private javax.swing.JLabel VPSErrorLbl;
     private javax.swing.JComboBox<String> VPSPortfolioId;
     private javax.swing.JButton VPSViewStockBtn;
     private javax.swing.JLabel jLabel1;
@@ -222,6 +249,5 @@ public class ViewPortfolioStocks extends javax.swing.JPanel implements GUIView{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

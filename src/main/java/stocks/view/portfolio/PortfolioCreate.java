@@ -8,6 +8,7 @@ package stocks.view.portfolio;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -59,7 +60,16 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
 
     @Override
     public void setErrorMessage(String fieldName, String message) {
-
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JLabel portfolioName = (JLabel) f.get(o);
+            portfolioName.setText(message);
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     /**
@@ -83,6 +93,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
         jLabel1 = new javax.swing.JLabel();
         portfolioNameTxt = new javax.swing.JTextField();
         savePortfolioBtn = new javax.swing.JButton();
+        PCErrorLbl = new javax.swing.JLabel();
 
         jLabel1.setText("Enter portfolio name");
 
@@ -105,10 +116,11 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addComponent(portfolioNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(savePortfolioBtn))
+                    .addComponent(portfolioNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(savePortfolioBtn)
+                    .addComponent(PCErrorLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +132,9 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
                 .addComponent(portfolioNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(savePortfolioBtn)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PCErrorLbl)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,6 +160,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel PCErrorLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField portfolioNameTxt;
     private javax.swing.JButton savePortfolioBtn;
