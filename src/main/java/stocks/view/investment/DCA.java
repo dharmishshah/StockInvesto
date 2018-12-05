@@ -11,12 +11,13 @@ import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
+import stocks.view.GUIView;
 
 /**
  *
  * @author Animesh Mane
  */
-public class DCA extends javax.swing.JPanel {
+public class DCA extends javax.swing.JPanel implements GUIView{
     
     GUIController controller;
 
