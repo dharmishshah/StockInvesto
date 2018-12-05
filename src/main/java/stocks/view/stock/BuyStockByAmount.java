@@ -40,8 +40,7 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView{
                 BSAPortfolioId.addItem(port);
             }
         }
-       
-        
+
         
     }
 
@@ -85,7 +84,16 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView{
 
     @Override
     public void clearTextFieldData(String fieldName) {
-
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            portfolioName.setText("");
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
@@ -139,16 +147,16 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView{
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
                     .addComponent(BSASave)
+                    .addComponent(jLabel3)
+                    .addComponent(BSAErrorLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(BSAPortfolioId, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BSATickerSymbolTxt, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(BSACommissionRateTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BSAAmountTxt, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(BSADateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BSAErrorLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BSAAmountTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BSADateTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

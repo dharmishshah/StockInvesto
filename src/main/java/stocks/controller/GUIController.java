@@ -138,10 +138,10 @@ public class GUIController
                      } catch (IllegalArgumentException iae) {
                         this.buyStockByAmountView.setErrorMessage("BSAErrorLbl", iae.getMessage());
                      }
-                        buyStockByAmountView.getTextFieldData("BSATickerSymbolTxt");
-                buyStockByAmountView.getTextFieldData("BSAAmountTxt");
-                buyStockByAmountView.getTextFieldData("BSADateTxt");
-                buyStockByAmountView.getTextFieldData("BSACommissionRateTxt");
+                buyStockByAmountView.clearTextFieldData("BSATickerSymbolTxt");
+                buyStockByAmountView.clearTextFieldData("BSAAmountTxt");
+                buyStockByAmountView.clearTextFieldData("BSADateTxt");
+                buyStockByAmountView.clearTextFieldData("BSACommissionRateTxt");
 		});
                  buttonListener.setButtonClickedActionMap(buttonClickedMap);
                  this.buyStockByAmountView.addActionListener(buttonListener);
@@ -152,11 +152,25 @@ public class GUIController
                         new HashMap<String,Runnable>();
 		ButtonListener buttonListener = new ButtonListener();
                
-                 buttonClickedMap.put("BSVSave",()->{
-			 Map<String, Map<String, Double>> resultMap = 
-                                 portfolioOperations.displayPortfolios(
-                                         LocalDate.now());
-                         this.displayPortfolioView.setSummaryData(resultMap);
+                buttonClickedMap.put("BSVSave",()->{
+                String portfolioId = buyStockByVolumeView.getComboFieldData("BSVPortfolioId");
+                String tickerSymbol = buyStockByVolumeView.getTextFieldData("BSVTickerSymbolTxt");
+                String volume = buyStockByVolumeView.getTextFieldData("BSVVolumeTxt");
+                String date = buyStockByVolumeView.getTextFieldData("BSVDateTxt");
+                String commissionRate = buyStockByVolumeView.getTextFieldData("BSVCommissionRateTxt");
+               try {
+            int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
+            double volumeInvested = Double.parseDouble(volume);
+            LocalDate d = LocalDate.parse(date,formatter);
+            double commRate = Double.parseDouble(commissionRate);
+            portfolioOperations.addStock(portId, tickerSymbol, volumeInvested, d, commRate);
+                     } catch (IllegalArgumentException iae) {
+                        this.buyStockByVolumeView.setErrorMessage("BSVErrorLbl", iae.getMessage());
+                     }
+                buyStockByVolumeView.clearTextFieldData("BSVTickerSymbolTxt");
+                buyStockByVolumeView.clearTextFieldData("BSVVolumeTxt");
+                buyStockByVolumeView.clearTextFieldData("BSVDateTxt");
+                buyStockByVolumeView.clearTextFieldData("BSVCommissionRateTxt");
 		});
                  buttonListener.setButtonClickedActionMap(buttonClickedMap);
                  this.buyStockByVolumeView.addActionListener(buttonListener);
