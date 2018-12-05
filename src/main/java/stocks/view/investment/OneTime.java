@@ -24,6 +24,19 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         initComponents();
         this.controller = controller;
         this.controller.setOneTimeInvestmentView(this);
+        oneInvestmentOption.removeAllItems();
+        oneInvestmentOption.addItem("EQUAL");
+        oneInvestmentOption.addItem("CUSTOM");
+        
+        oneTimePortfolioId.removeAllItems();
+        oneTimePortfolioId.addItem("Select");
+        String portfolios = controller.getExistingPortfolios();
+        if(!portfolios.isEmpty()){
+            String[] portfolioList = portfolios.substring(1).split("\n");
+            for(String port:portfolioList){
+                oneTimePortfolioId.addItem(port);
+            }
+        }
     }
 
     /**
@@ -40,7 +53,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         investmentDate1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        oneTimePortfolioId = new javax.swing.JComboBox();
         oneInvestmentOption = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         oneComissionRate = new javax.swing.JTextField();
@@ -62,7 +75,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
         jLabel3.setText("SELECT THE PORTFOLIO ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        oneTimePortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         oneInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -96,7 +109,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oneTimePortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -113,7 +126,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(oneTimePortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -153,7 +166,6 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField investmentDate1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -163,6 +175,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
     private javax.swing.JTextField oneAmountInvested1;
     private javax.swing.JTextField oneComissionRate;
     private javax.swing.JComboBox oneInvestmentOption;
+    private javax.swing.JComboBox oneTimePortfolioId;
     private javax.swing.JButton saveOneTime;
     // End of variables declaration//GEN-END:variables
 

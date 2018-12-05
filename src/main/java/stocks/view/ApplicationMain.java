@@ -140,7 +140,7 @@ public class ApplicationMain extends javax.swing.JFrame {
     }//GEN-LAST:event_stockBtnActionPerformed
 
     private void investmentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentBtnActionPerformed
-         InvestmentMain pf = new InvestmentMain();
+         InvestmentMain pf = new InvestmentMain(controller);
         jSplitPane1.setRightComponent(pf);
     }//GEN-LAST:event_investmentBtnActionPerformed
 

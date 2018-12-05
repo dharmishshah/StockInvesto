@@ -18,8 +18,9 @@ public class InvestmentMain extends javax.swing.JPanel {
     /**
      * Creates new form InvestmentMain
      */
-    public InvestmentMain() {
+    public InvestmentMain(GUIController controller) {
         initComponents();
+        this.controller = controller;
     }
 
     /**
@@ -33,18 +34,23 @@ public class InvestmentMain extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        dcaBtn = new javax.swing.JButton();
         oneTimeBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("DCA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        dcaBtn.setText("DCA");
+        dcaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                dcaBtnActionPerformed(evt);
             }
         });
 
         oneTimeBtn.setText("One-Time");
+        oneTimeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneTimeBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -54,14 +60,14 @@ public class InvestmentMain extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(oneTimeBtn)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dcaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(jButton1)
+                .addComponent(dcaBtn)
                 .addGap(29, 29, 29)
                 .addComponent(oneTimeBtn)
                 .addContainerGap(148, Short.MAX_VALUE))
@@ -94,13 +100,19 @@ public class InvestmentMain extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void dcaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dcaBtnActionPerformed
+       DCA dca = new DCA(controller);
+       jSplitPane1.setRightComponent(dca);
+    }//GEN-LAST:event_dcaBtnActionPerformed
+
+    private void oneTimeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneTimeBtnActionPerformed
+        OneTime oneTime = new OneTime(controller);
+       jSplitPane1.setRightComponent(oneTime);
+    }//GEN-LAST:event_oneTimeBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton dcaBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

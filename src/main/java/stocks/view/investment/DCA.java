@@ -5,17 +5,35 @@
  */
 package stocks.view.investment;
 
+import stocks.controller.GUIController;
+
 /**
  *
  * @author Animesh Mane
  */
 public class DCA extends javax.swing.JPanel {
+    
+    GUIController controller;
 
     /**
      * Creates new form DCA
      */
-    public DCA() {
+    public DCA( GUIController controller) {
         initComponents();
+        this.controller = controller;
+        dcaInvestmentOption.removeAllItems();
+        dcaInvestmentOption.addItem("EQUAL");
+        dcaInvestmentOption.addItem("CUSTOM");
+        
+        dcaPortfolioId.removeAllItems();
+        dcaPortfolioId.addItem("Select");
+        String portfolios = controller.getExistingPortfolios();
+        if(!portfolios.isEmpty()){
+            String[] portfolioList = portfolios.substring(1).split("\n");
+            for(String port:portfolioList){
+                dcaPortfolioId.addItem(port);
+            }
+        }
     }
 
     /**
@@ -36,7 +54,7 @@ public class DCA extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         endDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        dcaPortfolioId = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         dcaCommissionRate = new javax.swing.JTextField();
         dcaInvestmentOption = new javax.swing.JComboBox();
@@ -72,7 +90,7 @@ public class DCA extends javax.swing.JPanel {
 
         jLabel6.setText("SELECT PORTFOLIO");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        dcaPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("ENTER THE COMMISSION RATE");
 
@@ -93,7 +111,7 @@ public class DCA extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -118,7 +136,7 @@ public class DCA extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dcaPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -166,9 +184,9 @@ public class DCA extends javax.swing.JPanel {
     private javax.swing.JTextField dcaAmountInvested;
     private javax.swing.JTextField dcaCommissionRate;
     private javax.swing.JComboBox dcaInvestmentOption;
+    private javax.swing.JComboBox dcaPortfolioId;
     private javax.swing.JButton dcaSave;
     private javax.swing.JTextField endDate;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
