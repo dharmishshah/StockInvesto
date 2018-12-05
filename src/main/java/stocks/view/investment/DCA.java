@@ -5,6 +5,11 @@
  */
 package stocks.view.investment;
 
+import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
+import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import stocks.controller.GUIController;
 
 /**
@@ -24,7 +29,7 @@ public class DCA extends javax.swing.JPanel {
         dcaInvestmentOption.removeAllItems();
         dcaInvestmentOption.addItem("EQUAL");
         dcaInvestmentOption.addItem("CUSTOM");
-        
+        dcaSave.setActionCommand("createDCA");
         dcaPortfolioId.removeAllItems();
         dcaPortfolioId.addItem("Select");
         String portfolios = controller.getExistingPortfolios();
@@ -45,60 +50,37 @@ public class DCA extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        startDate = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        dcaAmountInvested = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        endDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         dcaPortfolioId = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        dcaCommissionRate = new javax.swing.JTextField();
         dcaInvestmentOption = new javax.swing.JComboBox();
         dcaSave = new javax.swing.JButton();
+        dcaStartDate = new javax.swing.JTextField();
+        dcaEndDate = new javax.swing.JTextField();
+        dcaAmountInvested = new javax.swing.JTextField();
+        dcaCommissionRate = new javax.swing.JTextField();
 
         jLabel1.setText("DCA STRATEGY");
-
-        startDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startDateActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("ENTER THE START DATE (MM/DD/YYYY)");
 
         jLabel3.setText("ENTER THE END DATE (MM/DD/YYYY)");
 
-        dcaAmountInvested.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dcaAmountInvestedActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("SELECT INVESTMENT OPTION");
 
         jLabel5.setText("ENTER THE AMOUNT TO BE INVESTED");
-
-        endDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                endDateActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("SELECT PORTFOLIO");
 
         dcaPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("ENTER THE COMMISSION RATE");
-
-        dcaCommissionRate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dcaCommissionRateActionPerformed(evt);
-            }
-        });
 
         dcaInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -112,20 +94,20 @@ public class DCA extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dcaPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(dcaAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
                     .addComponent(jLabel3)
                     .addComponent(jLabel7)
-                    .addComponent(dcaCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(dcaSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dcaInvestmentOption, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dcaStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -140,14 +122,14 @@ public class DCA extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dcaStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
+                .addComponent(dcaEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dcaAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
@@ -162,31 +144,16 @@ public class DCA extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void startDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_startDateActionPerformed
-
-    private void dcaAmountInvestedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dcaAmountInvestedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dcaAmountInvestedActionPerformed
-
-    private void endDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_endDateActionPerformed
-
-    private void dcaCommissionRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dcaCommissionRateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dcaCommissionRateActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField dcaAmountInvested;
     private javax.swing.JTextField dcaCommissionRate;
+    private javax.swing.JTextField dcaEndDate;
     private javax.swing.JComboBox dcaInvestmentOption;
     private javax.swing.JComboBox dcaPortfolioId;
     private javax.swing.JButton dcaSave;
-    private javax.swing.JTextField endDate;
+    private javax.swing.JTextField dcaStartDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -194,6 +161,62 @@ public class DCA extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField startDate;
     // End of variables declaration//GEN-END:variables
+
+@Override
+public void addActionListener(ActionListener listener) {
+    dcaSave.addActionListener(listener);
+}
+
+ @Override
+    public void setSummaryData(Map<String, Map<String, Double>> data) {
+    }
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public String getComboFieldData(String fieldName) {
+         try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
+            return (String)portfolioName.getSelectedItem();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            portfolioName.setText("");
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+    }
+
+
 }

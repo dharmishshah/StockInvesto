@@ -6,7 +6,10 @@
 package stocks.view.investment;
 
 import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
 import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
 
@@ -24,10 +27,11 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         initComponents();
         this.controller = controller;
         this.controller.setOneTimeInvestmentView(this);
+        saveOneTime.setActionCommand("createOneTime");
+        oneInvestmentOption.setActionCommand("oneTime");
         oneInvestmentOption.removeAllItems();
         oneInvestmentOption.addItem("EQUAL");
         oneInvestmentOption.addItem("CUSTOM");
-        
         oneTimePortfolioId.removeAllItems();
         oneTimePortfolioId.addItem("Select");
         String portfolios = controller.getExistingPortfolios();
@@ -38,7 +42,8 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
             }
         }
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,26 +55,20 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        investmentDate1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         oneTimePortfolioId = new javax.swing.JComboBox();
         oneInvestmentOption = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        oneComissionRate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        oneAmountInvested1 = new javax.swing.JTextField();
         saveOneTime = new javax.swing.JButton();
+        oneInvestmentDate = new javax.swing.JTextField();
+        oneAmountInvested = new javax.swing.JTextField();
+        oneCommissionRate = new javax.swing.JTextField();
 
         jLabel1.setText("ONE TIME STRATEGY");
 
         jLabel2.setText("ENTER THE INVESTMENT DATE (MM/DD/YYYY)");
-
-        investmentDate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                investmentDate1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("SELECT THE INVESTMENT OPTION");
 
@@ -81,19 +80,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
         jLabel5.setText("ENTER THE AMOUNT INVESTED");
 
-        oneComissionRate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneComissionRateActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("ENTER THE COMMISSION RATE");
-
-        oneAmountInvested1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneAmountInvested1ActionPerformed(evt);
-            }
-        });
 
         saveOneTime.setText("SAVE");
 
@@ -104,18 +91,18 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(oneInvestmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveOneTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(oneTimePortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(oneComissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(oneAmountInvested1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(oneAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oneCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(290, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -128,20 +115,18 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(oneTimePortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(oneAmountInvested1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(oneInvestmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(13, 13, 13)
+                .addComponent(oneAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(oneComissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(oneCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,29 +136,17 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void investmentDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentDate1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_investmentDate1ActionPerformed
-
-    private void oneComissionRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneComissionRateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneComissionRateActionPerformed
-
-    private void oneAmountInvested1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneAmountInvested1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneAmountInvested1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField investmentDate1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField oneAmountInvested1;
-    private javax.swing.JTextField oneComissionRate;
+    private javax.swing.JTextField oneAmountInvested;
+    private javax.swing.JTextField oneCommissionRate;
+    private javax.swing.JTextField oneInvestmentDate;
     private javax.swing.JComboBox oneInvestmentOption;
     private javax.swing.JComboBox oneTimePortfolioId;
     private javax.swing.JButton saveOneTime;
@@ -186,27 +159,52 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
     @Override
     public void setSummaryData(Map<String, Map<String, Double>> data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String getTextFieldData(String fieldName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
     public String getComboFieldData(String fieldName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
+            return (String)portfolioName.getSelectedItem();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
     public void clearTextFieldData(String fieldName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            portfolioName.setText("");
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
     public void setErrorMessage(String fieldName, String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

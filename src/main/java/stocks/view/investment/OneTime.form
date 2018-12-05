@@ -16,21 +16,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="oneInvestmentDate" min="-2" pref="166" max="-2" attributes="0"/>
                   <Component id="saveOneTime" min="-2" pref="154" max="-2" attributes="0"/>
                   <Component id="oneInvestmentOption" min="-2" pref="154" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="oneTimePortfolioId" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                  <Component id="investmentDate1" min="-2" pref="145" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="oneComissionRate" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="oneAmountInvested1" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
+                  <Component id="oneAmountInvested" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                  <Component id="oneCommissionRate" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="290" max="32767" attributes="0"/>
           </Group>
@@ -46,22 +46,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="oneTimePortfolioId" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="investmentDate1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="oneAmountInvested1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="oneComissionRate" min="-2" max="-2" attributes="0"/>
+              <Component id="oneInvestmentDate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="oneAmountInvested" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="oneCommissionRate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="oneInvestmentOption" min="-2" max="-2" attributes="0"/>
@@ -82,11 +78,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ENTER THE INVESTMENT DATE (MM/DD/YYYY)"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="investmentDate1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="investmentDate1ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -127,25 +118,21 @@
         <Property name="text" type="java.lang.String" value="ENTER THE AMOUNT INVESTED"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="oneComissionRate">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneComissionRateActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="ENTER THE COMMISSION RATE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="oneAmountInvested1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneAmountInvested1ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="saveOneTime">
       <Properties>
         <Property name="text" type="java.lang.String" value="SAVE"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="oneInvestmentDate">
+    </Component>
+    <Component class="javax.swing.JTextField" name="oneAmountInvested">
+    </Component>
+    <Component class="javax.swing.JTextField" name="oneCommissionRate">
     </Component>
   </SubComponents>
 </Form>
