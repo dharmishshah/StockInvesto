@@ -6,7 +6,10 @@
 package stocks.view.stock;
 
 import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
 import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -25,38 +28,78 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
     public BuyStockByVolume(GUIController controller) {
         initComponents();
         this.controller = controller;
-        controller.setBuyStockByAmountView(this);
+        controller.setBuyStockByVolumeView(this);
+        BSVSave.setActionCommand("BSVSave");
+        
+        BSVPortfolioId.removeAllItems();
+        BSVPortfolioId.addItem("Select");
+        String portfolios = controller.getExistingPortfolios();
+        if(!portfolios.isEmpty()){
+            String[] portfolioList = portfolios.substring(1).split("\n");
+            for(String port:portfolioList){
+                BSVPortfolioId.addItem(port);
+            }
+        }
     }
 
     @Override
     public void addActionListener(ActionListener listener) {
-
+         BSVSave.addActionListener(listener);
     }
 
     @Override
     public void setSummaryData(Map<String, Map<String, Double>> data) {
-
+        
     }
-
+    
     @Override
     public String getTextFieldData(String fieldName) {
-        return null;
+         try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JTextField portfolioName = (JTextField) f.get(o);
+            return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
     public String getComboFieldData(String fieldName) {
-        return null;
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
+            return (String)portfolioName.getSelectedItem();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     @Override
     public void clearTextFieldData(String fieldName) {
-
+        try{
+               Object o = this; // The object you want to inspect
+               Class<?> c = o.getClass();
+               Field f = c.getDeclaredField(fieldName);
+               f.setAccessible(true);
+               JTextField portfolioName = (JTextField) f.get(o);
+               portfolioName.setText("");
+           }catch(NoSuchFieldException | IllegalAccessException i){
+               throw new IllegalArgumentException("No such field found.\n");
+           }
     }
 
     @Override
     public void setErrorMessage(String fieldName, String message) {
 
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,22 +111,24 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
     private void initComponents() {
 
         jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        BSVPortfolioId = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        BSVTickerSymbolTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        BSVDateTxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BSVVolumeTxt = new javax.swing.JTextField();
+        BSVSave = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        BSVCommissionRateTxt = new javax.swing.JTextField();
 
         jTextField4.setText("jTextField4");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        BSVPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BSVPortfolioId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                BSVPortfolioIdActionPerformed(evt);
             }
         });
 
@@ -91,11 +136,13 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
 
         jLabel2.setText("SELECT PORTFOLIO");
 
-        jLabel3.setText("E NTER DATE (MM/DD/YYYY) ");
+        jLabel3.setText("ENTER DATE (MM/DD/YYYY) ");
 
         jLabel4.setText("ENTER THE VOLUME");
 
-        jButton1.setText("Save");
+        BSVSave.setText("Save");
+
+        jLabel5.setText("ENTER COMMISSION RATE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,17 +151,23 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jButton1))
-                .addContainerGap(214, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BSVCommissionRateTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BSVPortfolioId, javax.swing.GroupLayout.Alignment.LEADING, 0, 167, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BSVTickerSymbolTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(BSVSave, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BSVDateTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(79, 214, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,40 +175,46 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(9, 9, 9)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BSVPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(BSVTickerSymbolTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BSVCommissionRateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BSVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BSVSave)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void BSVPortfolioIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSVPortfolioIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_BSVPortfolioIdActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JTextField BSVCommissionRateTxt;
+    private javax.swing.JTextField BSVDateTxt;
+    private javax.swing.JComboBox BSVPortfolioId;
+    private javax.swing.JButton BSVSave;
+    private javax.swing.JTextField BSVTickerSymbolTxt;
+    private javax.swing.JTextField BSVVolumeTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

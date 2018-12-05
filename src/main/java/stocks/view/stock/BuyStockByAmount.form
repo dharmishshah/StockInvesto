@@ -22,17 +22,17 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="BSASave" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="BSAErrorLbl" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="BSAPortfolioId" alignment="0" max="32767" attributes="0"/>
                       <Component id="BSATickerSymbolTxt" alignment="0" max="32767" attributes="0"/>
                       <Component id="BSACommissionRateTxt" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       <Component id="BSAAmountTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BSADateTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="BSADateTxt" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                  <Component id="BSAErrorLbl" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="114" max="32767" attributes="0"/>
           </Group>
