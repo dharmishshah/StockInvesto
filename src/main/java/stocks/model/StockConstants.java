@@ -30,6 +30,9 @@ public class StockConstants {
   public static String ERROR_INVALID_TICKER_SYMBOL = "Invalid ticker symbol\n";
   public static String ERROR_INVALID_VOLUME = "Invalid volume\n";
   public static String ERROR_INVALID_MENU = "Invalid Menu item selected\n";
+  public static String ERROR_INVALID_AMOUNT = "Invalid amount\n";
+  public static String ERROR_NO_PORTFOLIOS = "No portfolios added.\n";
+  public static String ERROR_INVALID_GENERIC_VALUE = "Invalid value entered\n";
   public static String ERROR_DATE_EXCEEDS = "Date cannot be greater than today's date\n";
   public static String ERROR_COMMISSION_RATE_ZERO = "Commission Rate cannot be zero\n";
   public static String ERROR_COMMISSION_RATE_INVALID = "Commission Rate cannot be greater than " +

@@ -280,7 +280,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       double commissionPaid = stockOperations.getTotalCommissionPaid(date, s);
       resultValues.put("commission", commissionPaid);
       volume = s.getVolume();
-      resultValues.put("volume", volume);
+      resultValues.put("volume", currentCostBasis == 0?volume:0); 
       resultMap.put(s.getTickerSymbol(), resultValues);
 
       totalCostBasis = totalCostBasis + currentCostBasis;
@@ -328,7 +328,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       resultValues.put("costBasis", totalCostBasis);
       resultValues.put("totalValue", totalValue);
       resultValues.put("commission", totalCommissionPaid);
-      resultValues.put("volume", volume);
+      resultValues.put("volume", totalCostBasis == 0?volume:0);
 
       resultMap.put(portfolio.getName(), resultValues);
     }

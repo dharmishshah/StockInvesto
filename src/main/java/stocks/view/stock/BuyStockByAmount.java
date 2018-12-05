@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
@@ -98,7 +99,16 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView{
 
     @Override
     public void setErrorMessage(String fieldName, String message) {
-
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JLabel portfolioName = (JLabel) f.get(o);
+            portfolioName.setText(message);
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
     }
 
     /**
@@ -186,7 +196,7 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView{
                 .addComponent(BSASave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BSAErrorLbl)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
