@@ -5,17 +5,25 @@
  */
 package stocks.view.investment;
 
+import java.awt.event.ActionListener;
+import java.util.Map;
+import stocks.controller.GUIController;
+import stocks.view.GUIView;
+
 /**
  *
  * @author Animesh Mane
  */
-public class OneTime extends javax.swing.JPanel {
-
+public class OneTime extends javax.swing.JPanel implements GUIView {
+    
+    GUIController controller;
     /**
      * Creates new form OneTime
      */
-    public OneTime() {
+    public OneTime(GUIController controller) {
         initComponents();
+        this.controller = controller;
+        this.controller.setOneTimeInvestmentView(this);
     }
 
     /**
@@ -30,11 +38,15 @@ public class OneTime extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         investmentDate1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        oneInvestmentOption = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        oneComissionRate = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        oneAmountInvested1 = new javax.swing.JTextField();
+        saveOneTime = new javax.swing.JButton();
 
         jLabel1.setText("ONE TIME STRATEGY");
 
@@ -46,15 +58,31 @@ public class OneTime extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("EQUAL WEIGHTED");
-
-        jButton2.setText("CUSTOM WEIGHTED");
-
         jLabel4.setText("SELECT THE INVESTMENT OPTION");
 
         jLabel3.setText("SELECT THE PORTFOLIO ");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        oneInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setText("ENTER THE AMOUNT INVESTED");
+
+        oneComissionRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneComissionRateActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("ENTER THE COMMISSION RATE");
+
+        oneAmountInvested1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneAmountInvested1ActionPerformed(evt);
+            }
+        });
+
+        saveOneTime.setText("SAVE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,18 +91,19 @@ public class OneTime extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(saveOneTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(oneComissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(oneAmountInvested1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,19 +112,29 @@ public class OneTime extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(oneAmountInvested1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(investmentDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(oneComissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(35, 35, 35))
+                .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(saveOneTime)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,15 +142,59 @@ public class OneTime extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_investmentDate1ActionPerformed
 
+    private void oneComissionRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneComissionRateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oneComissionRateActionPerformed
+
+    private void oneAmountInvested1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneAmountInvested1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oneAmountInvested1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField investmentDate1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField oneAmountInvested1;
+    private javax.swing.JTextField oneComissionRate;
+    private javax.swing.JComboBox oneInvestmentOption;
+    private javax.swing.JButton saveOneTime;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addActionListener(ActionListener listener) {
+        saveOneTime.addActionListener(listener);
+    }
+
+    @Override
+    public void setSummaryData(Map<String, Map<String, Double>> data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getTextFieldData(String fieldName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getComboFieldData(String fieldName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void clearTextFieldData(String fieldName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setErrorMessage(String fieldName, String message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

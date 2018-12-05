@@ -25,6 +25,8 @@ public class GUIController
         private GUIView buyStockByAmountView;
         private GUIView buyStockByVolumeView;
         private GUIView displayStockView;
+        private GUIView oneTimeInvestmentView;
+        private GUIView dcaInvestmentView;
 	
 	public GUIController()
 	{   
@@ -71,6 +73,21 @@ public class GUIController
 		//create and set the keyboard listener
 		configureStockDisplayButtonListener();
                 
+	}
+        
+        
+        public void setOneTimeInvestmentView(GUIView oneTimeInvestmentView)
+	{
+		this.oneTimeInvestmentView = oneTimeInvestmentView;
+                configureOneTimeInvestmentButtonListener();
+		//create and set the keyboard listener
+	}
+        
+        public void setDCAInvestmentView(GUIView dcaInvestmentView)
+	{
+		this.dcaInvestmentView = dcaInvestmentView;
+		//create and set the keyboard listener
+		configureBuyStockByAmountViewButtonListener();
 	}
         
         
@@ -147,6 +164,24 @@ public class GUIController
                  this.buyStockByAmountView.addActionListener(buttonListener);
 	}
         
+        
+        private void configureOneTimeInvestmentButtonListener() {
+            Map<String,Runnable> buttonClickedMap = 
+                    new HashMap<String,Runnable>();
+            ButtonListener buttonListener = new ButtonListener();
+            buttonClickedMap.put("createOneTime",()->{
+                String text = oneTimeInvestmentView.getTextFieldData("portfolioNameTxt");
+                portfolioOperations.addPortfolio(text);
+                oneTimeInvestmentView.clearTextFieldData("portfolioNameTxt");
+		});
+                buttonListener.setButtonClickedActionMap(buttonClickedMap);
+                this.oneTimeInvestmentView.addActionListener(buttonListener);
+	}
+        
+        
+        
+        
+        
         private void configureBuyStockByVolumeButtonListener() {
 		Map<String,Runnable> buttonClickedMap = 
                         new HashMap<String,Runnable>();
@@ -178,5 +213,23 @@ public class GUIController
                  this.displayStockView.addActionListener(buttonListener);
 	}
         
+       
+        
+        private void configureDCAInvestmentButtonListener() {
+            Map<String,Runnable> buttonClickedMap = 
+                        new HashMap<String,Runnable>();
+            ButtonListener buttonListener = new ButtonListener();
+            
+            buttonClickedMap.put("createDCA",()->{
+			String text = 
+                                dcaInvestmentView.getTextFieldData("portfolioNameTxt");
+                        portfolioOperations.addPortfolio(text);
+                        dcaInvestmentView.clearTextFieldData("portfolioNameTxt");
+		});
+                buttonListener.setButtonClickedActionMap(buttonClickedMap);
+                this.dcaInvestmentView.addActionListener(buttonListener);
 
+              
+        }
+        
 }
