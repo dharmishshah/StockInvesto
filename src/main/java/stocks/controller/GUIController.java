@@ -209,27 +209,38 @@ public class GUIController
 	}
 
 
-  private void configureOneTimeInvestmentButtonListener() {
+  private void configureStockDisplayButtonListener() {
     Map<String,Runnable> buttonClickedMap =
             new HashMap<String,Runnable>();
     ButtonListener buttonListener = new ButtonListener();
 
-    buttonClickedMap.put("createOneTime",()->{
-      String text =
-              oneTimeInvestmentView.getTextFieldData("portfolioNameTxt");
-      portfolioOperations.addPortfolio(text);
-      oneTimeInvestmentView.clearTextFieldData("portfolioNameTxt");
+    buttonClickedMap.put("VPSViewStock",()->{
+      String portfolioId = displayStockView.getComboFieldData("VPSPortfolioId");
+      int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
+      Map<String, Map<String, Double>> resultMap =
+              portfolioOperations.displayStocks(portId, LocalDate.now());
+      this.displayStockView.setSummaryData(resultMap);
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
-    this.oneTimeInvestmentView.addActionListener(buttonListener);
-
-
+    this.displayStockView.addActionListener(buttonListener);
   }
+
+
 
   private void configureDCAInvestmentButtonListener() {
     Map<String,Runnable> buttonClickedMap =
             new HashMap<String,Runnable>();
     ButtonListener buttonListener = new ButtonListener();
+
+    buttonClickedMap.put("createDCA",()->{
+      String text =
+              dcaInvestmentView.getTextFieldData("portfolioNameTxt");
+      portfolioOperations.addPortfolio(text);
+      dcaInvestmentView.clearTextFieldData("portfolioNameTxt");
+    });
+    buttonListener.setButtonClickedActionMap(buttonClickedMap);
+    this.dcaInvestmentView.addActionListener(buttonListener);
+
 
   }
         
