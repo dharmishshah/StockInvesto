@@ -20,11 +20,13 @@ public class GUIController
 	 //Variable represents the portfolio operations.
         private final PortfolioOperations<Portfolio> portfolioOperations;
         private DateTimeFormatter formatter;
-	private GUIView createportfolioView;
+	      private GUIView createportfolioView;
         private GUIView displayPortfolioView;
         private GUIView buyStockByAmountView;
         private GUIView buyStockByVolumeView;
         private GUIView displayStockView;
+        private GUIView oneTimeInvestmentView;
+        private GUIView dcaInvestmentView;
 	
 	public GUIController()
 	{   
@@ -72,6 +74,20 @@ public class GUIController
 		configureStockDisplayButtonListener();
                 
 	}
+
+  public void setOneTimeInvestmentView(GUIView oneTimeInvestmentView)
+  {
+    this.oneTimeInvestmentView = oneTimeInvestmentView;
+    configureOneTimeInvestmentButtonListener();
+    //create and set the keyboard listener
+  }
+
+  public void setDCAInvestmentView(GUIView dcaInvestmentView)
+  {
+    this.dcaInvestmentView = dcaInvestmentView;
+    //create and set the keyboard listener
+    configureBuyStockByAmountViewButtonListener();
+  }
         
         
         public String getExistingPortfolios(){
@@ -191,6 +207,31 @@ public class GUIController
                  buttonListener.setButtonClickedActionMap(buttonClickedMap);
                  this.displayStockView.addActionListener(buttonListener);
 	}
+
+
+  private void configureOneTimeInvestmentButtonListener() {
+    Map<String,Runnable> buttonClickedMap =
+            new HashMap<String,Runnable>();
+    ButtonListener buttonListener = new ButtonListener();
+
+    buttonClickedMap.put("createOneTime",()->{
+      String text =
+              oneTimeInvestmentView.getTextFieldData("portfolioNameTxt");
+      portfolioOperations.addPortfolio(text);
+      oneTimeInvestmentView.clearTextFieldData("portfolioNameTxt");
+    });
+    buttonListener.setButtonClickedActionMap(buttonClickedMap);
+    this.oneTimeInvestmentView.addActionListener(buttonListener);
+
+
+  }
+
+  private void configureDCAInvestmentButtonListener() {
+    Map<String,Runnable> buttonClickedMap =
+            new HashMap<String,Runnable>();
+    ButtonListener buttonListener = new ButtonListener();
+
+  }
         
 
 }
