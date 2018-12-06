@@ -91,12 +91,12 @@ public interface PortfolioOperations<Portfolio> {
    * The following method saves all portfolios on a file.
    *
    */
-  void savePortfolios();
+  void savePortfolios(boolean isSaveAll,String portfolioName);
 
 
   /**
    * The following method loads all portfolios from a file.
    *
    */
-  void loadPortfolios();
+  void loadPortfolios(boolean isLoadAll,String portfolioName);
 }

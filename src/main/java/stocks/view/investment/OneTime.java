@@ -7,10 +7,12 @@ package stocks.view.investment;
 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import stocks.controller.GUIController;
+import stocks.model.stock.Stock;
 import stocks.view.GUIView;
 
 /**
@@ -207,5 +209,4 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
     public void setErrorMessage(String fieldName, String message) {
     }
 
-   
 }

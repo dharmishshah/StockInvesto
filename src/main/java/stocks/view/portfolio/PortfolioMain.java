@@ -35,6 +35,9 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         jPanel1 = new javax.swing.JPanel();
         portfolioCreateBtn = new javax.swing.JButton();
         portfolioViewBtn = new javax.swing.JButton();
+        PMSave = new javax.swing.JButton();
+        PMLoad = new javax.swing.JButton();
+        PMGraphBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         portfolioCreateBtn.setText("Create");
@@ -51,15 +54,42 @@ public class PortfolioMain extends javax.swing.JSplitPane {
             }
         });
 
+        PMSave.setText("Save");
+        PMSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PMSaveActionPerformed(evt);
+            }
+        });
+
+        PMLoad.setText("Load");
+        PMLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PMLoadActionPerformed(evt);
+            }
+        });
+
+        PMGraphBtn.setText("Graph");
+        PMGraphBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PMGraphBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(portfolioCreateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(portfolioViewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(portfolioCreateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(portfolioViewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(PMSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PMGraphBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PMLoad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -69,6 +99,12 @@ public class PortfolioMain extends javax.swing.JSplitPane {
                 .addComponent(portfolioCreateBtn)
                 .addGap(18, 18, 18)
                 .addComponent(portfolioViewBtn)
+                .addGap(18, 18, 18)
+                .addComponent(PMSave)
+                .addGap(18, 18, 18)
+                .addComponent(PMLoad)
+                .addGap(18, 18, 18)
+                .addComponent(PMGraphBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -78,11 +114,11 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
+            .addGap(0, 322, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel3);
@@ -91,11 +127,11 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,8 +143,23 @@ public class PortfolioMain extends javax.swing.JSplitPane {
         jSplitPane1.setRightComponent(new PortfolioView(controller));
     }//GEN-LAST:event_portfolioViewBtnActionPerformed
 
+    private void PMLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMLoadActionPerformed
+       jSplitPane1.setRightComponent(new PortfolioLoad(controller));
+    }//GEN-LAST:event_PMLoadActionPerformed
+
+    private void PMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMSaveActionPerformed
+        jSplitPane1.setRightComponent(new PortfolioSave(controller));
+    }//GEN-LAST:event_PMSaveActionPerformed
+
+    private void PMGraphBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMGraphBtnActionPerformed
+       jSplitPane1.setRightComponent(new PortfolioGraph(controller));
+    }//GEN-LAST:event_PMGraphBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton PMGraphBtn;
+    private javax.swing.JButton PMLoad;
+    private javax.swing.JButton PMSave;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSplitPane jSplitPane1;
