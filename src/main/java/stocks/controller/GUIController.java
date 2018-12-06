@@ -370,8 +370,7 @@ public class GUIController {
         int portId = validatePortfolio(displayStockView, "VPSPortfolioId");
         //Accept the date.
         LocalDate date = validateDate(displayStockView, "VPSDateTxt");
-        String portfolioId = displayStockView.
-                getComboFieldData("VPSPortfolioId");
+        String portfolioId = displayStockView.getComboFieldData("VPSPortfolioId");
         Map<String, Map<String, Double>> resultMap =
                 portfolioOperations.displayStocks(portId, date);
         this.displayStockView.setSummaryData(resultMap);
