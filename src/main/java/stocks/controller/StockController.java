@@ -360,10 +360,8 @@ public class StockController implements IStockController {
 
 
   /**
-   * The following method handles the DCA strategy. * @param scan Scanner object to accept the user
-   * input. * @param portfolioId the id of the portfolio in which stock is to be added. * @param
-   * amountToBeInvestedInPortfolio the amount to be invested in the portfolio. * @param
-   * commissionRateForPortfolio the commission charged for the portfolio.
+   * The following method handles the existing DCA strategy.
+   * * @param scan Scanner object to accept the user.
    */
   private void handleExistingDCAStrategy(Scanner scan) {
 
