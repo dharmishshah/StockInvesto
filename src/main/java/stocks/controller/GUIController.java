@@ -418,25 +418,26 @@ public class GUIController {
         LocalDate d2 = LocalDate.parse(end,formatter);
         List<Stock> stocks =
                   portfolioOperations.viewPortfolioStocks(portId, d1);
-        
+        List<Double> stockWeightage = new ArrayList<>();
+        StrategyOperations dcaStrategy = new DCA(portfolioOperations);
+        String dayFrequency = dcaInvestmentView.getTextFieldData("dcaDayFrequency");
+        int days = 0;
+        days = validateDay(dayFrequency);
+        boolean datesValidity = compareStrategyDates(d1, d2);
         if (investOption.matches("EQUAL")) {
-          equalWeightedInvestment(stocks, amountInvested,
-                  portId, d1, commissionRate);
+         double weightForEachStock = amountInvested/stocks.size();
+         for (int i=0; i <stocks.size();i++) {
+             stockWeightage.add(weightForEachStock);
+         }
+         if (datesValidity) {
+             Strategy newStrategy = new Strategy (d1,d2,portId,amountInvested,
+                     commissionRate,stocks,stockWeightage,days);
+             dcaStrategy.executeStrategy(newStrategy);
+          }
         }
-        
-        
-        else if (investOption.matches("CUSTOM")) {
-          List<Double> stockWeightage = new ArrayList<>();
-          
-          StrategyOperations dcaStrategy = new DCA(portfolioOperations);
-          
-          String dayFrequency 
-                  = dcaInvestmentView.getTextFieldData("dcaDayFrequency");
+        else if (investOption.matches("CUSTOM")) { 
           String stocksWeights
               = dcaInvestmentView.getTextFieldData("dcaCustomWeight");
-          int days = 0;
-          days = validateDay(dayFrequency);
-          boolean datesValidity = compareStrategyDates(d1, d2);
           stockWeightage = validateWeights(stocksWeights, stocks);
  
           if (datesValidity) {
@@ -502,7 +503,7 @@ public class GUIController {
     this.dcaInvestmentView.addComboBoxListener(comboBoxItemListener);
 
   }
-  
+ 
 
 
 
