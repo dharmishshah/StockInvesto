@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.model.StockConstants;
 import stocks.model.stock.Stock;
@@ -82,7 +83,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   @Override
-  public void savePortfolios(boolean isSaveAll,String portfolioName) {
+  public void savePortfolios(boolean isSaveAll,String portfolioName,int portfolioId) {
     ObjectMapper mapper = new ObjectMapper();
 
     try {
@@ -92,10 +93,17 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       if(!dir.exists()){
         dir.mkdir();
       }
+      if(portfolioName == null && portfolioId >0 ){
+        Portfolio p = portfolios.get(portfolioId);
+        portfolioName = p.getName();
+      }
 
       //mapper.writeValue(new File(dir + "/allPortfolios.txt"), portfolios);
 
       for (Map.Entry<Integer,Portfolio> entry:portfolios.entrySet()){
+
+
+
         Portfolio portfolio = entry.getValue();
         if(isSaveAll){
             portfolioName = portfolio.getName();
@@ -434,6 +442,43 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
     if (!this.toString().contains(portfolioId + ".")) {
       throw new IllegalArgumentException(StockConstants.ERROR_INVALID_PORTFOLIO_ID);
     }
+  }
+  
+  
+  
+  
+  public DefaultCategoryDataset getGraphDataset(LocalDate sdate, LocalDate edate, int portId, int frequency){
+      LocalDate currentDate = sdate;
+       
+    String series1 = "Cost";
+    String series2 = "Value";
+    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+    while (currentDate.compareTo(edate) < 0
+            || currentDate.compareTo(edate) == 0) {
+        Map<String, Map<String, Double>> portfoliosSet = 
+                this.displayStocks(portId, currentDate);
+        double totalCostBasis = 0.0;
+        double totalValue = 0.0;
+        double volume = 0;
+        double totalCommission = 0.0;
+        for (Map.Entry<String, Map<String, Double>> stock : portfoliosSet.entrySet()) {
+
+            String tickerSymbol = stock.getKey();
+            Map<String, Double> resultValues = stock.getValue();
+            double currentCostBasis = resultValues.get("costBasis");
+            double currentTotalValue = resultValues.get("totalValue");
+            double commissionPaid = resultValues.get("commission");
+            volume = volume + resultValues.get("volume");
+
+            totalCostBasis = totalCostBasis + currentCostBasis;
+            totalValue = totalValue + currentTotalValue;
+            totalCommission = totalCommission + commissionPaid;
+        }
+        dataset.addValue(totalCostBasis, series1, currentDate.toString());
+        dataset.addValue(totalValue, series2, currentDate.toString());
+        currentDate = currentDate.plusDays(frequency);
+    }
+    return dataset;
   }
 
 }

@@ -4,7 +4,7 @@ public class StockConstants {
 
   public static String MENU = "Menu\n1.Add Portfolio\n2.View Portfolio\n3.Buy Stock by Volume"
           + "\n4.Buy Stock by Amount\n5.View Stock\n6.Invest In Existing Portfolio By Strategy \n" +
-          "7.Exit\n";
+          "7.Save Portfolio\n8.Load Portfolio\n9.Exit\n";
   public static String ADD_PORTFOLIO_NAME = "Please enter portfolio name\n";
   public static String ADD_DATE = "Enter the start date in MM/DD/YYYY format\n";
   public static String ADD_END_DATE = "Enter the end date in MM/DD/YYYY format\n";
@@ -19,6 +19,10 @@ public class StockConstants {
           "\n2.DCA Strategy\n";
   public static String FREQUENCY_MENU = "FREQUENCY \n1.Yearly"
           + "\n2.Quaterly\n3.Monthly\n4.Custom Days\n";
+  public static String SAVE_MENU = "SAVE PORTFOLIO OPTIONS\n1.Save a specific portfolio\n2.Save " +
+          "all\n";
+  public static String LOAD_MENU = "LOAD PORTFOLIO OPTIONS\n1.Load a specific portfolio\n2.Load " +
+          "all\n";
   public static String ALPHA_VANTAGE_API = "https://www.alphavantage.co/query";
 
   public static String ERROR_MARKET_CLOSED = "Market is closed\n";
@@ -29,6 +33,7 @@ public class StockConstants {
           "portfolio name\n";
   public static String ERROR_INVALID_TICKER_SYMBOL = "Invalid ticker symbol\n";
   public static String ERROR_INVALID_VOLUME = "Invalid volume\n";
+   public static String ERROR_INVALID_FREQUENCY = "Invalid frequency\n";
   public static String ERROR_INVALID_MENU = "Invalid Menu item selected\n";
   public static String ERROR_INVALID_AMOUNT = "Invalid amount\n";
   public static String ERROR_NO_PORTFOLIOS = "No portfolios added.\n";

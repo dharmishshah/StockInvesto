@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.listener.ButtonListener;
 import stocks.listener.ComboBoxItemListener;
@@ -154,6 +155,8 @@ public class GUIController {
 
       try {
         portfolioOperations.addPortfolio(text);
+        createportfolioView.setSuccessMessage("PCErrorLbl",
+                "Portfolio Created Successfully.");
       } catch (IllegalArgumentException iae) {
         createportfolioView.setErrorMessage("PCErrorLbl",
                 iae.getMessage());
@@ -222,6 +225,8 @@ public class GUIController {
         buyStockByAmountView.clearTextFieldData("BSAAmountTxt");
         buyStockByAmountView.clearTextFieldData("BSADateTxt");
         buyStockByAmountView.clearTextFieldData("BSACommissionRateTxt");
+        buyStockByAmountView.setSuccessMessage("BSAErrorLbl",
+                "Stock bought successfully.");
 
       } catch (IllegalArgumentException iae) {
         this.buyStockByAmountView.setErrorMessage("BSAErrorLbl", iae.getMessage());
@@ -257,6 +262,8 @@ public class GUIController {
         buyStockByVolumeView.clearTextFieldData("BSVVolumeTxt");
         buyStockByVolumeView.clearTextFieldData("BSVDateTxt");
         buyStockByVolumeView.clearTextFieldData("BSVCommissionRateTxt");
+        buyStockByVolumeView.setSuccessMessage("BSVErrorLbl",
+                "Stock bought successfully.");
 
       } catch (IllegalArgumentException iae) {
         this.buyStockByVolumeView.setErrorMessage("BSVErrorLbl", iae.getMessage());
@@ -341,7 +348,7 @@ public class GUIController {
           customWeighted(stocks, stockWeightage,
                   amountInvested, portId, d, commission);
         }
-
+           
       }catch (IllegalArgumentException iae) {
         this.oneTimeInvestmentView
                 .setErrorMessage("oneTimeErrorLbl",
@@ -513,6 +520,20 @@ public class GUIController {
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
     buttonClickedMap.put("PGViewGraph", () -> {
+        
+    try {
+        int portId = validatePortfolio(portfolioGraphView, "PGPortfolioId");
+        LocalDate sdate = validateDate(portfolioGraphView, "PGStartDateTxt");
+        LocalDate edate = validateDate(portfolioGraphView, "PGEndDateTxt");
+        int frequency = validateIntValue(portfolioGraphView, "PGFrequencyTxt");
+        
+        DefaultCategoryDataset dataset = portfolioOperations.
+                getGraphDataset(sdate, edate, portId, frequency);
+        portfolioGraphView.plotGraph("Performance", "Date", "Total Stock Cost "
+            + "& Total Stock Value", dataset);
+     } catch (IllegalArgumentException iae) {
+            portfolioGraphView.setErrorMessage("PGErrorLbl", iae.getMessage());
+          }
     });
 
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -529,6 +550,8 @@ public class GUIController {
         try{
             String portfolioName = validatePortfolioNameForFiles(portfolioLoadView,"PLPortfolioId","load");
             portfolioOperations.loadPortfolios(false,portfolioName);
+             portfolioLoadView.setSuccessMessage("PLErrorLbl",
+                "Portfolio loaded successfully.");
         }catch(IllegalArgumentException iae){
             portfolioLoadView.setErrorMessage("PLErrorLbl", iae.getMessage());
         }
@@ -539,6 +562,8 @@ public class GUIController {
         
         try{
             portfolioOperations.loadPortfolios(true, null);
+            portfolioLoadView.setSuccessMessage("PLErrorLbl",
+                "All Portfolios loaded successfully.");
         }catch(IllegalArgumentException iae){
             portfolioLoadView.setErrorMessage("PLErrorLbl", iae.getMessage());
         }
@@ -558,7 +583,9 @@ public class GUIController {
     buttonClickedMap.put("PSSave", () -> {
         try{
             String portfolioName = validatePortfolioNameForFiles(portfolioSaveView,"PSPortfolioId","save");
-            portfolioOperations.savePortfolios(false,portfolioName);
+            portfolioOperations.savePortfolios(false,portfolioName,-1);
+             portfolioSaveView.setSuccessMessage("PSErrorLbl",
+                "Portfolio saved successfully.");
         }catch(IllegalArgumentException iae){
             portfolioSaveView.setErrorMessage("PSErrorLbl", iae.getMessage());
         }
@@ -567,7 +594,9 @@ public class GUIController {
 
     buttonClickedMap.put("PSSaveAll", () -> {
          try{
-              portfolioOperations.savePortfolios(true, null);
+              portfolioOperations.savePortfolios(true, null,-1);
+              portfolioSaveView.setSuccessMessage("PSErrorLbl",
+                "All Portfolios saved successfully.");
          }catch(IllegalArgumentException iae){
               portfolioSaveView.setErrorMessage("PSErrorLbl", iae.getMessage());
          }
@@ -762,9 +791,7 @@ public class GUIController {
     try {
 
       String date = view.getTextFieldData(field);
-
       return LocalDate.parse(date, formatter);
-
     } catch (DateTimeException dte) {
 
       throw new IllegalArgumentException(StockConstants.ERROR_INVALID_DATE);
@@ -806,6 +833,23 @@ public class GUIController {
 
     }
 
+  }
+  
+  
+  private int validateIntValue(GUIView view, String field) {
+
+    try {
+
+      String value = view.getTextFieldData(field);
+      int frequency = Integer.parseInt(value);
+      if(frequency < 0 || frequency > 365){
+          throw new NumberFormatException("Invalid value");
+      }
+      return frequency;
+    } catch (NumberFormatException dte) {
+     throw new IllegalArgumentException(StockConstants.ERROR_INVALID_FREQUENCY);
+    }
+    
   }
 
 
