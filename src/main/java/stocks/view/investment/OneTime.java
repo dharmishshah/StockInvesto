@@ -255,5 +255,4 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
          oneStocksInPortfolio.addItem(stocksTickerSymbol);
      }
     }
-   
 }

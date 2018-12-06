@@ -24,53 +24,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView{
     GUIController controller;
 
 
-    @Override
-    public String getTextFieldData(String fieldName) {
-         try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            return portfolioName.getText();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
     
-    
-    @Override
-    public String getComboFieldData(String fieldName) {
-         return null;
-    }
-
-    @Override
-    public void clearTextFieldData(String fieldName) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            portfolioName.setText("");
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public void setErrorMessage(String fieldName, String message) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JLabel portfolioName = (JLabel) f.get(o);
-            portfolioName.setText(message);
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
 
     /**
      * Creates new form PortfolioCreate

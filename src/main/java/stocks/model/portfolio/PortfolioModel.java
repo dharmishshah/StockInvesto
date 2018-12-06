@@ -82,7 +82,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   @Override
-  public void savePortfolios() {
+  public void savePortfolios(boolean isSaveAll,String portfolioName) {
     ObjectMapper mapper = new ObjectMapper();
 
     try {
@@ -97,9 +97,16 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
 
       for (Map.Entry<Integer,Portfolio> entry:portfolios.entrySet()){
         Portfolio portfolio = entry.getValue();
-        File portfolioFile = new File(dir + "/" + portfolio.getName() + ".txt");
-        //Object to JSON in file
-        mapper.writeValue( portfolioFile, portfolio);
+        if(isSaveAll){
+            portfolioName = portfolio.getName();
+        }
+
+        if(portfolio.getName().equalsIgnoreCase(portfolioName)){
+          File portfolioFile = new File(dir + "/" + portfolio.getName() + ".txt");
+          //Object to JSON in file
+          mapper.writeValue( portfolioFile, portfolio);
+        }
+
       }
 
 
@@ -109,11 +116,14 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   @Override
-  public void loadPortfolios() {
+  public void loadPortfolios(boolean isLoadAll,String portfolioName) {
     ObjectMapper mapper = new ObjectMapper();
 
+    if(!isLoadAll && portfolioName.isEmpty()){
+      return;
+    }
+
     try {
-      portfolios.clear();
       String current = new java.io.File( "." ).getCanonicalPath();
       File dir = new File(current + "/stockData/savedPortfolios/");
 
@@ -121,15 +131,31 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
         dir.mkdir();
       }
       File[] files = dir.listFiles();
-      int count = 1;
+      List<String> existingPortfolios = new ArrayList<String>();
+      for(Map.Entry<Integer,Portfolio> portfolio:portfolios.entrySet()){
+        Portfolio p = portfolio.getValue();
+        existingPortfolios.add(p.getName());
+      }
+
+
 
       //portfolios = mapper.readValue(dir + "allPortfolios.txt", Map.class);
 
       for(File file:files){
-        //Object to JSON in file
-        Portfolio portfolio = mapper.readValue(file, Portfolio.class);
-        portfolios.put(count,portfolio);
-        count++;
+
+        if(isLoadAll){
+          portfolioName = file.getName().replace(".txt","");
+        }
+
+        if(file.getName().replace(".txt","").equalsIgnoreCase(portfolioName)){
+          //Object to JSON in file
+          Portfolio portfolio = mapper.readValue(file, Portfolio.class);
+          if(existingPortfolios.contains(portfolioName)){
+            throw new IllegalArgumentException("Portfolio with same name already Exists.");
+          }
+          portfolios.put(portfolios.size()+1,portfolio);
+        }
+
       }
 
 
@@ -280,7 +306,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       double commissionPaid = stockOperations.getTotalCommissionPaid(date, s);
       resultValues.put("commission", commissionPaid);
       volume = s.getVolume();
-      resultValues.put("volume", currentCostBasis == 0?volume:0); 
+      resultValues.put("volume", currentCostBasis != 0?volume:0); 
       resultMap.put(s.getTickerSymbol(), resultValues);
 
       totalCostBasis = totalCostBasis + currentCostBasis;
@@ -328,7 +354,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       resultValues.put("costBasis", totalCostBasis);
       resultValues.put("totalValue", totalValue);
       resultValues.put("commission", totalCommissionPaid);
-      resultValues.put("volume", totalCostBasis == 0?volume:0);
+      resultValues.put("volume", totalCostBasis != 0?volume:0);
 
       resultMap.put(portfolio.getName(), resultValues);
     }
