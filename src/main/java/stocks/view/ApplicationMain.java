@@ -6,13 +6,27 @@ import stocks.view.portfolio.PortfolioMain;
 import stocks.view.stock.StockMain;
 
 /**
- * The following class represents the Main page of the GUI Application for the system.
- * The main frame consists of the profile, stock and exit button.
+ * The following class represents the Main page of the GUI Application for the system. The main
+ * frame consists of the profile, stock and exit button.
  */
 
 public class ApplicationMain extends javax.swing.JFrame {
 
   GUIController controller;
+  //The following variable represents the exit button.
+  private javax.swing.JButton exitBtn;
+  //The following variable represents the investment button.
+  private javax.swing.JButton investmentBtn;
+  //The following variable represents the panel.
+  private javax.swing.JPanel jPanel1;
+  //The following variable represents the panel.
+  private javax.swing.JPanel jPanel2;
+  //The following variable represents the panel.
+  private javax.swing.JSplitPane jSplitPane1;
+  //The following variable represents the profile button.
+  private javax.swing.JButton portfolioBtn;
+  //The following variable represents the stock button.
+  private javax.swing.JButton stockBtn;
 
   /**
    * The following constructor creates the new form ApplicationMain.
@@ -20,6 +34,42 @@ public class ApplicationMain extends javax.swing.JFrame {
   public ApplicationMain() {
     initComponents();
     controller = new GUIController();
+  }
+
+  /**
+   * The following method represents the main method of the GUI application.
+   *
+   * @param args the command line arguments
+   */
+  public static void main(String args[]) {
+    try {
+      for (javax.swing.UIManager.LookAndFeelInfo info
+              : javax.swing.UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+          javax.swing.UIManager.setLookAndFeel(info.getClassName());
+          break;
+        }
+      }
+    } catch (ClassNotFoundException ex) {
+      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
+              .log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
+              .log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
+              .log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
+              .log(java.util.logging.Level.SEVERE, null, ex);
+    }
+
+    //CREATE AND THE DISPLAY THE FORM.
+    java.awt.EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        new ApplicationMain().setVisible(true);
+      }
+    });
   }
 
   /**
@@ -139,6 +189,7 @@ public class ApplicationMain extends javax.swing.JFrame {
 
   /**
    * The following method represents the action performed for the portfolio button.
+   *
    * @param evt the event instance performed on click of the button
    */
   private void portfolioBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +199,7 @@ public class ApplicationMain extends javax.swing.JFrame {
 
   /**
    * The following method represents the action performed when the stock button is clicked.
+   *
    * @param evt the event instance of the stock button.
    */
   private void stockBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +209,7 @@ public class ApplicationMain extends javax.swing.JFrame {
 
   /**
    * The following method represents the action performed when the investment button is clicked.
+   *
    * @param evt the event instance of the stock button.
    */
   private void investmentBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,58 +219,10 @@ public class ApplicationMain extends javax.swing.JFrame {
 
   /**
    * The following method represents the action performed when the exit button is clicked.
+   *
    * @param evt the event instance of the stock button.
    */
   private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {
     this.dispose();
   }
-
-  /**
-   * The following method represents the main method of the GUI application.
-   * @param args the command line arguments
-   */
-  public static void main(String args[]) {
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info
-              : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
-              .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
-              .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
-              .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(ApplicationMain.class.getName())
-              .log(java.util.logging.Level.SEVERE, null, ex);
-    }
-
-    //CREATE AND THE DISPLAY THE FORM.
-    java.awt.EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new ApplicationMain().setVisible(true);
-      }
-    });
-  }
-  //The following variable represents the exit button.
-  private javax.swing.JButton exitBtn;
-  //The following variable represents the investment button.
-  private javax.swing.JButton investmentBtn;
-  //The following variable represents the panel.
-  private javax.swing.JPanel jPanel1;
-  //The following variable represents the panel.
-  private javax.swing.JPanel jPanel2;
-  //The following variable represents the panel.
-  private javax.swing.JSplitPane jSplitPane1;
-  //The following variable represents the profile button.
-  private javax.swing.JButton portfolioBtn;
-  //The following variable represents the stock button.
-  private javax.swing.JButton stockBtn;
 }

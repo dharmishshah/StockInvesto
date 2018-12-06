@@ -1,4 +1,3 @@
-
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
@@ -12,6 +11,10 @@ import stocks.view.GUIView;
  */
 public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
   GUIController controller;
+  private javax.swing.JLabel PCErrorLbl;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JTextField portfolioNameTxt;
+  private javax.swing.JButton savePortfolioBtn;
 
   /**
    * Creates new form PortfolioCreate
@@ -81,8 +84,10 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
                             .addContainerGap(204, Short.MAX_VALUE))
     );
   }
+
   /**
    * The following method represents the action listener operations.
+   *
    * @param listener the listener object of the ActionListener.
    */
   public void addActionListener(ActionListener listener) {
@@ -91,6 +96,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the summary data method.
+   *
    * @param data the data of the stock.
    */
   @Override
@@ -99,6 +105,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the save portfolio method.
+   *
    * @param evt the action event object.
    */
 
@@ -107,14 +114,10 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the portfolio name method.
+   *
    * @param evt the action event object.
    */
   private void portfolioNameTxtActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
   }
-
-  private javax.swing.JLabel PCErrorLbl;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JTextField portfolioNameTxt;
-  private javax.swing.JButton savePortfolioBtn;
 }

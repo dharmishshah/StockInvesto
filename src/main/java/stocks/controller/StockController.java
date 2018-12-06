@@ -3,7 +3,6 @@ package stocks.controller;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -126,16 +125,35 @@ public class StockController implements IStockController {
             handleStrategyInput(scan);
             break;
           case 7:
-            handlePortfolioSave(scan);
+            try{
+              handlePortfolioSave(scan);
+            }catch(IllegalArgumentException iae) {
+              investmentViewOperations.displayMessage(appendable,
+                     iae.getMessage());
+            }
+
             break;
           case 8:
-            handlePortfolioLoad(scan);
+            try{
+              handlePortfolioLoad(scan);
+            }catch(IllegalArgumentException iae) {
+              investmentViewOperations.displayMessage(appendable,
+                      iae.getMessage());
+
+            }
+
             break;
           case 9:
-            handleExistingDCAStrategy(scan);
+            try{
+              handleExistingDCAStrategy(scan);
+            }catch(IllegalArgumentException iae) {
+              investmentViewOperations.displayMessage(appendable,
+                      iae.getMessage());
+            }
+
             break;
           case 10:
-           return;
+            return;
           default:
             investmentViewOperations.displayMessage(appendable, StockConstants.ERROR_INVALID_MENU);
         }
@@ -360,109 +378,109 @@ public class StockController implements IStockController {
 
 
   /**
-   * The following method handles the existing DCA strategy.
-   * * @param scan Scanner object to accept the user.
+   * The following method handles the existing DCA strategy. * @param scan Scanner object to accept
+   * the user.
    */
   private void handleExistingDCAStrategy(Scanner scan) {
 
 
-  while(true) {
-    investmentViewOperations.displayMessage(appendable,
-            StockConstants.SELECT_PORTFOLIO + portfolioOperations.toString() + "\n");
-    //Accepting the portfolio id
-    int portfolioId = getPortFolioId(scan, portfolioOperations.toString());
-
-    List<String> strategies = guiController.getExistingStrategies();
-    String s = "";
-    int count = 1;
-    for (String strategy : strategies) {
-      s = s + count + "." + strategy + "\n";
-      count++;
-    }
-
-    if (s.isEmpty()) {
-      investmentViewOperations.displayMessage(appendable, "No strategies found.\n");
-      break;
-    }
-    investmentViewOperations.displayMessage(appendable, s );
-    //Accepting the portfolio id
-    String portfolio3 = getPortFolioName(scan, s);
-    String[] values = portfolio3.split("_");
-    Map<String, Stock> portfolioStocks;
-    double commissionRateForPortfolio = 0;
-    double amountToBeInvestedInPortfolio  = 0;
-    //Initializing the DCA strategy object.
-    StrategyOperations dcaStrategy = new DCA(portfolioOperations);
-    //Accepting the start date of the strategy.
-    LocalDate startDate = LocalDate.now();
-    LocalDate endDate = LocalDate.now();
-    int investmentFrequency =0 ;
-    if(values.length == 5){
-      try{
-        commissionRateForPortfolio = Double.parseDouble(values[1]);
-        amountToBeInvestedInPortfolio = Double.parseDouble(values[0]);
-        startDate = LocalDate.parse(values[2],formatter);
-        endDate = LocalDate.parse(values[3],formatter);
-        investmentFrequency = Integer.parseInt(values[4]);
-      }catch(NumberFormatException nbe){
-        throw new IllegalArgumentException("Invalid strategy format.");
-      }catch(DateTimeException nte){
-        throw new IllegalArgumentException("Invalid strategy format.");
-      }
-
-    }
-
-
-    //Map to store the stocks in the portfolio.
-
-
     while (true) {
-      investmentViewOperations.displayMessage(appendable, StockConstants.INVESTMENT_MENU);
-      String investmentOption = scan.nextLine();
-      if (investmentOption.isEmpty()) {
-        continue;
-      }
-      int investmentChoice = 0;
-      try {
-        investmentChoice = Integer.parseInt(investmentOption);
-      } catch (NumberFormatException nbe) {
-        continue;
-      }
-      //Retrieving the stocks in portfolio.
-      List<Stock> listOfStocks = portfolioOperations.viewPortfolioStocks(portfolioId, startDate);
-      List<Double> weightedInvestments = new ArrayList<>();
+      investmentViewOperations.displayMessage(appendable,
+              StockConstants.SELECT_PORTFOLIO + portfolioOperations.toString() + "\n");
+      //Accepting the portfolio id
+      int portfolioId = getPortFolioId(scan, portfolioOperations.toString());
 
-      switch (investmentChoice) {
-        case 1:
-          investmentViewOperations.displayMessage(appendable,
-                  "Custom Weight");
-          weightedInvestments = getWeightageForEachStock(weightedInvestments,
-                  listOfStocks, scan);
-          Strategy strategyC = new Strategy(startDate, endDate, portfolioId,
-                  amountToBeInvestedInPortfolio, commissionRateForPortfolio,
-                  listOfStocks, weightedInvestments, investmentFrequency);
-          dcaStrategy.executeStrategy(strategyC);
-          break;
-        case 2:
-          investmentViewOperations.displayMessage(appendable,
-                  "Equal Weight");
-          double weightForEachStock = 100 / listOfStocks.size();
-          for (int i = 0; i < listOfStocks.size(); i++) {
-            weightedInvestments.add(weightForEachStock);
-          }
-          Strategy strategyE = new Strategy(startDate, endDate, portfolioId,
-                  amountToBeInvestedInPortfolio, commissionRateForPortfolio,
-                  listOfStocks, weightedInvestments, investmentFrequency);
-          dcaStrategy.executeStrategy(strategyE);
-          break;
-        default:
-          investmentViewOperations.displayMessage(appendable,
-                  StockConstants.ERROR_INVALID_MENU);
+      List<String> strategies = guiController.getExistingStrategies();
+      String s = "";
+      int count = 1;
+      for (String strategy : strategies) {
+        s = s + count + "." + strategy + "\n";
+        count++;
+      }
+
+      if (s.isEmpty()) {
+        investmentViewOperations.displayMessage(appendable, "No strategies found.\n");
+        break;
+      }
+      investmentViewOperations.displayMessage(appendable, s);
+      //Accepting the portfolio id
+      String portfolio3 = getPortFolioName(scan, s);
+      String[] values = portfolio3.split("_");
+      Map<String, Stock> portfolioStocks;
+      double commissionRateForPortfolio = 0;
+      double amountToBeInvestedInPortfolio = 0;
+      //Initializing the DCA strategy object.
+      StrategyOperations dcaStrategy = new DCA(portfolioOperations);
+      //Accepting the start date of the strategy.
+      LocalDate startDate = LocalDate.now();
+      LocalDate endDate = LocalDate.now();
+      int investmentFrequency = 0;
+      if (values.length == 5) {
+        try {
+          commissionRateForPortfolio = Double.parseDouble(values[1]);
+          amountToBeInvestedInPortfolio = Double.parseDouble(values[0]);
+          startDate = LocalDate.parse(values[2], formatter);
+          endDate = LocalDate.parse(values[3], formatter);
+          investmentFrequency = Integer.parseInt(values[4]);
+        } catch (NumberFormatException nbe) {
+          throw new IllegalArgumentException("Invalid strategy format.");
+        } catch (DateTimeException nte) {
+          throw new IllegalArgumentException("Invalid strategy format.");
+        }
+
+      }
+
+
+      //Map to store the stocks in the portfolio.
+
+
+      while (true) {
+        investmentViewOperations.displayMessage(appendable, StockConstants.INVESTMENT_MENU);
+        String investmentOption = scan.nextLine();
+        if (investmentOption.isEmpty()) {
+          continue;
+        }
+        int investmentChoice = 0;
+        try {
+          investmentChoice = Integer.parseInt(investmentOption);
+        } catch (NumberFormatException nbe) {
+          continue;
+        }
+        //Retrieving the stocks in portfolio.
+        List<Stock> listOfStocks = portfolioOperations.viewPortfolioStocks(portfolioId, startDate);
+        List<Double> weightedInvestments = new ArrayList<>();
+
+        switch (investmentChoice) {
+          case 1:
+            investmentViewOperations.displayMessage(appendable,
+                    "Custom Weight");
+            weightedInvestments = getWeightageForEachStock(weightedInvestments,
+                    listOfStocks, scan);
+            Strategy strategyC = new Strategy(startDate, endDate, portfolioId,
+                    amountToBeInvestedInPortfolio, commissionRateForPortfolio,
+                    listOfStocks, weightedInvestments, investmentFrequency);
+            dcaStrategy.executeStrategy(strategyC);
+            break;
+          case 2:
+            investmentViewOperations.displayMessage(appendable,
+                    "Equal Weight");
+            double weightForEachStock = 100 / listOfStocks.size();
+            for (int i = 0; i < listOfStocks.size(); i++) {
+              weightedInvestments.add(weightForEachStock);
+            }
+            Strategy strategyE = new Strategy(startDate, endDate, portfolioId,
+                    amountToBeInvestedInPortfolio, commissionRateForPortfolio,
+                    listOfStocks, weightedInvestments, investmentFrequency);
+            dcaStrategy.executeStrategy(strategyE);
+            break;
+          default:
+            investmentViewOperations.displayMessage(appendable,
+                    StockConstants.ERROR_INVALID_MENU);
+        }
+        break;
       }
       break;
     }
-    break;
-  }
 
   }
 
@@ -528,7 +546,7 @@ public class StockController implements IStockController {
     }
   }
 
-  private void handlePortfolioSave(Scanner scan){
+  private void handlePortfolioSave(Scanner scan) {
     while (true) {
       investmentViewOperations.displayMessage(appendable, StockConstants.SAVE_MENU);
       String investmentOption = scan.nextLine();
@@ -547,10 +565,10 @@ public class StockController implements IStockController {
                   StockConstants.SELECT_PORTFOLIO + portfolioOperations.toString() + "\n");
           //Accepting the valid portfolio number
           int portfolio3 = getPortFolioId(scan, portfolioOperations.toString());
-          portfolioOperations.savePortfolios(false,null,portfolio3);
+          portfolioOperations.savePortfolios(false, null, portfolio3);
           break;
         case 2:
-          portfolioOperations.savePortfolios(true,null,-1);
+          portfolioOperations.savePortfolios(true, null, -1);
           break;
         default:
           investmentViewOperations.displayMessage(appendable,
@@ -560,7 +578,7 @@ public class StockController implements IStockController {
     }
   }
 
-  private void handlePortfolioLoad(Scanner scan){
+  private void handlePortfolioLoad(Scanner scan) {
 
 
     while (true) {
@@ -578,17 +596,17 @@ public class StockController implements IStockController {
       switch (investmentChoice) {
         case 1:
           String files = getFilesFromDirectory();
-          if(files.isEmpty()){
-            investmentViewOperations.displayMessage(appendable,"No files found.\n");
+          if (files.isEmpty()) {
+            investmentViewOperations.displayMessage(appendable, "No files found.\n");
             break;
           }
-          investmentViewOperations.displayMessage(appendable,files);
+          investmentViewOperations.displayMessage(appendable, files);
           //Accepting the valid portfolio number
-          String portfolio3 = getPortFolioName(scan,files);
-          portfolioOperations.loadPortfolios(false,portfolio3);
+          String portfolio3 = getPortFolioName(scan, files);
+          portfolioOperations.loadPortfolios(false, portfolio3);
           break;
         case 2:
-          portfolioOperations.loadPortfolios(true,null);
+          portfolioOperations.loadPortfolios(true, null);
           break;
         default:
           investmentViewOperations.displayMessage(appendable,
@@ -598,24 +616,24 @@ public class StockController implements IStockController {
     }
   }
 
-  private String getFilesFromDirectory(){
+  private String getFilesFromDirectory() {
     String savedFiles = "";
 
-    try{
-      String current = new java.io.File( "." ).getCanonicalPath();
+    try {
+      String current = new java.io.File(".").getCanonicalPath();
       File dir = new File(current + "/stockData/savedPortfolios/");
 
-      if(!dir.exists()){
+      if (!dir.exists()) {
         dir.mkdir();
       }
       File[] files = dir.listFiles();
       int count = 1;
-      for(File file:files){
-        savedFiles = savedFiles + count + "." + file.getName().replace(".txt","") + "\n";
+      for (File file : files) {
+        savedFiles = savedFiles + count + "." + file.getName().replace(".txt", "") + "\n";
         count++;
       }
-    }catch(IOException ioe){
-
+    } catch (IOException ioe) {
+      throw new IllegalArgumentException("Invalid saved portfolio directory\n");
     }
     return savedFiles;
   }
@@ -624,12 +642,12 @@ public class StockController implements IStockController {
     while (true) {
       try {
         int portfolioId = Integer.parseInt(scan.nextLine());
-          String[] files = savedFiles.split("\n");
-          for(String s:files){
-            if(s.contains(portfolioId + ".")){
-                return s.split("\\.")[1];
-            }
+        String[] files = savedFiles.split("\n");
+        for (String s : files) {
+          if (s.contains(portfolioId + ".")) {
+            return s.split("\\.")[1];
           }
+        }
         //invalid input
         throw new NumberFormatException();
       } catch (NumberFormatException nbe) {
@@ -914,7 +932,6 @@ public class StockController implements IStockController {
       }
     }
   }
-
 
 
   /**

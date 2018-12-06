@@ -7,7 +7,7 @@ import java.net.URL;
 
 import stocks.model.StockConstants;
 
-public class AlphaVantageAPI implements StockDataSource{
+public class AlphaVantageAPI implements StockDataSource {
 
   @Override
   public StringBuilder getData(String tickerSymbol) {
@@ -52,7 +52,7 @@ public class AlphaVantageAPI implements StockDataSource{
         output.append((char) b);
       }
     } catch (IOException io) {
-
+      throw new IllegalArgumentException("Invalid url");
     }
     return output;
   }

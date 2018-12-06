@@ -33,7 +33,7 @@ public class StockConstants {
           "portfolio name\n";
   public static String ERROR_INVALID_TICKER_SYMBOL = "Invalid ticker symbol\n";
   public static String ERROR_INVALID_VOLUME = "Invalid volume\n";
-   public static String ERROR_INVALID_FREQUENCY = "Invalid frequency\n";
+  public static String ERROR_INVALID_FREQUENCY = "Invalid frequency\n";
   public static String ERROR_INVALID_MENU = "Invalid Menu item selected\n";
   public static String ERROR_INVALID_AMOUNT = "Invalid amount\n";
   public static String ERROR_NO_PORTFOLIOS = "No portfolios added.\n";
@@ -50,7 +50,7 @@ public class StockConstants {
   public static String ERROR_SUM_WEIGHTS_LESS = "SUM OF THE WEIGHT CANNOT BE LESS THAN 100";
   public static String ERROR_INVALID_COMMISSION = "Commission Rate cannot be less than 0 or " +
           "greater than 100\n";
-  
+
   public static String ERROR_DAYS = "INVALID DAY FREQIUENCY";
   public static String ERROR_INVALID_FILE = "Invalid file\n";
   public static String SOMETHING_WENT_WRONG = "Ooops!!!! Something went wrong\n";

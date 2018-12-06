@@ -1,16 +1,22 @@
-
 package stocks.view.stock;
 
 import stocks.controller.GUIController;
+
 /**
  * The following class represents the main stock panel.
  */
 public class StockMain extends javax.swing.JPanel {
 
   GUIController controller;
-
+  private javax.swing.JButton buyStockByAmountBtn;
+  private javax.swing.JButton buyStockByVolumeBtn;
+  private javax.swing.JPanel jPanel3;
+  private javax.swing.JPanel jPanel4;
+  private javax.swing.JSplitPane jSplitPane1;
+  private javax.swing.JButton viewStocksBtn;
   /**
    * Creates new form StockMain
+   *
    * @param controller the GUIController object.
    */
   public StockMain(GUIController controller) {
@@ -118,6 +124,7 @@ public class StockMain extends javax.swing.JPanel {
 
   /**
    * The following method executes the buy stock action performed.
+   *
    * @param evt the ActionEvent object.
    */
   private void buyStockByVolumeBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +134,7 @@ public class StockMain extends javax.swing.JPanel {
 
   /**
    * The following method executes the buy stock action performed.
+   *
    * @param evt the ActionEvent object.
    */
   private void viewStocksBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,17 +144,11 @@ public class StockMain extends javax.swing.JPanel {
 
   /**
    * The following method executes the buy stock action performed.
+   *
    * @param evt the ActionEvent object.
    */
   private void buyStockByAmountBtnActionPerformed(java.awt.event.ActionEvent evt) {
     BuyStockByAmount pf = new BuyStockByAmount(controller);
     jSplitPane1.setRightComponent(pf);
   }
-
-  private javax.swing.JButton buyStockByAmountBtn;
-  private javax.swing.JButton buyStockByVolumeBtn;
-  private javax.swing.JPanel jPanel3;
-  private javax.swing.JPanel jPanel4;
-  private javax.swing.JSplitPane jSplitPane1;
-  private javax.swing.JButton viewStocksBtn;
 }

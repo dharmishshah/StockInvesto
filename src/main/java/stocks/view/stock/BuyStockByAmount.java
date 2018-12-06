@@ -1,13 +1,7 @@
-
 package stocks.view.stock;
 
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 import java.util.Map;
-
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -18,9 +12,22 @@ import stocks.view.GUIView;
 public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JTextField BSAAmountTxt;
+  private javax.swing.JTextField BSACommissionRateTxt;
+  private javax.swing.JTextField BSADateTxt;
+  private javax.swing.JLabel BSAErrorLbl;
+  private javax.swing.JComboBox<String> BSAPortfolioId;
+  private javax.swing.JButton BSASave;
+  private javax.swing.JTextField BSATickerSymbolTxt;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
   /**
    * Creates new form BuyStockByAmount
+   *
    * @param controller the GUIController object.
    */
   public BuyStockByAmount(GUIController controller) {
@@ -44,6 +51,7 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method executes the action listener method.
+   *
    * @param listener the ActionListener object.
    */
   @Override
@@ -53,6 +61,7 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method displays the summary of the stocks.
+   *
    * @param data the data of the portfolio.
    */
   @Override
@@ -109,12 +118,12 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
                                     .addComponent(BSASave)
                                     .addComponent(jLabel3)
                                     .addComponent(BSAErrorLbl, javax.swing.GroupLayout
-                                            .PREFERRED_SIZE,
+                                                    .PREFERRED_SIZE,
                                             276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                             .Alignment.TRAILING, false)
                                             .addComponent(BSAPortfolioId, javax.swing.GroupLayout
-                                                    .Alignment.LEADING,
+                                                            .Alignment.LEADING,
                                                     0,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)
@@ -127,7 +136,7 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
                                             .addComponent(BSADateTxt,
                                                     javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5, javax.swing.GroupLayout
-                                                    .Alignment.LEADING,
+                                                            .Alignment.LEADING,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)))
@@ -175,20 +184,5 @@ public class BuyStockByAmount extends javax.swing.JPanel implements GUIView {
                             .addContainerGap(39, Short.MAX_VALUE))
     );
   }
-
-
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField BSAAmountTxt;
-  private javax.swing.JTextField BSACommissionRateTxt;
-  private javax.swing.JTextField BSADateTxt;
-  private javax.swing.JLabel BSAErrorLbl;
-  private javax.swing.JComboBox<String> BSAPortfolioId;
-  private javax.swing.JButton BSASave;
-  private javax.swing.JTextField BSATickerSymbolTxt;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
   // End of variables declaration//GEN-END:variables
 }

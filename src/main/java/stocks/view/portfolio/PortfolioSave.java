@@ -1,4 +1,3 @@
-
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
@@ -13,9 +12,15 @@ import stocks.view.GUIView;
 public class PortfolioSave extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JLabel PSErrorLbl;
+  private javax.swing.JComboBox<String> PSPortfolioId;
+  private javax.swing.JButton PSSaveAllBtn;
+  private javax.swing.JButton PSSaveBtn;
+  private javax.swing.JLabel jLabel1;
   /**
    * Creates new form PortfolioSave
+   *
    * @param controller the GUIController object.
    */
   public PortfolioSave(GUIController controller) {
@@ -39,6 +44,7 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the action listener method.
+   *
    * @param listener the listener of the object
    */
   @Override
@@ -49,13 +55,13 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method displays the summary of the stock.
+   *
    * @param data the data of the stock.
    */
   @Override
   public void setSummaryData(Map<String, Map<String, Double>> data) {
 
   }
-
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -98,11 +104,11 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                             .Alignment.TRAILING, false)
                                             .addComponent(PSPortfolioId, javax.swing.GroupLayout
-                                                    .Alignment.LEADING, 0,
+                                                            .Alignment.LEADING, 0,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment
-                                                    .LEADING,
+                                                            .LEADING,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)))
@@ -127,13 +133,5 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
                             .addContainerGap(188, Short.MAX_VALUE))
     );
   }
-
-
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JLabel PSErrorLbl;
-  private javax.swing.JComboBox<String> PSPortfolioId;
-  private javax.swing.JButton PSSaveAllBtn;
-  private javax.swing.JButton PSSaveBtn;
-  private javax.swing.JLabel jLabel1;
   // End of variables declaration//GEN-END:variables
 }

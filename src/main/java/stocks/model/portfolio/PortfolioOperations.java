@@ -1,9 +1,10 @@
 package stocks.model.portfolio;
 
+import org.jfree.data.category.DefaultCategoryDataset;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.model.stock.Stock;
 
@@ -87,24 +88,20 @@ public interface PortfolioOperations<Portfolio> {
   public List<Stock> viewPortfolioStocks(int portfolioId, LocalDate startDate);
 
 
-
   /**
    * The following method saves all portfolios on a file.
-   *
    */
-  void savePortfolios(boolean isSaveAll,String portfolioName,int portfolioId);
+  void savePortfolios(boolean isSaveAll, String portfolioName, int portfolioId);
 
 
   /**
    * The following method loads all portfolios from a file.
-   *
    */
-  void loadPortfolios(boolean isLoadAll,String portfolioName);
-  
-  
+  void loadPortfolios(boolean isLoadAll, String portfolioName);
+
+
   DefaultCategoryDataset getGraphDataset(LocalDate sdate,
-          LocalDate edate, int portId, int frequency);
-  
-  
-  
+                                         LocalDate edate, int portId, int frequency);
+
+
 }

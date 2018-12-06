@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import stocks.controller.GUIController;
 import stocks.model.stock.Stock;
@@ -18,7 +18,43 @@ import stocks.view.GUIView;
 public class DCA extends javax.swing.JPanel implements GUIView {
   //The following variable represents the GUIController object.
   GUIController controller;
-
+  private javax.swing.ButtonGroup buttonGroup1;
+  //The following variable represents the amount invested text field.
+  private javax.swing.JTextField dcaAmountInvested;
+  //The following variable represents dca apply button.
+  private javax.swing.JButton dcaApplyBtn;
+  //The following variable represents the commission rate text field.
+  private javax.swing.JTextField dcaCommissionRate;
+  //The following variable represents custom stock label.
+  private javax.swing.JLabel dcaCustomStocksLbl;
+  //The following variable represents the custom weight text field.
+  private javax.swing.JTextField dcaCustomWeight;
+  //The following variable represents the day frequency text field.
+  private javax.swing.JTextField dcaDayFrequency;
+  //The following variable represents the end date text field.
+  private javax.swing.JTextField dcaEndDate;
+  //The following variable represents error label.
+  private javax.swing.JLabel dcaError;
+  //The following variable represents the combo box.
+  private javax.swing.JComboBox<String> dcaExistingStrategies;
+  //The following variable represents the combo box.
+  private javax.swing.JComboBox dcaInvestmentOption;
+  //The following variable represents the combo box.
+  private javax.swing.JComboBox dcaPortfolioId;
+  //The following method represents the save button.
+  private javax.swing.JButton dcaSave;
+  //The following variable represents the start date text field.
+  private javax.swing.JTextField dcaStartDate;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel10;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
   /**
    * The following constructor initializes the DCA panel.
    *
@@ -49,6 +85,7 @@ public class DCA extends javax.swing.JPanel implements GUIView {
       dcaExistingStrategies.addItem(strategy);
     }
   }
+
   /**
    * The following method initializes the panel components
    */
@@ -193,7 +230,7 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                     .Alignment.BASELINE)
                                     .addComponent(dcaPortfolioId, javax.swing.GroupLayout
-                                            .PREFERRED_SIZE, 22,
+                                                    .PREFERRED_SIZE, 22,
                                             javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -240,7 +277,7 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(dcaInvestmentOption
-                                    ,javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    , javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,44 +293,6 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                             .addContainerGap(28, Short.MAX_VALUE))
     );
   }
-
-  private javax.swing.ButtonGroup buttonGroup1;
-  //The following variable represents the amount invested text field.
-  private javax.swing.JTextField dcaAmountInvested;
-  //The following variable represents dca apply button.
-  private javax.swing.JButton dcaApplyBtn;
-  //The following variable represents the commission rate text field.
-  private javax.swing.JTextField dcaCommissionRate;
-  //The following variable represents custom stock label.
-  private javax.swing.JLabel dcaCustomStocksLbl;
-  //The following variable represents the custom weight text field.
-  private javax.swing.JTextField dcaCustomWeight;
-  //The following variable represents the day frequency text field.
-  private javax.swing.JTextField dcaDayFrequency;
-  //The following variable represents the end date text field.
-  private javax.swing.JTextField dcaEndDate;
-  //The following variable represents error label.
-  private javax.swing.JLabel dcaError;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox<String> dcaExistingStrategies;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox dcaInvestmentOption;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox dcaPortfolioId;
-  //The following method represents the save button.
-  private javax.swing.JButton dcaSave;
-  //The following variable represents the start date text field.
-  private javax.swing.JTextField dcaStartDate;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel10;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel7;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
   // End of variables declaration//GEN-END:variables
 
   @Override

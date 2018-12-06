@@ -6,20 +6,47 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import stocks.controller.GUIController;
 import stocks.model.stock.Stock;
 import stocks.view.GUIView;
+
 /**
  * The following method represents the One time investment panel.
  */
 public class OneTime extends javax.swing.JPanel implements GUIView {
   //The following variable represents the GUIController object.
   GUIController controller;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel OneTimeCustomStocksLbl;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel1;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel2;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel3;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel4;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel5;
+  //The following variable represents the  custom label.
+  private javax.swing.JLabel jLabel6;
+  //The following variable text field.
+  private javax.swing.JTextField oneAmountInvested;
+  //The following variable text field.
+  private javax.swing.JTextField oneCommissionRate;
+  //The following variable text field.
+  private javax.swing.JTextField oneInvestmentDate;
+  private javax.swing.JComboBox oneInvestmentOption;
+  //The following variable text field.
+  private javax.swing.JTextField oneTimeCustomWeightsTxt;
+  private javax.swing.JLabel oneTimeErrorLbl;
+  private javax.swing.JComboBox oneTimePortfolioId;
+  private javax.swing.JButton saveOneTime;
   /**
    * The following constructor initializes the one time investment panel.
+   *
    * @param controller the GUIController object.
    */
   public OneTime(GUIController controller) {
@@ -41,7 +68,6 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
       }
     }
   }
-
 
   private void initComponents() {
 
@@ -177,35 +203,10 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                             .addContainerGap(45, Short.MAX_VALUE))
     );
   }
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel OneTimeCustomStocksLbl;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel1;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel2;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel3;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel4;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel5;
-  //The following variable represents the  custom label.
-  private javax.swing.JLabel jLabel6;
-  //The following variable text field.
-  private javax.swing.JTextField oneAmountInvested;
-  //The following variable text field.
-  private javax.swing.JTextField oneCommissionRate;
-  //The following variable text field.
-  private javax.swing.JTextField oneInvestmentDate;
-  private javax.swing.JComboBox oneInvestmentOption;
-  //The following variable text field.
-  private javax.swing.JTextField oneTimeCustomWeightsTxt;
-  private javax.swing.JLabel oneTimeErrorLbl;
-  private javax.swing.JComboBox oneTimePortfolioId;
-  private javax.swing.JButton saveOneTime;
 
   /**
    * The following method represents the combo box listener.
+   *
    * @param listener the item listener.
    */
   @Override
@@ -215,6 +216,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the button listener button.
+   *
    * @param listener the variable represents the listener action.
    */
   @Override
@@ -224,6 +226,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the summary data.
+   *
    * @param data the stock data.
    */
   @Override
@@ -232,6 +235,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method enables system to read from text box.
+   *
    * @param fieldName the input given by user.
    */
   @Override
@@ -250,6 +254,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method enables system to read from the combo box.
+   *
    * @param fieldName the input given by the user.
    */
   @Override
@@ -268,6 +273,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method clears the data from text box.
+   *
    * @param fieldName the content of the text box.
    */
   @Override
@@ -286,6 +292,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method updates the combo box.
+   *
    * @param stocksInPortfolio the stocks in the portfolio.
    */
   public void updateStockComboBox(List<Stock> stocksInPortfolio) {

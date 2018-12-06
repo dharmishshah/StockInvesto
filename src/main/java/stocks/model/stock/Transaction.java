@@ -28,7 +28,7 @@ public class Transaction {
   //The variable represents the total commission spent on the transaction.
   private double transactionCommission;
 
-  public Transaction(){
+  public Transaction() {
 
   }
 

@@ -66,58 +66,56 @@ public class DCA implements StrategyOperations {
       currentDate = currentDate.plusDays(strategy.getInvestmentFrequency());
     }
   }
-  
-  
+
+
   /**
    * The following method saves all portfolios on a file.
-   *
    */
   @Override
-  public void saveStrategy(String data){
-  
+  public void saveStrategy(String data) {
+
 
     try {
-      String current = new java.io.File( "." ).getCanonicalPath();
+      String current = new java.io.File(".").getCanonicalPath();
       File dir = new File(current + "/stockData/savedStrategies/");
 
-      if(!dir.exists()){
+      if (!dir.exists()) {
         dir.mkdir();
       }
-      
-       File strategyFile = new File(dir + "/strategies.txt");
-       BufferedWriter out = new BufferedWriter( 
-                   new FileWriter(strategyFile, true)); 
-       out.write(data);
-       out.newLine();
-       out.close();
-    }catch(IOException io){
-        
-    } 
+
+      File strategyFile = new File(dir + "/strategies.txt");
+      BufferedWriter out = new BufferedWriter(
+              new FileWriter(strategyFile, true));
+      out.write(data);
+      out.newLine();
+      out.close();
+    } catch (IOException io) {
+
+    }
   }
 
 
   /**
    * The following method loads all portfolios from a file.
-   *
    */
   @Override
-  public List<String> loadStrategy(){
-      List<String> savedStrategies = new ArrayList<String>();
+  public List<String> loadStrategy() {
+    List<String> savedStrategies = new ArrayList<String>();
 
-    try{
-      String current = new java.io.File( "." ).getCanonicalPath();
+    try {
+      String current = new java.io.File(".").getCanonicalPath();
       File file = new File(current + "/stockData/savedStrategies/strategies.txt");
-       FileReader fileReader = new FileReader(file);
-     // Always wrap FileReader in BufferedReader.
-    BufferedReader bufferedReader = new BufferedReader(fileReader);
-    String line;
-      if(file.exists()){
-          while ((line = bufferedReader.readLine()) != null) {
-               savedStrategies.add(line);
-          } 
+      FileReader fileReader = new FileReader(file);
+      // Always wrap FileReader in BufferedReader.
+      BufferedReader bufferedReader = new BufferedReader(fileReader);
+      String line;
+      if (file.exists()) {
+        while ((line = bufferedReader.readLine()) != null) {
+          savedStrategies.add(line);
+        }
       }
-     
-    }catch(IOException ioe){
+
+    } catch (IOException ioe) {
     }
 
     return savedStrategies;

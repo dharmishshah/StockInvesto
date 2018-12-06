@@ -1,5 +1,7 @@
 package stocks.controller;
 
+import org.jfree.data.category.DefaultCategoryDataset;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.DateTimeException;
@@ -9,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.listener.ButtonListener;
 import stocks.listener.ComboBoxItemListener;
@@ -25,9 +25,8 @@ import stocks.model.strategy.StrategyOperations;
 import stocks.view.GUIView;
 
 /**
- * The following class represents the controller of the GUI.
- * A GUI controller accepts the data from the GUI view interface and accepts the data
- * processed by the models.
+ * The following class represents the controller of the GUI. A GUI controller accepts the data from
+ * the GUI view interface and accepts the data processed by the models.
  */
 public class GUIController {
   //The following the variable represents the portfolio operations.
@@ -71,6 +70,7 @@ public class GUIController {
 
   /**
    * The following method initializes the portfolio create view.
+   *
    * @param create the GUIView object.
    */
   public void setPortfolioCreateView(GUIView create) {
@@ -83,6 +83,7 @@ public class GUIController {
 
   /**
    * The following method initializes the display portfolio view.
+   *
    * @param displayPortfolioView the GUIView object.
    */
   public void setPortfolioDisplayView(GUIView displayPortfolioView) {
@@ -95,6 +96,7 @@ public class GUIController {
 
   /**
    * The following method initializes the buy stock amount view.
+   *
    * @param buyStockByAmountView the GUIView object.
    */
   public void setBuyStockByAmountView(GUIView buyStockByAmountView) {
@@ -106,6 +108,7 @@ public class GUIController {
 
   /**
    * The following method represents buy stock volume view.
+   *
    * @param buyStockByVolumeView the GUIView object.
    */
   public void setBuyStockByVolumeView(GUIView buyStockByVolumeView) {
@@ -118,6 +121,7 @@ public class GUIController {
 
   /**
    * The following method represents the display stock view.
+   *
    * @param displayStockView the GUIView object.
    */
 
@@ -132,6 +136,7 @@ public class GUIController {
 
   /**
    * The following method represents the one time investment view.
+   *
    * @param oneTimeInvestmentView the GUIView object.
    */
   public void setOneTimeInvestmentView(GUIView oneTimeInvestmentView) {
@@ -141,6 +146,7 @@ public class GUIController {
 
   /**
    * The following method represents the dca investment view.
+   *
    * @param dcaInvestmentView the GUIView object.
    */
   public void setDCAInvestmentView(GUIView dcaInvestmentView) {
@@ -151,6 +157,7 @@ public class GUIController {
 
   /**
    * The following method represents the portfolio graph view.
+   *
    * @param portfolioGraphView the GUIView object.
    */
   public void setPortfolioGraphView(GUIView portfolioGraphView) {
@@ -162,6 +169,7 @@ public class GUIController {
 
   /**
    * The following method represents the portfolio load view.
+   *
    * @param portfolioLoadView the GUIView object.
    */
   public void setPortfolioLoadView(GUIView portfolioLoadView) {
@@ -172,6 +180,7 @@ public class GUIController {
 
   /**
    * The following method represents the portfolio save view.
+   *
    * @param portfolioSaveView the GUIView object.
    */
   public void setPortfolioSaveView(GUIView portfolioSaveView) {
@@ -181,8 +190,7 @@ public class GUIController {
   }
 
   /**
-   * The following method configures the create portfolio button.
-   * It creates the new portfolio.
+   * The following method configures the create portfolio button. It creates the new portfolio.
    */
   private void configurePortfolioCreateButtonListener() {
 
@@ -217,8 +225,7 @@ public class GUIController {
   }
 
   /**
-   * The following method configures the display button listener.
-   * It displays the portfolio.
+   * The following method configures the display button listener. It displays the portfolio.
    */
   private void configurePortfolioDisplayButtonListener() {
 
@@ -251,8 +258,7 @@ public class GUIController {
   }
 
   /**
-   * The following method configures the buy stock button listener.
-   * It buys stock by amount.
+   * The following method configures the buy stock button listener. It buys stock by amount.
    */
   private void configureBuyStockByAmountViewButtonListener() {
 
@@ -305,8 +311,7 @@ public class GUIController {
   }
 
   /**
-   * The following method configures the buy stock by volume.
-   * It buys stock by volume.
+   * The following method configures the buy stock by volume. It buys stock by volume.
    */
   private void configureBuyStockByVolumeButtonListener() {
     Map<String, Runnable> buttonClickedMap =
@@ -353,8 +358,7 @@ public class GUIController {
 
 
   /**
-   * The following method configure the display stock method.
-   * It displays the stock.
+   * The following method configure the display stock method. It displays the stock.
    */
   private void configureStockDisplayButtonListener() {
 
@@ -807,11 +811,12 @@ public class GUIController {
 
   /**
    * The following method invests in custom weighted option.
-   * @param stocks the stocks in portfolio.
-   * @param weights the list weights.
+   *
+   * @param stocks         the stocks in portfolio.
+   * @param weights        the list weights.
    * @param amountInvested the amount invested in the portfolio.
-   * @param portfolioId the id of the portfolio.
-   * @param d the date of the investment.
+   * @param portfolioId    the id of the portfolio.
+   * @param d              the date of the investment.
    * @param commissionRate the commission rate charged for the investment.
    */
   private void customWeighted(List<Stock> stocks, List<Double> weights,
@@ -828,7 +833,8 @@ public class GUIController {
 
   /**
    * The following method validated the portfolio.
-   * @param view the GUI view object.
+   *
+   * @param view  the GUI view object.
    * @param field the string of portfolio.
    */
   private int validatePortfolio(GUIView view, String field) {
@@ -846,9 +852,10 @@ public class GUIController {
 
   /**
    * The following method portfolios in the file.
-   * @param view the GUI view object.
+   *
+   * @param view  the GUI view object.
    * @param field the portfolio string.
-   * @param type the type of the investment.
+   * @param type  the type of the investment.
    */
   private String validatePortfolioNameForFiles(GUIView view, String field, String type) {
 
@@ -870,7 +877,8 @@ public class GUIController {
 
   /**
    * The following method validates the weights for the custom weight investment option.
-   * @param stocks the list of stocks.
+   *
+   * @param stocks      the list of stocks.
    * @param stockString the string of stocks' ticker symbol.
    */
   private List<Double> validateWeights(String stockString, List<Stock> stocks) {
@@ -904,6 +912,7 @@ public class GUIController {
 
   /**
    * The following method validates the day.
+   *
    * @param dayFrequency the day frequency.
    */
   private int validateDay(String dayFrequency) {
@@ -917,7 +926,8 @@ public class GUIController {
 
   /**
    * The following method validates the ticker symbol of the stock.
-   * @param view the GUIView object.
+   *
+   * @param view  the GUIView object.
    * @param field the ticker symbol.
    */
   private String validateTickerSymbol(GUIView view, String field) {
@@ -931,8 +941,9 @@ public class GUIController {
 
   /**
    * The following method compares the start and end date.
+   *
    * @param start the start date of the strategy.
-   * @param end the end date of the strategy.
+   * @param end   the end date of the strategy.
    */
   private boolean compareStrategyDates(LocalDate start, LocalDate end) {
     if (start.compareTo(end) == 0) {
@@ -945,7 +956,8 @@ public class GUIController {
 
   /**
    * The following method validates the given date.
-   * @param view the GUIView object.
+   *
+   * @param view  the GUIView object.
    * @param field the date in string form.
    */
   private LocalDate validateDate(GUIView view, String field) {
@@ -959,9 +971,10 @@ public class GUIController {
 
   /**
    * The following method validates the value.
-   * @param view the GUIView object.
+   *
+   * @param view  the GUIView object.
    * @param field the value in the string field.
-   * @param type the type of investment.
+   * @param type  the type of investment.
    */
   private double validateValue(GUIView view, String field, String type) {
     try {
@@ -982,7 +995,8 @@ public class GUIController {
 
   /**
    * The following method validates the day frequency.
-   * @param view the GUIView object.
+   *
+   * @param view  the GUIView object.
    * @param field the day in the string format.
    */
   private int validateIntValue(GUIView view, String field) {

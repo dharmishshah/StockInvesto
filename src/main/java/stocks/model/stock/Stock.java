@@ -1,6 +1,5 @@
 package stocks.model.stock;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -38,7 +37,7 @@ public class Stock {
   //The list represents the total commission paid till date for the stock.
   private double totalCommission;
 
-  public Stock(){
+  public Stock() {
 
   }
 

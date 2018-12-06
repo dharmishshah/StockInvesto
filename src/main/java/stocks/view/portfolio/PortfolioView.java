@@ -1,10 +1,9 @@
-
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
 import java.util.Map;
 
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -17,9 +16,18 @@ import stocks.view.GUIView;
 public class PortfolioView extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-
+  private javax.swing.JTextField PVDateTxt;
+  private javax.swing.JLabel PVErrorLbl;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JScrollPane jScrollPane1;
+  private javax.swing.JScrollPane jScrollPane2;
+  private javax.swing.JTable jTable1;
+  private javax.swing.JTable jTable2;
+  private javax.swing.JButton summaryViewBtn;
   /**
    * Creates new form PortfolioView
+   *
    * @param controller the GUIController object.
    */
   public PortfolioView(GUIController controller) {
@@ -98,7 +106,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
                                                     .addGroup(layout.createSequentialGroup()
                                                             .addGroup(layout.createParallelGroup
                                                                     (javax.swing.GroupLayout
-                                                                            .Alignment.LEADING,
+                                                                                    .Alignment.LEADING,
                                                                             false)
                                                                     .addComponent(jLabel1)
                                                                     .addComponent(jLabel2,
@@ -146,6 +154,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method displays the stock data.
+   *
    * @param data the stock data to be displayed.
    */
   public void setSummaryData(Map<String, Map<String, Double>> data) {
@@ -189,19 +198,10 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method executes the button action.
+   *
    * @param listener the ActionListener object.
    */
   public void addActionListener(ActionListener listener) {
     summaryViewBtn.addActionListener(listener);
   }
-
-  private javax.swing.JTextField PVDateTxt;
-  private javax.swing.JLabel PVErrorLbl;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JScrollPane jScrollPane2;
-  private javax.swing.JTable jTable1;
-  private javax.swing.JTable jTable2;
-  private javax.swing.JButton summaryViewBtn;
 }

@@ -1,4 +1,3 @@
-
 package stocks.view.portfolio;
 
 import stocks.controller.GUIController;
@@ -9,9 +8,17 @@ import stocks.controller.GUIController;
 public class PortfolioMain extends javax.swing.JSplitPane {
 
   GUIController controller;
-
+  private javax.swing.JButton PMGraphBtn;
+  private javax.swing.JButton PMLoad;
+  private javax.swing.JButton PMSave;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel3;
+  private javax.swing.JSplitPane jSplitPane1;
+  private javax.swing.JButton portfolioCreateBtn;
+  private javax.swing.JButton portfolioViewBtn;
   /**
    * Creates new form PortfolioMain
+   *
    * @param controller the GUIController object.
    */
   public PortfolioMain(GUIController controller) {
@@ -146,6 +153,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
 
   /**
    * The following method represents the action performed by create portfolio,
+   *
    * @param evt the Action event object.
    */
   private void portfolioCreateBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +162,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
 
   /**
    * The following method represents the action performed by create portfolio,
+   *
    * @param evt the Action event object.
    */
   private void portfolioViewBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +171,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
 
   /**
    * The following method represents the action performed by create portfolio,
+   *
    * @param evt the Action event object.
    */
   private void PMLoadActionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +180,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
 
   /**
    * The following method represents the action performed by create portfolio,
+   *
    * @param evt the Action event object.
    */
 
@@ -179,20 +190,11 @@ public class PortfolioMain extends javax.swing.JSplitPane {
 
   /**
    * The following method represents the action performed by create portfolio,
+   *
    * @param evt the Action event object.
    */
 
   private void PMGraphBtnActionPerformed(java.awt.event.ActionEvent evt) {
     jSplitPane1.setRightComponent(new PortfolioGraph(controller));
   }
-
-
-  private javax.swing.JButton PMGraphBtn;
-  private javax.swing.JButton PMLoad;
-  private javax.swing.JButton PMSave;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPanel jPanel3;
-  private javax.swing.JSplitPane jSplitPane1;
-  private javax.swing.JButton portfolioCreateBtn;
-  private javax.swing.JButton portfolioViewBtn;
 }

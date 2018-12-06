@@ -1,25 +1,33 @@
-
 package stocks.view.stock;
 
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 import java.util.Map;
-
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
+
 /**
  * The following class represents the buy stock by volume panel.
  */
 public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-
+  private javax.swing.JTextField BSVCommissionRateTxt;
+  private javax.swing.JTextField BSVDateTxt;
+  private javax.swing.JLabel BSVErrorLbl;
+  private javax.swing.JComboBox BSVPortfolioId;
+  private javax.swing.JButton BSVSave;
+  private javax.swing.JTextField BSVTickerSymbolTxt;
+  private javax.swing.JTextField BSVVolumeTxt;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JTextField jTextField4;
   /**
    * Creates new form BuyStockByVolume
+   *
    * @param controller the GUIController object.
    */
   public BuyStockByVolume(GUIController controller) {
@@ -41,6 +49,7 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method executes the button operation.
+   *
    * @param listener the ActionListener object.
    */
 
@@ -51,13 +60,13 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method dipslays the summary of the object.
+   *
    * @param data the data of the stock.
    */
   @Override
   public void setSummaryData(Map<String, Map<String, Double>> data) {
 
   }
-
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -134,7 +143,7 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                                                             javax.swing.GroupLayout
                                                                     .Alignment.LEADING)
                                                     .addComponent(BSVDateTxt, javax.swing
-                                                            .GroupLayout.Alignment.LEADING,
+                                                                    .GroupLayout.Alignment.LEADING,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE,
                                                             166, javax.swing.GroupLayout
                                                                     .PREFERRED_SIZE)
@@ -166,7 +175,7 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(BSVTickerSymbolTxt
-                                    ,javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    , javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,23 +207,10 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   /**
    * The following method represents the Portfolio action performed.
+   *
    * @param evt the ActionEvent object.
    */
   private void BSVPortfolioIdActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
   }
-
-  private javax.swing.JTextField BSVCommissionRateTxt;
-  private javax.swing.JTextField BSVDateTxt;
-  private javax.swing.JLabel BSVErrorLbl;
-  private javax.swing.JComboBox BSVPortfolioId;
-  private javax.swing.JButton BSVSave;
-  private javax.swing.JTextField BSVTickerSymbolTxt;
-  private javax.swing.JTextField BSVVolumeTxt;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JTextField jTextField4;
 }

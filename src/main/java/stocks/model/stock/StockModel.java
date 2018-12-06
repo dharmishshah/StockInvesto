@@ -7,9 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -355,7 +352,6 @@ public class StockModel implements StockOperations<Stock> {
   private void getLatestStockData(String tickerSymbol, File fileName, File dir) {
 
 
-
     try {
 
       StringBuilder output = this.dataSource.getData(tickerSymbol);
@@ -364,7 +360,7 @@ public class StockModel implements StockOperations<Stock> {
         throw new IllegalArgumentException(StockConstants.ERROR_PRICE_NOT_FOUND);
       }
 
-      if(!dir.exists()){
+      if (!dir.exists()) {
         dir.mkdir();
       }
 

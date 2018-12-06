@@ -1,8 +1,6 @@
 package stocks.model.portfolio;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +14,6 @@ public class Portfolio {
   private String name;
   //The variable represents the list of stocks in the portfolio.
   private Map<String, Stock> stocks;
-
-  public Portfolio(){
-  }
 
   /**
    * The following constructor initializes the portfolio.

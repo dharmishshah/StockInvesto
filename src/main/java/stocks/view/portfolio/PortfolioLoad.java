@@ -1,4 +1,3 @@
-
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
@@ -14,7 +13,11 @@ import stocks.view.GUIView;
 public class PortfolioLoad extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-
+  private javax.swing.JLabel PLErrorLbl;
+  private javax.swing.JButton PLLoadAllBtn;
+  private javax.swing.JButton PLLoadBtn;
+  private javax.swing.JComboBox<String> PLPortfolioId;
+  private javax.swing.JLabel jLabel1;
   /**
    * The following constructor initializes the portfolio load operation.
    *
@@ -71,7 +74,7 @@ public class PortfolioLoad extends javax.swing.JPanel implements GUIView {
                                                     ComponentPlacement.UNRELATED)
                                             .addComponent(PLLoadAllBtn))
                                     .addGroup(layout.createParallelGroup(javax.swing.
-                                                    GroupLayout.Alignment.TRAILING, false)
+                                            GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(PLPortfolioId, javax.swing.GroupLayout
                                                             .Alignment.LEADING, 0,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -124,10 +127,4 @@ public class PortfolioLoad extends javax.swing.JPanel implements GUIView {
   public void setSummaryData(Map<String, Map<String, Double>> data) {
 
   }
-
-  private javax.swing.JLabel PLErrorLbl;
-  private javax.swing.JButton PLLoadAllBtn;
-  private javax.swing.JButton PLLoadBtn;
-  private javax.swing.JComboBox<String> PLPortfolioId;
-  private javax.swing.JLabel jLabel1;
 }

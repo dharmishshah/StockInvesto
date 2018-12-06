@@ -2,30 +2,22 @@ package stocks.model.portfolio;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-import sun.misc.IOUtils;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.model.StockConstants;
 import stocks.model.stock.Stock;
 import stocks.model.stock.StockModel;
 import stocks.model.stock.StockOperations;
-import stocks.model.utils.LocalDateDeserializer;
-import stocks.model.utils.LocalDateSerializer;
 
 /**
  * The following class represents the portfolio model which implements the all operations performed
@@ -83,36 +75,35 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   @Override
-  public void savePortfolios(boolean isSaveAll,String portfolioName,int portfolioId) {
+  public void savePortfolios(boolean isSaveAll, String portfolioName, int portfolioId) {
     ObjectMapper mapper = new ObjectMapper();
 
     try {
-      String current = new java.io.File( "." ).getCanonicalPath();
+      String current = new java.io.File(".").getCanonicalPath();
       File dir = new File(current + "/stockData/savedPortfolios/");
 
-      if(!dir.exists()){
+      if (!dir.exists()) {
         dir.mkdir();
       }
-      if(portfolioName == null && portfolioId >0 ){
+      if (portfolioName == null && portfolioId > 0) {
         Portfolio p = portfolios.get(portfolioId);
         portfolioName = p.getName();
       }
 
       //mapper.writeValue(new File(dir + "/allPortfolios.txt"), portfolios);
 
-      for (Map.Entry<Integer,Portfolio> entry:portfolios.entrySet()){
-
+      for (Map.Entry<Integer, Portfolio> entry : portfolios.entrySet()) {
 
 
         Portfolio portfolio = entry.getValue();
-        if(isSaveAll){
-            portfolioName = portfolio.getName();
+        if (isSaveAll) {
+          portfolioName = portfolio.getName();
         }
 
-        if(portfolio.getName().equalsIgnoreCase(portfolioName)){
+        if (portfolio.getName().equalsIgnoreCase(portfolioName)) {
           File portfolioFile = new File(dir + "/" + portfolio.getName() + ".txt");
           //Object to JSON in file
-          mapper.writeValue( portfolioFile, portfolio);
+          mapper.writeValue(portfolioFile, portfolio);
         }
 
       }
@@ -124,48 +115,46 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   @Override
-  public void loadPortfolios(boolean isLoadAll,String portfolioName) {
+  public void loadPortfolios(boolean isLoadAll, String portfolioName) {
     ObjectMapper mapper = new ObjectMapper();
 
-    if(!isLoadAll && portfolioName.isEmpty()){
+    if (!isLoadAll && portfolioName.isEmpty()) {
       return;
     }
 
     try {
-      String current = new java.io.File( "." ).getCanonicalPath();
+      String current = new java.io.File(".").getCanonicalPath();
       File dir = new File(current + "/stockData/savedPortfolios/");
 
-      if(!dir.exists()){
+      if (!dir.exists()) {
         dir.mkdir();
       }
       File[] files = dir.listFiles();
       List<String> existingPortfolios = new ArrayList<String>();
-      for(Map.Entry<Integer,Portfolio> portfolio:portfolios.entrySet()){
+      for (Map.Entry<Integer, Portfolio> portfolio : portfolios.entrySet()) {
         Portfolio p = portfolio.getValue();
         existingPortfolios.add(p.getName());
       }
 
 
-
       //portfolios = mapper.readValue(dir + "allPortfolios.txt", Map.class);
 
-      for(File file:files){
+      for (File file : files) {
 
-        if(isLoadAll){
-          portfolioName = file.getName().replace(".txt","");
+        if (isLoadAll) {
+          portfolioName = file.getName().replace(".txt", "");
         }
 
-        if(file.getName().replace(".txt","").equalsIgnoreCase(portfolioName)){
+        if (file.getName().replace(".txt", "").equalsIgnoreCase(portfolioName)) {
           //Object to JSON in file
           Portfolio portfolio = mapper.readValue(file, Portfolio.class);
-          if(existingPortfolios.contains(portfolioName)){
+          if (existingPortfolios.contains(portfolioName)) {
             throw new IllegalArgumentException("Portfolio with same name already Exists.");
           }
-          portfolios.put(portfolios.size()+1,portfolio);
+          portfolios.put(portfolios.size() + 1, portfolio);
         }
 
       }
-
 
 
     } catch (IOException i) {
@@ -257,7 +246,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
     for (String key : keys) {
       Stock stock = stocks.get(key);
 
-      if ( stock.getDate().compareTo(startDate) <= 0) {
+      if (stock.getDate().compareTo(startDate) <= 0) {
         listOfStocks.add(stocks.get(key));
       }
     }
@@ -314,7 +303,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       double commissionPaid = stockOperations.getTotalCommissionPaid(date, s);
       resultValues.put("commission", commissionPaid);
       volume = s.getVolume();
-      resultValues.put("volume", currentCostBasis != 0?volume:0); 
+      resultValues.put("volume", currentCostBasis != 0 ? volume : 0);
       resultMap.put(s.getTickerSymbol(), resultValues);
 
       totalCostBasis = totalCostBasis + currentCostBasis;
@@ -362,7 +351,7 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       resultValues.put("costBasis", totalCostBasis);
       resultValues.put("totalValue", totalValue);
       resultValues.put("commission", totalCommissionPaid);
-      resultValues.put("volume", totalCostBasis != 0?volume:0);
+      resultValues.put("volume", totalCostBasis != 0 ? volume : 0);
 
       resultMap.put(portfolio.getName(), resultValues);
     }
@@ -443,40 +432,45 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
       throw new IllegalArgumentException(StockConstants.ERROR_INVALID_PORTFOLIO_ID);
     }
   }
-  
-  
-  
-  
-  public DefaultCategoryDataset getGraphDataset(LocalDate sdate, LocalDate edate, int portId, int frequency){
-      LocalDate currentDate = sdate;
-       
+
+  /**
+   * This method creates the graph dataset
+   * @param sdate
+   * @param edate
+   * @param portId
+   * @param frequency
+   * @return
+   */
+  public DefaultCategoryDataset getGraphDataset(LocalDate sdate, LocalDate edate, int portId, int frequency) {
+    LocalDate currentDate = sdate;
+
     String series1 = "Cost";
     String series2 = "Value";
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     while (currentDate.compareTo(edate) < 0
             || currentDate.compareTo(edate) == 0) {
-        Map<String, Map<String, Double>> portfoliosSet = 
-                this.displayStocks(portId, currentDate);
-        double totalCostBasis = 0.0;
-        double totalValue = 0.0;
-        double volume = 0;
-        double totalCommission = 0.0;
-        for (Map.Entry<String, Map<String, Double>> stock : portfoliosSet.entrySet()) {
+      Map<String, Map<String, Double>> portfoliosSet =
+              this.displayStocks(portId, currentDate);
+      double totalCostBasis = 0.0;
+      double totalValue = 0.0;
+      double volume = 0;
+      double totalCommission = 0.0;
+      for (Map.Entry<String, Map<String, Double>> stock : portfoliosSet.entrySet()) {
 
-            String tickerSymbol = stock.getKey();
-            Map<String, Double> resultValues = stock.getValue();
-            double currentCostBasis = resultValues.get("costBasis");
-            double currentTotalValue = resultValues.get("totalValue");
-            double commissionPaid = resultValues.get("commission");
-            volume = volume + resultValues.get("volume");
+        String tickerSymbol = stock.getKey();
+        Map<String, Double> resultValues = stock.getValue();
+        double currentCostBasis = resultValues.get("costBasis");
+        double currentTotalValue = resultValues.get("totalValue");
+        double commissionPaid = resultValues.get("commission");
+        volume = volume + resultValues.get("volume");
 
-            totalCostBasis = totalCostBasis + currentCostBasis;
-            totalValue = totalValue + currentTotalValue;
-            totalCommission = totalCommission + commissionPaid;
-        }
-        dataset.addValue(totalCostBasis, series1, currentDate.toString());
-        dataset.addValue(totalValue, series2, currentDate.toString());
-        currentDate = currentDate.plusDays(frequency);
+        totalCostBasis = totalCostBasis + currentCostBasis;
+        totalValue = totalValue + currentTotalValue;
+        totalCommission = totalCommission + commissionPaid;
+      }
+      dataset.addValue(totalCostBasis, series1, currentDate.toString());
+      dataset.addValue(totalValue, series2, currentDate.toString());
+      currentDate = currentDate.plusDays(frequency);
     }
     return dataset;
   }

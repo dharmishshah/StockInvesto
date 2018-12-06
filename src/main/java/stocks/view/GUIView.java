@@ -1,18 +1,15 @@
-
 package stocks.view;
 
-import java.awt.Color;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import org.jfree.data.category.DefaultCategoryDataset;
+import javax.swing.*;
 
 import stocks.model.stock.Stock;
 
@@ -29,6 +26,7 @@ public interface GUIView {
 
   /**
    * The following method displays the summary of the stock.
+   *
    * @param data the data in the portfolio.
    */
   void setSummaryData(Map<String, Map<String, Double>> data);
@@ -48,8 +46,9 @@ public interface GUIView {
 
   /**
    * The following method sets the text field data.
+   *
    * @param fieldName the string input.
-   * @param value the value of the stock.
+   * @param value     the value of the stock.
    */
   default void setTextFieldData(String fieldName, String value) {
 
@@ -57,8 +56,9 @@ public interface GUIView {
 
   /**
    * The following method accepts data for the label.
+   *
    * @param fieldName the input given by the user.
-   * @param message the message for the label.
+   * @param message   the message for the label.
    */
   default void setLabelFieldData(String fieldName, String message) {
     try {
@@ -75,6 +75,7 @@ public interface GUIView {
 
   /**
    * The following method assigns the data in combo box.
+   *
    * @param fieldName the field parameter.
    */
   default String getComboFieldData(String fieldName) {
@@ -92,6 +93,7 @@ public interface GUIView {
 
   /**
    * The following method assigns the data in combo box.
+   *
    * @param fieldName the field parameter.
    */
   default void clearTextFieldData(String fieldName) {
@@ -109,8 +111,9 @@ public interface GUIView {
 
   /**
    * The following method assigns the error.
+   *
    * @param fieldName the field value attribute.
-   * @param message the string of the message.
+   * @param message   the string of the message.
    */
   default void setErrorMessage(String fieldName, String message) {
     try {
@@ -128,8 +131,9 @@ public interface GUIView {
 
   /**
    * The following method assigns the success message.
+   *
    * @param fieldName the field value attribute.
-   * @param message the string of the message.
+   * @param message   the string of the message.
    */
   default void setSuccessMessage(String fieldName, String message) {
     try {
@@ -147,6 +151,7 @@ public interface GUIView {
 
   /**
    * The following method updates the combox.
+   *
    * @param stocksInPortfolio the stocks in the portfolio.
    */
   default void updateStockComboBox(List<Stock> stocksInPortfolio) {
@@ -155,10 +160,11 @@ public interface GUIView {
 
   /**
    * The following plots the graph.
+   *
    * @param plotName the name of the plot.
-   * @param XAxis the x axis of the plot.
-   * @param YAxis the y axis of the plot.
-   * @param dataset the dataset of the plot.
+   * @param XAxis    the x axis of the plot.
+   * @param YAxis    the y axis of the plot.
+   * @param dataset  the dataset of the plot.
    */
   default void plotGraph(String plotName, String XAxis, String YAxis,
                          DefaultCategoryDataset dataset) {
