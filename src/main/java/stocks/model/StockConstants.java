@@ -42,10 +42,20 @@ public class StockConstants {
   public static String ERROR_COMMISSION_RATE_ZERO = "Commission Rate cannot be zero\n";
   public static String ERROR_COMMISSION_RATE_INVALID = "Commission Rate cannot be greater than " +
           "100\n";
+  public static String ERROR_WEIGHTAGE_SIZE = "The weights in the list do not match with"
+          + "with the number of stocks";
+  public static String ERROR_NEGATIVE_WEIGHTAGE = "WEIGHT IS NEGATIVE";
+  public static String ERROR_GREATER_WEIGHTAGE = "WEIGHT CANNOT BE GREATER THAN 100";
+  public static String ERROR_SUM_WEIGHTS = "SUM OF THE WEIGHT CANNOT BE GREATER THAN 100";
+  public static String ERROR_SUM_WEIGHTS_LESS = "SUM OF THE WEIGHT CANNOT BE LESS THAN 100";
   public static String ERROR_INVALID_COMMISSION = "Commission Rate cannot be less than 0 or " +
           "greater than 100\n";
+  
+  public static String ERROR_DAYS = "INVALID DAY FREQIUENCY";
   public static String ERROR_INVALID_FILE = "Invalid file\n";
   public static String SOMETHING_WENT_WRONG = "Ooops!!!! Something went wrong\n";
+  public static String ERROR_SAME_DATE = "START AND END DATE CAN BE SAME";
+  public static String ERROR_START_DATE = "START DATE CANNOT BE PRIOR TO END DATE";
 
 
 }
