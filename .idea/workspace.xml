@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77549a52-e173-48fa-80f4-873d953d7a09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockInvesto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StockInvesto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/CustomWeighted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/CustomWeighted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioSave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByAmount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByVolume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,24 +63,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="13186" />
+          <entry key="java" value="13298" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13186" />
+          <entry key="JAVA" value="13298" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="form" value="1" />
-          <entry key="java" value="21" />
+          <entry key="java" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="JAVA" value="21" />
+          <entry key="JAVA" value="23" />
         </counts>
       </usages-collector>
     </session>
@@ -131,12 +114,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#815#845#0" expanded="true" />
+                <element signature="e#848#937#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-263">
               <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="e#807#837#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1402">
+              <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" />
         <option value="$USER_HOME$/AppData/Local/Packages/microsoft.windowscommunicationsapps_8wekyb3d8bbwe/LocalState/Files/S0/4687/GUIController[5453].java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/SampleGraph.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/SampleJFrameGraph.java" />
@@ -189,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/main/java/stocks/datasource/StockDataSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/StockDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/investment/CustomWeighted.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.java" />
@@ -204,6 +211,8 @@
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByAmount.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/stock/BuyStockByVolume.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/stock/StockMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java" />
       </list>
     </option>
   </component>
@@ -288,7 +297,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544132322660" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544132859267" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -341,12 +350,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543968830243</updated>
-      <workItem from="1544112648060" duration="18491000" />
+      <workItem from="1544112648060" duration="19026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18491000" />
+    <option name="totallyTimeSpent" value="19026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -427,13 +436,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Packages/microsoft.windowscommunicationsapps_8wekyb3d8bbwe/LocalState/Files/S0/4687/GUIController[5454].java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/Portfolio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -546,25 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-15130">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#622#652#0" expanded="true" />
-            <element signature="e#1570#1571#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
-            <element signature="e#2078#2079#0" expanded="true" />
-            <element signature="e#6281#6282#0" expanded="true" />
-            <element signature="e#6305#6306#0" expanded="true" />
-            <element signature="e#7457#7458#0" expanded="true" />
-            <element signature="e#7513#7514#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,6 +716,28 @@
           <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="e#807#837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1402">
+          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#815#845#0" expanded="true" />
+            <element signature="e#848#937#0" expanded="true" />
           </folding>
         </state>
       </provider>
