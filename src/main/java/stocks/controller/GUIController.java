@@ -769,6 +769,7 @@ public class GUIController {
         savedFiles.add(file.getName().replace(".txt", ""));
       }
     } catch (IOException ioe) {
+      throw new IllegalArgumentException("Invalid directory path.");
     }
     return savedFiles;
   }
@@ -783,7 +784,7 @@ public class GUIController {
 
 
   /**
-   * The following method invests in the portfolio by equally distributing amount in each stock
+   * The following method invests in the portfolio by equally distributing amount in each stock.
    *
    * @param stocks         the list of stocks in which amount is to be invested.
    * @param amountInvested the amount invested in portfolio.
