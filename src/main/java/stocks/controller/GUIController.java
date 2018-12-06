@@ -344,7 +344,7 @@ public class GUIController {
 
       }catch (IllegalArgumentException iae) {
         this.oneTimeInvestmentView
-                .setErrorMessage("ERROR IN INPUT",
+                .setErrorMessage("oneTimeErrorLbl",
                         iae.getMessage());
       }
       oneTimeInvestmentView.clearTextFieldData("oneAmountInvested");
@@ -450,7 +450,7 @@ public class GUIController {
         
       }catch (IllegalArgumentException iae) {
         this.dcaInvestmentView
-                .setErrorMessage("ERROR IN INPUT",
+                .setErrorMessage("dcaError",
                         iae.getMessage());
       }
       dcaInvestmentView.clearTextFieldData("dcaStartDate");
