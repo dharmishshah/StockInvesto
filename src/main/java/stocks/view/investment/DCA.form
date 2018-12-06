@@ -30,17 +30,22 @@
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="dcaSave" alignment="0" max="32767" attributes="0"/>
-                      <Component id="dcaInvestmentOption" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                  </Group>
                   <Component id="dcaStartDate" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                   <Component id="dcaEndDate" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="dcaAmountInvested" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="dcaCommissionRate" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="dcaCustomStocksLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="dcaCustomWeight" alignment="0" max="32767" attributes="0"/>
+                      <Component id="dcaInvestmentOption" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="dcaDayFrequency" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
+                  <Component id="dcaError" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="dcaSave" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <EmptySpace pref="437" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,19 +68,29 @@
               <Component id="dcaEndDate" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="dcaAmountInvested" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="dcaCommissionRate" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="dcaDayFrequency" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="dcaInvestmentOption" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="dcaCustomStocksLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="dcaCustomWeight" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="dcaSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="dcaError" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,11 +155,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="dcaSave">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="SAVE"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="dcaStartDate">
     </Component>
     <Component class="javax.swing.JTextField" name="dcaEndDate">
@@ -152,6 +162,27 @@
     <Component class="javax.swing.JTextField" name="dcaAmountInvested">
     </Component>
     <Component class="javax.swing.JTextField" name="dcaCommissionRate">
+    </Component>
+    <Component class="javax.swing.JLabel" name="dcaCustomStocksLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter the custom Weight seperated by commas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="dcaCustomWeight">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ENTER THE DAY FREQUENCY"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="dcaDayFrequency">
+    </Component>
+    <Component class="javax.swing.JLabel" name="dcaError">
+    </Component>
+    <Component class="javax.swing.JButton" name="dcaSave">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SAVE"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

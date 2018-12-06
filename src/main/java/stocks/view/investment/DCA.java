@@ -6,6 +6,7 @@
 package stocks.view.investment;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,7 @@ public class DCA extends javax.swing.JPanel implements GUIView{
     public DCA( GUIController controller) {
         initComponents();
         this.controller = controller;
+        this.controller.setDCAInvestmentView(this);
         dcaInvestmentOption.removeAllItems();
         dcaInvestmentOption.addItem("EQUAL");
         dcaInvestmentOption.addItem("CUSTOM");
@@ -63,11 +65,16 @@ public class DCA extends javax.swing.JPanel implements GUIView{
         dcaPortfolioId = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         dcaInvestmentOption = new javax.swing.JComboBox();
-        dcaSave = new javax.swing.JButton();
         dcaStartDate = new javax.swing.JTextField();
         dcaEndDate = new javax.swing.JTextField();
         dcaAmountInvested = new javax.swing.JTextField();
         dcaCommissionRate = new javax.swing.JTextField();
+        dcaCustomStocksLbl = new javax.swing.JLabel();
+        dcaCustomWeight = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        dcaDayFrequency = new javax.swing.JTextField();
+        dcaError = new javax.swing.JLabel();
+        dcaSave = new javax.swing.JButton();
 
         jLabel1.setText("DCA STRATEGY");
 
@@ -87,6 +94,10 @@ public class DCA extends javax.swing.JPanel implements GUIView{
 
         dcaInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        dcaCustomStocksLbl.setText("Enter the custom Weight seperated by commas");
+
+        jLabel8.setText("ENTER THE DAY FREQUENCY");
+
         dcaSave.setText("SAVE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -103,15 +114,20 @@ public class DCA extends javax.swing.JPanel implements GUIView{
                     .addComponent(jLabel5)
                     .addComponent(jLabel3)
                     .addComponent(jLabel7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(dcaSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dcaInvestmentOption, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(dcaStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dcaEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dcaAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dcaCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(149, Short.MAX_VALUE))
+                    .addComponent(dcaCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaCustomStocksLbl)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(dcaCustomWeight, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(dcaInvestmentOption, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel8)
+                    .addComponent(dcaDayFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcaError)
+                    .addComponent(dcaSave))
+                .addContainerGap(437, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,19 +148,29 @@ public class DCA extends javax.swing.JPanel implements GUIView{
                 .addComponent(dcaEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dcaAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dcaCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dcaDayFrequency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(dcaInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(dcaCustomStocksLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dcaCustomWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(dcaSave)
-                .addGap(28, 28, 28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dcaError)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -152,7 +178,11 @@ public class DCA extends javax.swing.JPanel implements GUIView{
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField dcaAmountInvested;
     private javax.swing.JTextField dcaCommissionRate;
+    private javax.swing.JLabel dcaCustomStocksLbl;
+    private javax.swing.JTextField dcaCustomWeight;
+    private javax.swing.JTextField dcaDayFrequency;
     private javax.swing.JTextField dcaEndDate;
+    private javax.swing.JLabel dcaError;
     private javax.swing.JComboBox dcaInvestmentOption;
     private javax.swing.JComboBox dcaPortfolioId;
     private javax.swing.JButton dcaSave;
@@ -164,6 +194,7 @@ public class DCA extends javax.swing.JPanel implements GUIView{
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 
 @Override
@@ -171,55 +202,16 @@ public void addActionListener(ActionListener listener) {
     dcaSave.addActionListener(listener);
 }
 
+@Override
+    public void addComboBoxListener(ItemListener listener) {
+        dcaInvestmentOption.addItemListener(listener);
+    }
+
  @Override
     public void setSummaryData(Map<String, Map<String, Double>> data) {
     }
 
-    @Override
-    public String getTextFieldData(String fieldName) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            return portfolioName.getText();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public String getComboFieldData(String fieldName) {
-         try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
-            return (String)portfolioName.getSelectedItem();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public void clearTextFieldData(String fieldName) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            portfolioName.setText("");
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public void setErrorMessage(String fieldName, String message) {
-    }
+    
 
     @Override
     public void updateStockComboBox(List<Stock> stocksInPortfolio) {

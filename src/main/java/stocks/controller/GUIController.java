@@ -17,6 +17,9 @@ import stocks.model.portfolio.Portfolio;
 import stocks.model.portfolio.PortfolioModel;
 import stocks.model.portfolio.PortfolioOperations;
 import stocks.model.stock.Stock;
+import stocks.model.strategy.DCA;
+import stocks.model.strategy.Strategy;
+import stocks.model.strategy.StrategyOperations;
 import stocks.view.GUIView;
 
 
@@ -107,7 +110,7 @@ public class GUIController {
 
     this.dcaInvestmentView = dcaInvestmentView;
     //create and set the keyboard listener
-    configureBuyStockByAmountViewButtonListener();
+    configureDCAInvestmentButtonListener();
 
   }
 
@@ -319,9 +322,6 @@ public class GUIController {
 
       String investmentOption
               = oneTimeInvestmentView.getComboFieldData("oneInvestmentOption");
-
-      String stocksInPortfolio
-              = oneTimeInvestmentView.getComboFieldData("stocksInPortfolio");
       try {
         int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
         double amountInvested = Double.parseDouble(amount);
@@ -337,15 +337,7 @@ public class GUIController {
              List<Double> stockWeightage = new ArrayList<>();
               String stocksWeights
               = oneTimeInvestmentView.getTextFieldData("oneTimeCustomWeightsTxt");
-          for (Stock stock:stocks) {
-            String stockSymbol
-                    = oneTimeInvestmentView.getComboFieldData("oneStocksInPortfolio");
-            String weightAgeForStock
-                    = oneTimeInvestmentView.getTextFieldData("weightAge");
-            Double weight = Double.parseDouble(weightAgeForStock);
-            stockWeightage.add(weight);
-            oneTimeInvestmentView.clearTextFieldData("weightAge");
-          }
+              stockWeightage = validateWeights(stocksWeights, stocks);
           customWeighted(stocks, stockWeightage,
                   amountInvested, portId, d, commission);
         }
@@ -358,6 +350,7 @@ public class GUIController {
       oneTimeInvestmentView.clearTextFieldData("oneAmountInvested");
       oneTimeInvestmentView.clearTextFieldData("oneInvestmentDate");
       oneTimeInvestmentView.clearTextFieldData("oneCommissionRate");
+      oneTimeInvestmentView.clearTextFieldData("oneTimeCustomWeightsTxt");
 
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -377,8 +370,14 @@ public class GUIController {
          for(Stock stock:stocks){
              stockString = stockString + stock.getTickerSymbol() + " ";
          }
+         if(stocks.size()==0) {
+             oneTimeInvestmentView.setErrorMessage("oneTimeErrorLbl",
+                     "NO STOCKS IN THE PORTFOLIO!!!! PLEASE BUY STOCKS FIRST");
+         }
          oneTimeInvestmentView.setLabelFieldData("OneTimeCustomStocksLbl",
-                 "Enter custom weights seperated by comma - " + stockString);
+                 "There are "+stocks.size()+" stocks."
+                         +" Enter custom weights seperated by comma - " 
+                         + stockString);
         }catch(IllegalArgumentException iae){
             oneTimeInvestmentView.setErrorMessage("oneTimeErrorLbl",iae.getMessage());
         }
@@ -387,7 +386,8 @@ public class GUIController {
 
     comboBoxMap.put("EQUAL",()-> {
      
-      oneTimeInvestmentView.setErrorMessage("OneTimeCustomStocksLbl","changed123");
+      oneTimeInvestmentView.setErrorMessage("OneTimeCustomStocksLbl",
+              "THE FOLLOWING TEXT BOX IS ONLY TO ENTER THE CUSTOM WEIGHTS!!!");
     });
 
     comboBoxItemListener.setComboBoxActionMap(comboBoxMap);
@@ -396,10 +396,13 @@ public class GUIController {
 
 
   }
+   
 
   private void configureDCAInvestmentButtonListener() {
     Map<String,Runnable> buttonClickedMap =new HashMap<String,Runnable>();
+    Map<String,Runnable> comboBoxMap = new HashMap<String,Runnable>();
     ButtonListener buttonListener = new ButtonListener();
+    ComboBoxItemListener comboBoxItemListener = new ComboBoxItemListener();
     buttonClickedMap.put("createDCA",()->{
       String portfolioId = dcaInvestmentView.getComboFieldData("dcaPortfolioId");
       String start = dcaInvestmentView.getTextFieldData("dcaStartDate");
@@ -413,25 +416,93 @@ public class GUIController {
         double commissionRate = Double.parseDouble(commission);
         LocalDate d1 = LocalDate.parse(start,formatter);
         LocalDate d2 = LocalDate.parse(end,formatter);
-        if (investOption.matches("EQUAL")) {
-          List<Stock> stocks =
+        List<Stock> stocks =
                   portfolioOperations.viewPortfolioStocks(portId, d1);
+        
+        if (investOption.matches("EQUAL")) {
           equalWeightedInvestment(stocks, amountInvested,
-                  portId, d1, commissionRate);}
+                  portId, d1, commissionRate);
+        }
+        
+        
+        else if (investOption.matches("CUSTOM")) {
+          List<Double> stockWeightage = new ArrayList<>();
+          
+          StrategyOperations dcaStrategy = new DCA(portfolioOperations);
+          
+          String dayFrequency 
+                  = dcaInvestmentView.getTextFieldData("dcaDayFrequency");
+          String stocksWeights
+              = dcaInvestmentView.getTextFieldData("dcaCustomWeight");
+          int days = 0;
+          days = validateDay(dayFrequency);
+          boolean datesValidity = compareStrategyDates(d1, d2);
+          stockWeightage = validateWeights(stocksWeights, stocks);
+ 
+          if (datesValidity) {
+             Strategy newStrategy = new Strategy (d1,d2,portId,amountInvested,
+                     commissionRate,stocks,stockWeightage,days);
+             dcaStrategy.executeStrategy(newStrategy);
+          }
+          
+        } 
+        
       }catch (IllegalArgumentException iae) {
-        this.oneTimeInvestmentView
+        this.dcaInvestmentView
                 .setErrorMessage("ERROR IN INPUT",
                         iae.getMessage());
       }
-      dcaInvestmentView.clearTextFieldData("oneInvestmentDate");
       dcaInvestmentView.clearTextFieldData("dcaStartDate");
       dcaInvestmentView.clearTextFieldData("dcaEndDate");
+      dcaInvestmentView.clearTextFieldData("dcaAmountInvested");
       dcaInvestmentView.clearTextFieldData("dcaCommissionRate");
+      dcaInvestmentView.clearTextFieldData("dcaDayFrequency");
+      dcaInvestmentView.clearTextFieldData("dcaCustomWeight");
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
     this.dcaInvestmentView.addActionListener(buttonListener);
-  }
+    
+    
+    comboBoxMap.put("CUSTOM",()-> {
+        
+        try{
+            int portId = 
+                 validatePortfolio(dcaInvestmentView, "dcaPortfolioId");
+           LocalDate start
+              = validateDate(dcaInvestmentView,"dcaStartDate");
+           LocalDate end
+              = validateDate(dcaInvestmentView,"dcaEndDate");
+         List<Stock> stocks =
+                portfolioOperations.viewPortfolioStocks(portId, start);
+         String stockString = "";
+         for(Stock stock:stocks){
+             stockString = stockString + stock.getTickerSymbol() + " ";
+         }
+         if(stocks.size()==0) {
+             dcaInvestmentView.setErrorMessage("dcaError",
+                     "NO STOCKS IN THE PORTFOLIO!!!! PLEASE BUY STOCKS FIRST");
+         }
+         dcaInvestmentView.setLabelFieldData("dcaCustomStocksLbl",
+                 "There are "+stocks.size()+" stocks."
+                         +" Enter custom weights seperated by comma - " 
+                         + stockString);
+        }catch(IllegalArgumentException iae){
+            dcaInvestmentView.setErrorMessage("dcaError",iae.getMessage());
+        }
+         
+    });
 
+    comboBoxMap.put("EQUAL",()-> {
+     
+      dcaInvestmentView.setErrorMessage("dcaCustomStocksLbl",
+              "THE FOLLOWING TEXT BOX IS ONLY TO ENTER THE CUSTOM WEIGHTS!!!");
+    });
+
+    comboBoxItemListener.setComboBoxActionMap(comboBoxMap);
+    this.dcaInvestmentView.addComboBoxListener(comboBoxItemListener);
+
+  }
+  
 
 
 
@@ -610,7 +681,52 @@ public class GUIController {
       throw new IllegalArgumentException(StockConstants.ERROR_INVALID_PORTFOLIO_ID);
     }
   }
-
+  
+    private List<Double> validateWeights (String stockString, List<Stock>stocks) {
+      String[] weightsList = stockString.split(",");
+      List<Double> weightsOfStock = new ArrayList<>();
+      if (weightsList.length!=stocks.size()) {
+          throw new IllegalArgumentException(StockConstants.ERROR_WEIGHTAGE_SIZE);
+      }
+      else {
+          for (String weight:weightsList ) {
+              Double weightage = Double.parseDouble(weight);
+              if (weightage < 0) {
+                  throw new IllegalArgumentException(StockConstants.ERROR_NEGATIVE_WEIGHTAGE);
+              }
+              else if (weightage > 100) {
+                  throw new IllegalArgumentException(StockConstants.ERROR_GREATER_WEIGHTAGE);
+              }
+              else {
+              weightsOfStock.add(weightage);
+              }      
+          }
+          
+          double sum = 0;
+          for (Double weights:weightsOfStock) {
+              sum = sum + weights;
+          }
+          
+          if (sum>100) {
+              throw new IllegalArgumentException(StockConstants.ERROR_SUM_WEIGHTS);
+          }
+          
+          else if (sum <100) {
+              throw new IllegalArgumentException(StockConstants.ERROR_SUM_WEIGHTS_LESS);
+          }
+         
+      }
+      return weightsOfStock;  
+  }
+    
+ private int validateDay(String dayFrequency) {
+      int days = 0;
+      days = Integer.parseInt(dayFrequency);
+      if (days <= 0) {
+          throw new IllegalArgumentException(StockConstants.ERROR_DAYS);
+      }
+      return days;
+  }
 
   private String validateTickerSymbol(GUIView view, String field) {
 
@@ -628,7 +744,17 @@ public class GUIController {
 
 
   }
-
+  
+  
+  private boolean compareStrategyDates (LocalDate start, LocalDate end) {
+      if (start.compareTo(end) == 0) {
+          throw new IllegalArgumentException(StockConstants.ERROR_SAME_DATE);
+      }
+      else if (start.compareTo(end)>0) {
+          throw new IllegalArgumentException(StockConstants.ERROR_START_DATE);
+      }
+      return true;
+  }
 
   private LocalDate validateDate(GUIView view, String field) {
 
