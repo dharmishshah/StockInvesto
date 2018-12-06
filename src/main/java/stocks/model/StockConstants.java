@@ -4,7 +4,7 @@ public class StockConstants {
 
   public static String MENU = "Menu\n1.Add Portfolio\n2.View Portfolio\n3.Buy Stock by Volume"
           + "\n4.Buy Stock by Amount\n5.View Stock\n6.Invest In Existing Portfolio By Strategy \n" +
-          "7.Save Portfolio\n8.Load Portfolio\n9.Exit\n";
+          "7.Save Portfolio\n8.Load Portfolio\n9.Use Existing Strategy\n10.Exit\n";
   public static String ADD_PORTFOLIO_NAME = "Please enter portfolio name\n";
   public static String ADD_DATE = "Enter the start date in MM/DD/YYYY format\n";
   public static String ADD_END_DATE = "Enter the end date in MM/DD/YYYY format\n";

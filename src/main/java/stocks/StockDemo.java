@@ -14,19 +14,16 @@ public class StockDemo {
    */
   public static void main(String[] args) {
 
-    if(args.length > 0 ){
+    if (args.length == 2) {
 
-      if(args[0].equalsIgnoreCase("gui")){
+      if (args[0].equalsIgnoreCase("-view") && args[1].equalsIgnoreCase("gui")) {
         new ApplicationMain().main(args);
-      }else if(args[0].equalsIgnoreCase("text")){
+      } else if (args[0].equalsIgnoreCase("-view") && args[1].equalsIgnoreCase("text")) {
         new StockController(new InputStreamReader(System.in), System.out).handleOperation();
-      }else{
-        System.out.println("Invalid input.Please pass gui or text ");
+      } else {
+        System.out.println("Invalid input.Please pass -view gui or -view text ");
       }
     }
-
-    new ApplicationMain().main(args);
-
-
+    new StockController(new InputStreamReader(System.in), System.out).handleOperation();
   }
 }
