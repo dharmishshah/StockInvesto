@@ -13,20 +13,9 @@ import stocks.view.stock.StockMain;
 public class ApplicationMain extends javax.swing.JFrame {
 
   GUIController controller;
-  //The following variable represents the exit button.
-  private javax.swing.JButton exitBtn;
-  //The following variable represents the investment button.
-  private javax.swing.JButton investmentBtn;
-  //The following variable represents the panel.
-  private javax.swing.JPanel jPanel1;
-  //The following variable represents the panel.
-  private javax.swing.JPanel jPanel2;
+
   //The following variable represents the panel.
   private javax.swing.JSplitPane jSplitPane1;
-  //The following variable represents the profile button.
-  private javax.swing.JButton portfolioBtn;
-  //The following variable represents the stock button.
-  private javax.swing.JButton stockBtn;
 
   /**
    * The following constructor creates the new form ApplicationMain.
@@ -80,6 +69,19 @@ public class ApplicationMain extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    //The following variable represents the exit button.
+    javax.swing.JButton exitBtn;
+    //The following variable represents the investment button.
+    javax.swing.JButton investmentBtn;
+    //The following variable represents the panel.
+    javax.swing.JPanel jPanel1;
+    //The following variable represents the panel.
+    javax.swing.JPanel jPanel2;
+    //The following variable represents the profile button.
+    javax.swing.JButton portfolioBtn;
+    //The following variable represents the stock button.
+    javax.swing.JButton stockBtn;
+
     jSplitPane1 = new javax.swing.JSplitPane();
     jPanel1 = new javax.swing.JPanel();
     portfolioBtn = new javax.swing.JButton();
@@ -124,8 +126,8 @@ public class ApplicationMain extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup
-                                    (javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(
+                                    javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(investmentBtn,
                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -185,7 +187,7 @@ public class ApplicationMain extends javax.swing.JFrame {
     );
 
     pack();
-  }// </editor-fold>//GEN-END:initComponents
+  }
 
   /**
    * The following method represents the action performed for the portfolio button.
