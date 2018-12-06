@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.swing.JTable;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -51,42 +52,27 @@ public class PortfolioGraph extends javax.swing.JPanel implements GUIView{
         for (int i = 0; i < maxDataPoints ; i++) {
             scores.add(random.nextInt(maxScore));
         }
-        jScrollPane1.setViewportView(new Graph(scores));
+        
 
     }
 
     @Override
     public void addActionListener(ActionListener listener) {
-
+      PGViewGraphBtn.addActionListener(listener);
     }
 
     @Override
     public void setSummaryData(Map<String, Map<String, Double>> data) {
 
     }
-
+    
     @Override
-    public String getTextFieldData(String fieldName) {
-        return null;
+    public void plotGraph(String plotName, String XAxis, String YAxis,
+            DefaultCategoryDataset dataset){
+        jScrollPane1.setViewportView(new Graph(plotName,XAxis,YAxis,dataset));
     }
 
-    @Override
-    public String getComboFieldData(String fieldName) {
-        return null;
-    }
-
-    @Override
-    public void clearTextFieldData(String fieldName) {
-
-    }
-
-    @Override
-    public void setErrorMessage(String fieldName, String message) {
-
-    }
-
-
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,12 +86,25 @@ public class PortfolioGraph extends javax.swing.JPanel implements GUIView{
         PGPortfolioId = new javax.swing.JComboBox<>();
         PGViewGraphBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel2 = new javax.swing.JLabel();
+        PGStartDateTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        PGEndDateTxt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        PGFrequencyTxt = new javax.swing.JTextField();
+        PGErrorLbl = new javax.swing.JLabel();
 
         jLabel1.setText("SELECT PORTOFOLIO");
 
         PGPortfolioId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         PGViewGraphBtn.setText("View Graph");
+
+        jLabel2.setText("START DATE (MM/DD/YYYY)");
+
+        jLabel3.setText("END DATE (MM/DD/YYYY)");
+
+        jLabel4.setText("FREQUENCY");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -120,18 +119,45 @@ public class PortfolioGraph extends javax.swing.JPanel implements GUIView{
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PGPortfolioId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PGViewGraphBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 304, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PGStartDateTxt))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(PGEndDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(PGFrequencyTxt))))
+                            .addComponent(PGErrorLbl))
+                        .addGap(0, 147, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PGPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PGPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PGStartDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PGEndDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PGFrequencyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PGViewGraphBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PGViewGraphBtn)
+                    .addComponent(PGErrorLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                 .addContainerGap())
@@ -140,9 +166,16 @@ public class PortfolioGraph extends javax.swing.JPanel implements GUIView{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField PGEndDateTxt;
+    private javax.swing.JLabel PGErrorLbl;
+    private javax.swing.JTextField PGFrequencyTxt;
     private javax.swing.JComboBox<String> PGPortfolioId;
+    private javax.swing.JTextField PGStartDateTxt;
     private javax.swing.JButton PGViewGraphBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

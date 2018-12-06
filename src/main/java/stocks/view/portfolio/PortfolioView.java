@@ -177,67 +177,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView{
         jScrollPane1.setViewportView(new JTable(tm));
 
      }
-
-   @Override
-    public String getTextFieldData(String fieldName) {
-         try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            return portfolioName.getText();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public String getComboFieldData(String fieldName) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
-            return (String)portfolioName.getSelectedItem();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    @Override
-    public void clearTextFieldData(String fieldName) {
-        try{
-               Object o = this; // The object you want to inspect
-               Class<?> c = o.getClass();
-               Field f = c.getDeclaredField(fieldName);
-               f.setAccessible(true);
-               JTextField portfolioName = (JTextField) f.get(o);
-               portfolioName.setText("");
-           }catch(NoSuchFieldException | IllegalAccessException i){
-               throw new IllegalArgumentException("No such field found.\n");
-           }
-    }
-    
-     @Override
-    public void setErrorMessage(String fieldName, String message) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JLabel portfolioName = (JLabel) f.get(o);
-            portfolioName.setText(message);
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
-
-    
-
-   
-    
+     
     public void addActionListener(ActionListener listener){
         summaryViewBtn.addActionListener(listener);    
     }

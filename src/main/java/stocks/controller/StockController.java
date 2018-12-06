@@ -1,5 +1,7 @@
 package stocks.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
@@ -120,6 +122,12 @@ public class StockController implements IStockController {
             handleStrategyInput(scan);
             break;
           case 7:
+            handlePortfolioSave(scan);
+            break;
+          case 8:
+            handlePortfolioLoad(scan);
+            break;
+          case 9:
            return;
           default:
             investmentViewOperations.displayMessage(appendable, StockConstants.ERROR_INVALID_MENU);
@@ -402,6 +410,117 @@ public class StockController implements IStockController {
                   StockConstants.ERROR_INVALID_MENU);
       }
       break;
+    }
+  }
+
+  private void handlePortfolioSave(Scanner scan){
+    while (true) {
+      investmentViewOperations.displayMessage(appendable, StockConstants.SAVE_MENU);
+      String investmentOption = scan.nextLine();
+      if (investmentOption.isEmpty()) {
+        continue;
+      }
+      int investmentChoice = 0;
+      try {
+        investmentChoice = Integer.parseInt(investmentOption);
+      } catch (NumberFormatException nbe) {
+        continue;
+      }
+      switch (investmentChoice) {
+        case 1:
+          investmentViewOperations.displayMessage(appendable,
+                  StockConstants.SELECT_PORTFOLIO + portfolioOperations.toString() + "\n");
+          //Accepting the valid portfolio number
+          int portfolio3 = getPortFolioId(scan, portfolioOperations.toString());
+          portfolioOperations.savePortfolios(false,null,portfolio3);
+          break;
+        case 2:
+          portfolioOperations.savePortfolios(true,null,-1);
+          break;
+        default:
+          investmentViewOperations.displayMessage(appendable,
+                  StockConstants.ERROR_INVALID_MENU);
+      }
+      break;
+    }
+  }
+
+  private void handlePortfolioLoad(Scanner scan){
+
+
+    while (true) {
+      investmentViewOperations.displayMessage(appendable, StockConstants.LOAD_MENU);
+      String investmentOption = scan.nextLine();
+      if (investmentOption.isEmpty()) {
+        continue;
+      }
+      int investmentChoice = 0;
+      try {
+        investmentChoice = Integer.parseInt(investmentOption);
+      } catch (NumberFormatException nbe) {
+        continue;
+      }
+      switch (investmentChoice) {
+        case 1:
+          String files = getFilesFromDirectory();
+          if(files.isEmpty()){
+            investmentViewOperations.displayMessage(appendable,"No files found.\n");
+            break;
+          }
+          investmentViewOperations.displayMessage(appendable,files);
+          //Accepting the valid portfolio number
+          String portfolio3 = getPortFolioName(scan,files);
+          portfolioOperations.loadPortfolios(false,portfolio3);
+          break;
+        case 2:
+          portfolioOperations.loadPortfolios(true,null);
+          break;
+        default:
+          investmentViewOperations.displayMessage(appendable,
+                  StockConstants.ERROR_INVALID_MENU);
+      }
+      break;
+    }
+  }
+
+  private String getFilesFromDirectory(){
+    String savedFiles = "";
+
+    try{
+      String current = new java.io.File( "." ).getCanonicalPath();
+      File dir = new File(current + "/stockData/savedPortfolios/");
+
+      if(!dir.exists()){
+        dir.mkdir();
+      }
+      File[] files = dir.listFiles();
+      int count = 1;
+      for(File file:files){
+        savedFiles = savedFiles + count + "." + file.getName().replace(".txt","") + "\n";
+        count++;
+      }
+    }catch(IOException ioe){
+
+    }
+    return savedFiles;
+  }
+
+  private String getPortFolioName(Scanner scan, String savedFiles) {
+    while (true) {
+      try {
+        int portfolioId = Integer.parseInt(scan.nextLine());
+          String[] files = savedFiles.split("\n");
+          for(String s:files){
+            if(s.contains(portfolioId + ".")){
+                return s.split("\\.")[1];
+            }
+          }
+        //invalid input
+        throw new NumberFormatException();
+      } catch (NumberFormatException nbe) {
+        investmentViewOperations.displayMessage(appendable,
+                StockConstants.ERROR_INVALID_PORTFOLIO_ID);
+      }
     }
   }
 
