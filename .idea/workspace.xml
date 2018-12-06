@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77549a52-e173-48fa-80f4-873d953d7a09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/listener/ButtonListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/listener/ButtonListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StockInvesto-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockInvesto-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/controller/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/listener/ButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/listener/ButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/CustomWeighted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/CustomWeighted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/CustomWeighted$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/CustomWeighted.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/CustomWeighted.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/DCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/DCA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/OneTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/OneTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioLoad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioSave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioSave.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/stock/BuyStockByAmount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/stock/BuyStockByAmount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/stock/BuyStockByVolume.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/stock/BuyStockByVolume.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/stock/ViewPortfolioStocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/stock/ViewPortfolioStocks.class" afterDir="false" />
-    </list>
+    <list default="true" id="77549a52-e173-48fa-80f4-873d953d7a09" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="385" column="80" selection-start-line="385" selection-start-column="80" selection-end-line="385" selection-end-column="80" />
+              <caret line="389" column="80" selection-start-line="389" selection-start-column="80" selection-end-line="389" selection-end-column="80" />
               <folding>
                 <element signature="e#9412#9429#0" expanded="true" />
                 <element signature="e#9546#9563#0" expanded="true" />
@@ -149,12 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="198" column="54" lean-forward="true" selection-start-line="198" selection-start-column="54" selection-end-line="198" selection-end-column="54" />
-              <folding>
-                <element signature="e#1812#1842#0" expanded="true" />
-                <element signature="e#1847#1936#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-153">
+              <caret line="181" column="54" lean-forward="true" selection-start-line="181" selection-start-column="54" selection-end-line="181" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -376,7 +350,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544064949778" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544064960356" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -471,13 +445,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java</url>
-          <line>366</line>
+          <line>367</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java</url>
-          <line>379</line>
+          <line>388</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -716,12 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="198" column="54" lean-forward="true" selection-start-line="198" selection-start-column="54" selection-end-line="198" selection-end-column="54" />
-          <folding>
-            <element signature="e#1812#1842#0" expanded="true" />
-            <element signature="e#1847#1936#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-153">
+          <caret line="181" column="54" lean-forward="true" selection-start-line="181" selection-start-column="54" selection-end-line="181" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -735,7 +705,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="385" column="80" selection-start-line="385" selection-start-column="80" selection-end-line="385" selection-end-column="80" />
+          <caret line="389" column="80" selection-start-line="389" selection-start-column="80" selection-end-line="389" selection-end-column="80" />
           <folding>
             <element signature="e#9412#9429#0" expanded="true" />
             <element signature="e#9546#9563#0" expanded="true" />

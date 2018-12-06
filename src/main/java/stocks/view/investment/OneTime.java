@@ -94,8 +94,6 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
         OneTimeCustomStocksLbl.setText("Enter custom weights seperated by comma");
 
-        oneTimeErrorLbl.setText("jLabel7");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,7 +152,7 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                 .addComponent(saveOneTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(oneTimeErrorLbl)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
