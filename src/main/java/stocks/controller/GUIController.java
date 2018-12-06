@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import stocks.listener.ButtonListener;
+import stocks.listener.ComboBoxItemListener;
 import stocks.model.StockConstants;
 import stocks.model.portfolio.Portfolio;
 import stocks.model.portfolio.PortfolioModel;
@@ -302,7 +303,10 @@ public class GUIController {
   private void configureOneTimeInvestmentButtonListener() {
     Map<String,Runnable> buttonClickedMap =
             new HashMap<String,Runnable>();
+    Map<String,Runnable> comboBoxMap =
+            new HashMap<String,Runnable>();
     ButtonListener buttonListener = new ButtonListener();
+    ComboBoxItemListener comboBoxItemListener = new ComboBoxItemListener();
     buttonClickedMap.put("createOneTime",()->{
       String portfolioId
               = oneTimeInvestmentView.getComboFieldData("oneTimePortfolioId");
@@ -330,9 +334,9 @@ public class GUIController {
                   portId, d, commission);
         }
         else if (investmentOption.matches("CUSTOM")) {
-          oneTimeInvestmentView.updateStockComboBox(stocks);
-          List<Double> stockWeightage = new ArrayList<>();
-
+             List<Double> stockWeightage = new ArrayList<>();
+              String stocksWeights
+              = oneTimeInvestmentView.getTextFieldData("oneTimeCustomWeightsTxt");
           for (Stock stock:stocks) {
             String stockSymbol
                     = oneTimeInvestmentView.getComboFieldData("oneStocksInPortfolio");
@@ -358,6 +362,39 @@ public class GUIController {
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
     this.oneTimeInvestmentView.addActionListener(buttonListener);
+
+
+    comboBoxMap.put("CUSTOM",()-> {
+        
+        try{
+            int portId = 
+                 validatePortfolio(oneTimeInvestmentView, "oneTimePortfolioId");
+           LocalDate date
+              = validateDate(oneTimeInvestmentView,"oneInvestmentDate");
+         List<Stock> stocks =
+                portfolioOperations.viewPortfolioStocks(portId, date);
+         String stockString = "";
+         for(Stock stock:stocks){
+             stockString = stockString + stock.getTickerSymbol() + " ";
+         }
+         oneTimeInvestmentView.setLabelFieldData("OneTimeCustomStocksLbl",
+                 "Enter custom weights seperated by comma - " + stockString);
+        }catch(IllegalArgumentException iae){
+            oneTimeInvestmentView.setErrorMessage("oneTimeErrorLbl",iae.getMessage());
+        }
+         
+    });
+
+    comboBoxMap.put("EQUAL",()-> {
+     
+      oneTimeInvestmentView.setErrorMessage("OneTimeCustomStocksLbl","changed123");
+    });
+
+    comboBoxItemListener.setComboBoxActionMap(comboBoxMap);
+    this.oneTimeInvestmentView.addComboBoxListener(comboBoxItemListener);
+
+
+
   }
 
   private void configureDCAInvestmentButtonListener() {

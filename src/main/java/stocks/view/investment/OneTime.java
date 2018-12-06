@@ -6,6 +6,7 @@
 package stocks.view.investment;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +37,8 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         oneInvestmentOption.addItem("CUSTOM");
         oneTimePortfolioId.removeAllItems();
         oneTimePortfolioId.addItem("Select");
-        oneStocksInPortfolio.removeAllItems();
-        oneStocksInPortfolio.addItem("STOCKS");
+//        oneStocksInPortfolio.removeAllItems();
+//        oneStocksInPortfolio.addItem("STOCKS");
         String portfolios = controller.getExistingPortfolios();
         if(!portfolios.isEmpty()){
             String[] portfolioList = portfolios.substring(1).split("\n");
@@ -69,11 +70,9 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         oneInvestmentDate = new javax.swing.JTextField();
         oneAmountInvested = new javax.swing.JTextField();
         oneCommissionRate = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        oneStocksInPortfolio = new javax.swing.JComboBox();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        weightAge = new javax.swing.JTextField();
+        OneTimeCustomStocksLbl = new javax.swing.JLabel();
+        oneTimeCustomWeightsTxt = new javax.swing.JTextField();
+        oneTimeErrorLbl = new javax.swing.JLabel();
 
         jLabel1.setText("ONE TIME STRATEGY");
 
@@ -93,13 +92,9 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
 
         saveOneTime.setText("SAVE");
 
-        jLabel7.setText("PLEASE ENTER WEIGHT FOR EACH STOCK (ONLY APPLICABLE FOR CUSTOM WEIGHT)");
+        OneTimeCustomStocksLbl.setText("Enter custom weights seperated by comma");
 
-        oneStocksInPortfolio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel8.setText("STOCKS");
-
-        jLabel9.setText("WEIGHTAGE");
+        oneTimeErrorLbl.setText("jLabel7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,7 +105,6 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(oneInvestmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveOneTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
@@ -120,16 +114,12 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                     .addComponent(jLabel6)
                     .addComponent(oneAmountInvested, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oneCommissionRate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(oneStocksInPortfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(weightAge, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(352, Short.MAX_VALUE))
+                    .addComponent(OneTimeCustomStocksLbl)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(oneTimeCustomWeightsTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(oneInvestmentOption, javax.swing.GroupLayout.Alignment.LEADING, 0, 154, Short.MAX_VALUE))
+                    .addComponent(oneTimeErrorLbl))
+                .addContainerGap(546, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,42 +146,41 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(oneInvestmentOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(OneTimeCustomStocksLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oneStocksInPortfolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weightAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(oneTimeCustomWeightsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveOneTime)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(oneTimeErrorLbl)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel OneTimeCustomStocksLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField oneAmountInvested;
     private javax.swing.JTextField oneCommissionRate;
     private javax.swing.JTextField oneInvestmentDate;
     private javax.swing.JComboBox oneInvestmentOption;
-    private javax.swing.JComboBox oneStocksInPortfolio;
+    private javax.swing.JTextField oneTimeCustomWeightsTxt;
+    private javax.swing.JLabel oneTimeErrorLbl;
     private javax.swing.JComboBox oneTimePortfolioId;
     private javax.swing.JButton saveOneTime;
-    private javax.swing.JTextField weightAge;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addComboBoxListener(ItemListener listener) {
+        oneInvestmentOption.addItemListener(listener);
+    }
 
     @Override
     public void addActionListener(ActionListener listener) {
@@ -244,15 +233,13 @@ public class OneTime extends javax.swing.JPanel implements GUIView {
         }
     }
 
-    @Override
-    public void setErrorMessage(String fieldName, String message) {
-    }
+   
     
     public void updateStockComboBox (List<Stock> stocksInPortfolio) {
-     oneStocksInPortfolio.removeAllItems();
+     //oneStocksInPortfolio.removeAllItems();
      for(Stock stock:stocksInPortfolio) {
          String stocksTickerSymbol = stock.getTickerSymbol();
-         oneStocksInPortfolio.addItem(stocksTickerSymbol);
+         //oneStocksInPortfolio.addItem(stocksTickerSymbol);
      }
     }
 }

@@ -6,6 +6,7 @@
 package stocks.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,10 @@ public interface GUIView {
     
     
     void addActionListener(ActionListener listener);
+
+    default void addComboBoxListener(ItemListener listener){
+
+    }
     
     void setSummaryData( Map<String, Map<String, Double>> data);
 
@@ -34,6 +39,19 @@ public interface GUIView {
             f.setAccessible(true);
             JTextField portfolioName = (JTextField) f.get(o);
             return portfolioName.getText();
+        }catch(NoSuchFieldException | IllegalAccessException i){
+            throw new IllegalArgumentException("No such field found.\n");
+        }
+    }
+    
+    default void setLabelFieldData(String fieldName,String message){
+        try{
+            Object o = this; // The object you want to inspect
+            Class<?> c = o.getClass();
+            Field f = c.getDeclaredField(fieldName);
+            f.setAccessible(true);
+            JLabel portfolioName = (JLabel) f.get(o);
+            portfolioName.setText(message);
         }catch(NoSuchFieldException | IllegalAccessException i){
             throw new IllegalArgumentException("No such field found.\n");
         }
