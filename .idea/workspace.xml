@@ -3,37 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="77549a52-e173-48fa-80f4-873d953d7a09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockInvesto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StockInvesto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/StockDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/StockDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/StockConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/StockConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/strategy/DCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/strategy/DCA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/model/strategy/StrategyOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/model/strategy/StrategyOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/stock/ViewPortfolioStocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockData/AAPL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stockData/AAPL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockData/savedPortfolios/PORT1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stockData/savedPortfolios/PORT1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stocks/view/investment/DCA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StockInvesto-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StockInvesto-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/StockDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/StockDemo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/controller/GUIController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/listener/ButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/listener/ButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/listener/ComboBoxItemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/listener/ComboBoxItemListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/StockConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/StockConstants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/portfolio/PortfolioOperations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/stock/StockModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/DCA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/model/strategy/StrategyOperations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/ApplicationMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/GUIView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/DCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/DCA.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/investment/OneTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/investment/OneTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/Graph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioCreate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/stocks/view/portfolio/PortfolioLoad.class" afterDir="false" />
@@ -68,26 +59,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="form" value="1" />
-          <entry key="java" value="45" />
+          <entry key="java" value="53" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="JAVA" value="45" />
+          <entry key="JAVA" value="53" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2166" />
+          <entry key="java" value="2865" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2166" />
+          <entry key="JAVA" value="2865" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
@@ -98,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="85">
+              <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
               <folding>
                 <element signature="e#2466#2486#0" expanded="true" />
                 <element signature="e#4008#4016#0" expanded="true" />
@@ -113,11 +104,38 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="360" column="65" selection-start-line="360" selection-start-column="65" selection-end-line="360" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/StockDemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-69">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="481" selection-start-line="481" selection-end-line="481" />
+            <state relative-caret-position="37">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -125,39 +143,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="566" column="28" lean-forward="true" selection-start-line="566" selection-start-column="28" selection-end-line="566" selection-end-column="28" />
+            <state relative-caret-position="-211">
+              <caret line="434" column="16" lean-forward="true" selection-start-line="434" selection-start-column="16" selection-end-line="434" selection-end-column="16" />
               <folding>
-                <element signature="e#3783#3801#0" expanded="true" />
-                <element signature="e#4744#4762#0" expanded="true" />
-                <element signature="e#5661#5679#0" expanded="true" />
-                <element signature="e#7222#7240#0" expanded="true" />
-                <element signature="e#8771#8789#0" expanded="true" />
-                <element signature="e#9842#9859#0" expanded="true" />
-                <element signature="e#9925#9942#0" expanded="true" />
-                <element signature="e#13829#13846#0" expanded="true" />
-                <element signature="e#15693#15711#0" expanded="true" />
-                <element signature="e#16820#16838#0" expanded="true" />
-                <element signature="e#18055#18073#0" expanded="true" />
+                <element signature="e#1525#1566#0" expanded="true" />
+                <element signature="e#4012#4030#0" expanded="true" />
+                <element signature="e#4973#4991#0" expanded="true" />
+                <element signature="e#5890#5908#0" expanded="true" />
+                <element signature="e#7451#7469#0" expanded="true" />
+                <element signature="e#9000#9018#0" expanded="true" />
+                <element signature="e#10071#10088#0" expanded="true" />
+                <element signature="e#10154#10171#0" expanded="true" />
+                <element signature="e#13996#14013#0" expanded="true" />
+                <element signature="e#14067#14084#0" expanded="true" />
+                <element signature="e#18427#18445#0" expanded="true" />
+                <element signature="e#19554#19572#0" expanded="true" />
+                <element signature="e#20789#20807#0" expanded="true" />
+                <element signature="e#22249#22257#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/StockDemo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/datasource/AlphaVantageAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+            <state relative-caret-position="952">
+              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/stocks/datasource/StockDataSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="104" column="2" selection-start-line="104" selection-start-column="2" selection-end-line="104" selection-end-column="2" />
+            <state relative-caret-position="85">
+              <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -170,6 +194,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>alpha</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,13 +220,19 @@
         <option value="$PROJECT_DIR$/src/main/java/stocks/listener/ComboBoxItemListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/investment/OneTime.java" />
-        <option value="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/view/portfolio/Graph.java" />
-        <option value="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/model/StockConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/model/strategy/DCA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/datasource/AlphaVantageAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/datasource/StockDataSource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/stocks/StockDemo.java" />
       </list>
     </option>
   </component>
@@ -225,6 +260,17 @@
             <path>
               <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
               <item name="GStocks" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,53 +293,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="stocks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
@@ -303,36 +302,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="stocks" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="investment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StockInvesto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GStocks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stocks" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,8 +312,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544088473873" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544100372789" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\NEU Study\Fall 18\GStocks\src\main\java\stocks" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -399,7 +376,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="CheckStyle" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
@@ -408,8 +385,8 @@
       <window_info anchor="bottom" id="Messages" weight="0.3289689" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44353518" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44353518" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -437,21 +414,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java</url>
-          <line>374</line>
+          <line>372</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java</url>
-          <line>395</line>
+          <line>399</line>
           <properties />
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java</url>
-          <line>451</line>
-          <properties />
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java</url>
@@ -465,17 +436,16 @@
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/stocks/StockDemo.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/portfolio/PortfolioView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1940">
@@ -678,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -699,17 +662,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="104" column="2" selection-start-line="104" selection-start-column="2" selection-end-line="104" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/GUIView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/strategy/DCA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        <state relative-caret-position="102">
+          <caret line="86" column="61" lean-forward="true" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-211">
+          <caret line="434" column="16" lean-forward="true" selection-start-line="434" selection-start-column="16" selection-end-line="434" selection-end-column="16" />
+          <folding>
+            <element signature="e#1525#1566#0" expanded="true" />
+            <element signature="e#4012#4030#0" expanded="true" />
+            <element signature="e#4973#4991#0" expanded="true" />
+            <element signature="e#5890#5908#0" expanded="true" />
+            <element signature="e#7451#7469#0" expanded="true" />
+            <element signature="e#9000#9018#0" expanded="true" />
+            <element signature="e#10071#10088#0" expanded="true" />
+            <element signature="e#10154#10171#0" expanded="true" />
+            <element signature="e#13996#14013#0" expanded="true" />
+            <element signature="e#14067#14084#0" expanded="true" />
+            <element signature="e#18427#18445#0" expanded="true" />
+            <element signature="e#19554#19572#0" expanded="true" />
+            <element signature="e#20789#20807#0" expanded="true" />
+            <element signature="e#22249#22257#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="85">
+          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding>
             <element signature="e#2466#2486#0" expanded="true" />
             <element signature="e#4008#4016#0" expanded="true" />
@@ -722,46 +722,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/portfolio/PortfolioOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/datasource/AlphaVantageAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="104" column="2" selection-start-line="104" selection-start-column="2" selection-end-line="104" selection-end-column="2" />
+        <state relative-caret-position="952">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/StockDemo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/datasource/StockDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/model/stock/StockModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="360" column="65" selection-start-line="360" selection-start-column="65" selection-end-line="360" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/view/ApplicationMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="566" column="28" lean-forward="true" selection-start-line="566" selection-start-column="28" selection-end-line="566" selection-end-column="28" />
-          <folding>
-            <element signature="e#3783#3801#0" expanded="true" />
-            <element signature="e#4744#4762#0" expanded="true" />
-            <element signature="e#5661#5679#0" expanded="true" />
-            <element signature="e#7222#7240#0" expanded="true" />
-            <element signature="e#8771#8789#0" expanded="true" />
-            <element signature="e#9842#9859#0" expanded="true" />
-            <element signature="e#9925#9942#0" expanded="true" />
-            <element signature="e#13829#13846#0" expanded="true" />
-            <element signature="e#15693#15711#0" expanded="true" />
-            <element signature="e#16820#16838#0" expanded="true" />
-            <element signature="e#18055#18073#0" expanded="true" />
-          </folding>
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/stocks/controller/StockController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="481" selection-start-line="481" selection-end-line="481" />
+        <state relative-caret-position="37">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/stocks/StockDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>StockInvesto:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>StockInvesto</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

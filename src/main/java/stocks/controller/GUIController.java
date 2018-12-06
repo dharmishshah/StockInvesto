@@ -29,6 +29,7 @@ public class GUIController {
   //Variable represents the portfolio operations.
 
   private final PortfolioOperations<Portfolio> portfolioOperations;
+  private final StrategyOperations strategyOperations;
   private DateTimeFormatter formatter;
   private GUIView createportfolioView;
   private GUIView displayPortfolioView;
@@ -43,11 +44,11 @@ public class GUIController {
 
   public GUIController() {
 
-    Map<String, Map<String, Map<String, Double>>> stockData = new HashMap<String, Map<String,
-
-            Map<String, Double>>>();
+    Map<String, Map<String, Map<String, Double>>> stockData = 
+            new HashMap<String, Map<String,Map<String, Double>>>();
     this.portfolioOperations = new PortfolioModel(stockData);
     this.formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    this.strategyOperations = new DCA(portfolioOperations);
 
   }
 
@@ -318,22 +319,22 @@ public class GUIController {
     ButtonListener buttonListener = new ButtonListener();
     ComboBoxItemListener comboBoxItemListener = new ComboBoxItemListener();
     buttonClickedMap.put("createOneTime",()->{
-      String portfolioId
-              = oneTimeInvestmentView.getComboFieldData("oneTimePortfolioId");
-      String date
-              = oneTimeInvestmentView.getTextFieldData("oneInvestmentDate");
-      String amount
-              = oneTimeInvestmentView.getTextFieldData("oneAmountInvested");
-      String commissionRate
-              = oneTimeInvestmentView.getTextFieldData("oneCommissionRate");
 
-      String investmentOption
-              = oneTimeInvestmentView.getComboFieldData("oneInvestmentOption");
+      this.dcaInvestmentView
+              .setErrorMessage("oneTimeErrorLbl",
+                      "");
+      this.dcaInvestmentView
+              .setSuccessMessage("oneTimeErrorLbl",
+                      "");
       try {
-        int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
-        double amountInvested = Double.parseDouble(amount);
-        double commission = Double.parseDouble(commissionRate);
-        LocalDate d = LocalDate.parse(date,formatter);
+        int portId = validatePortfolio(this.oneTimeInvestmentView,"oneTimePortfolioId");
+        double amountInvested = validateValue(this.oneTimeInvestmentView,"oneTimePortfolioId",
+                "amount");
+        double commission = validateValue(this.oneTimeInvestmentView,"oneTimePortfolioId",
+                "commission");
+        LocalDate d = validateDate(this.oneTimeInvestmentView,"oneInvestmentDate");
+        String investmentOption
+                = oneTimeInvestmentView.getComboFieldData("oneInvestmentOption");
         List<Stock> stocks =
                 portfolioOperations.viewPortfolioStocks(portId, d);
         if (investmentOption.matches("EQUAL")) {
@@ -348,6 +349,10 @@ public class GUIController {
           customWeighted(stocks, stockWeightage,
                   amountInvested, portId, d, commission);
         }
+
+        this.oneTimeInvestmentView
+                .setSuccessMessage("oneTimeErrorLbl",
+                        "One Time Investment Applied Successfully.");
            
       }catch (IllegalArgumentException iae) {
         this.oneTimeInvestmentView
@@ -400,8 +405,6 @@ public class GUIController {
     comboBoxItemListener.setComboBoxActionMap(comboBoxMap);
     this.oneTimeInvestmentView.addComboBoxListener(comboBoxItemListener);
 
-
-
   }
    
 
@@ -411,18 +414,27 @@ public class GUIController {
     ButtonListener buttonListener = new ButtonListener();
     ComboBoxItemListener comboBoxItemListener = new ComboBoxItemListener();
     buttonClickedMap.put("createDCA",()->{
+      this.dcaInvestmentView
+              .setErrorMessage("dcaError",
+                      "");
+      this.dcaInvestmentView
+              .setSuccessMessage("dcaError",
+                      "");
       String portfolioId = dcaInvestmentView.getComboFieldData("dcaPortfolioId");
       String start = dcaInvestmentView.getTextFieldData("dcaStartDate");
       String end = dcaInvestmentView.getTextFieldData("dcaEndDate");
       String amount = dcaInvestmentView.getTextFieldData("dcaAmountInvested");
       String commission = dcaInvestmentView.getTextFieldData("dcaCommissionRate");
       String investOption = dcaInvestmentView.getComboFieldData("dcaInvestmentOption");
+      
       try {
-        int portId = Integer.parseInt(portfolioId.split("\\.")[0]);
-        double amountInvested = Double.parseDouble(amount);
-        double commissionRate = Double.parseDouble(commission);
-        LocalDate d1 = LocalDate.parse(start,formatter);
-        LocalDate d2 = LocalDate.parse(end,formatter);
+        int portId = validatePortfolio(dcaInvestmentView,"dcaPortfolioId");
+        double amountInvested = validateValue(dcaInvestmentView,"dcaAmountInvested",
+                "amount");
+        double commissionRate = validateValue(dcaInvestmentView,"dcaCommissionRate",
+                "commission");
+        LocalDate d1 = validateDate(dcaInvestmentView,"dcaStartDate");
+        LocalDate d2 = validateDate(dcaInvestmentView,"dcaEndDate");
         List<Stock> stocks =
                   portfolioOperations.viewPortfolioStocks(portId, d1);
         List<Double> stockWeightage = new ArrayList<>();
@@ -454,7 +466,12 @@ public class GUIController {
           }
           
         } 
-        
+         String data = amount + "_" + commission + "_" + start + "_" + end + "_"
+              + dayFrequency;
+         strategyOperations.saveStrategy(data);
+        this.dcaInvestmentView
+                .setSuccessMessage("dcaError",
+                        "Strategy Applied Successfully.");
       }catch (IllegalArgumentException iae) {
         this.dcaInvestmentView
                 .setErrorMessage("dcaError",
@@ -466,6 +483,24 @@ public class GUIController {
       dcaInvestmentView.clearTextFieldData("dcaCommissionRate");
       dcaInvestmentView.clearTextFieldData("dcaDayFrequency");
       dcaInvestmentView.clearTextFieldData("dcaCustomWeight");
+      
+    });
+    
+    buttonClickedMap.put("dcaApply",()->{
+        
+        
+      String strategy = 
+              dcaInvestmentView.getComboFieldData("dcaExistingStrategies");
+      String[] values = strategy.split("_");
+      if(values.length == 5){
+          dcaInvestmentView.setTextFieldData("dcaStartDate",values[2]);
+          dcaInvestmentView.setTextFieldData("dcaEndDate",values[3]);
+          dcaInvestmentView.setTextFieldData("dcaAmountInvested",values[0]);
+          dcaInvestmentView.setTextFieldData("dcaCommissionRate",values[1]);
+          dcaInvestmentView.setTextFieldData("dcaDayFrequency",values[4]);
+      }
+      
+      
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
     this.dcaInvestmentView.addActionListener(buttonListener);
@@ -622,6 +657,8 @@ public class GUIController {
   }
 
 
+
+
   public List<String> getSavedPortfolios() {
     List<String> savedFiles = new ArrayList<String>();
 
@@ -642,6 +679,11 @@ public class GUIController {
 
     return savedFiles;
 
+  }
+
+  public List<String> getExistingStrategies() {
+    List<String> savedFiles = strategyOperations.loadStrategy();
+    return savedFiles;
   }
 
 

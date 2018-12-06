@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import stocks.datasource.AlphaVantageAPI;
+import stocks.datasource.StockDataSource;
 import stocks.model.StockConstants;
 
 /**
@@ -34,6 +36,9 @@ public class StockModel implements StockOperations<Stock> {
   // formatting values upto 2 decimal
   private DecimalFormat df;
 
+  //  data source to get cost prices of a ticker symbol
+  private StockDataSource dataSource;
+
   /**
    * The following constructor initializes the stock model.
    *
@@ -44,6 +49,7 @@ public class StockModel implements StockOperations<Stock> {
       throw new IllegalArgumentException("stock data is blank");
     }
     this.stockData = stockData;
+    this.dataSource = new AlphaVantageAPI();
     df = new DecimalFormat("#.00");
   }
 
@@ -347,47 +353,12 @@ public class StockModel implements StockOperations<Stock> {
    * @param dir          file directory.
    */
   private void getLatestStockData(String tickerSymbol, File fileName, File dir) {
-    String apiKey = "SBLPS6ZZ1HFAR8VM";
-    URL url;
+
+
 
     try {
-      /*
-      create the URL. This is the query to the web service. The query string
-      includes the type of query (DAILY stock prices), stock symbol to be
-      looked up, the API key and the format of the returned
-      data (comma-separated values:csv). This service also supports JSON
-      which you are welcome to use.
-       */
 
-      String parameterString = "?function=TIME_SERIES_DAILY"
-              + "&outputsize=full"
-              + "&symbol=" + tickerSymbol + "&apikey=" + apiKey + "&datatype=csv";
-      url = new URL(StockConstants.ALPHA_VANTAGE_API + parameterString);
-    } catch (MalformedURLException e) {
-      throw new RuntimeException("the alphavantage API has either changed or "
-              + "no longer works");
-    }
-
-    InputStream in;
-    StringBuilder output = new StringBuilder();
-
-    try {
-      /*
-      Execute this query. This returns an InputStream object.
-      In the csv format, it returns several lines, each line being separated
-      by commas. Each line contains the date, price at opening time, highest
-      price for that date, lowest price for that date, price at closing time
-      and the volume of trade (no. of shares bought/sold) on that date.
-
-      This is printed below.
-       */
-      in = url.openStream();
-      int b;
-
-      while ((b = in.read()) != -1) {
-        output.append((char) b);
-      }
-
+      StringBuilder output = this.dataSource.getData(tickerSymbol);
       if (output.toString().contains("Invalid API call")) {
         fileName.delete();
         throw new IllegalArgumentException(StockConstants.ERROR_PRICE_NOT_FOUND);

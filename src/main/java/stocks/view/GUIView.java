@@ -47,6 +47,10 @@ public interface GUIView {
         }
     }
     
+    default void setTextFieldData(String fieldName,String value){
+        
+    }
+    
     default void setLabelFieldData(String fieldName,String message){
         try{
             Object o = this; // The object you want to inspect
@@ -109,7 +113,7 @@ public interface GUIView {
             f.setAccessible(true);
             JLabel fieldLabel = (JLabel) f.get(o);
             fieldLabel.setText(message);
-            fieldLabel.setForeground(Color.green);
+            fieldLabel.setForeground(Color.BLACK);
         }catch(NoSuchFieldException | IllegalAccessException i){
             throw new IllegalArgumentException("No such field found.\n");
         }

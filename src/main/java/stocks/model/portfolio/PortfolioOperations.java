@@ -104,4 +104,7 @@ public interface PortfolioOperations<Portfolio> {
   
   DefaultCategoryDataset getGraphDataset(LocalDate sdate,
           LocalDate edate, int portId, int frequency);
+  
+  
+  
 }
