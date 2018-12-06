@@ -1,236 +1,220 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package stocks.view.stock;
 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.util.Map;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
-
 /**
- *
- * @author Animesh Mane
+ * The following class represents the buy stock by volume panel.
  */
-public class BuyStockByVolume extends javax.swing.JPanel implements GUIView{
-    
-    GUIController controller;
+public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
-    /**
-     * Creates new form BuyStockByVolume
-     */
-    public BuyStockByVolume(GUIController controller) {
-        initComponents();
-        this.controller = controller;
-        controller.setBuyStockByVolumeView(this);
-        BSVSave.setActionCommand("BSVSave");
-        
-        BSVPortfolioId.removeAllItems();
-        BSVPortfolioId.addItem("Select");
-        String portfolios = controller.getExistingPortfolios();
-        if(!portfolios.isEmpty()){
-            String[] portfolioList = portfolios.substring(1).split("\n");
-            for(String port:portfolioList){
-                BSVPortfolioId.addItem(port);
-            }
-        }
+  GUIController controller;
+
+  /**
+   * Creates new form BuyStockByVolume
+   * @param controller the GUIController object.
+   */
+  public BuyStockByVolume(GUIController controller) {
+    initComponents();
+    this.controller = controller;
+    controller.setBuyStockByVolumeView(this);
+    BSVSave.setActionCommand("BSVSave");
+
+    BSVPortfolioId.removeAllItems();
+    BSVPortfolioId.addItem("Select");
+    String portfolios = controller.getExistingPortfolios();
+    if (!portfolios.isEmpty()) {
+      String[] portfolioList = portfolios.substring(1).split("\n");
+      for (String port : portfolioList) {
+        BSVPortfolioId.addItem(port);
+      }
     }
+  }
 
-    @Override
-    public void addActionListener(ActionListener listener) {
-         BSVSave.addActionListener(listener);
-    }
+  /**
+   * The following method executes the button operation.
+   * @param listener the ActionListener object.
+   */
 
-    @Override
-    public void setSummaryData(Map<String, Map<String, Double>> data) {
-        
-    }
-    
-    @Override
-    public String getTextFieldData(String fieldName) {
-         try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JTextField portfolioName = (JTextField) f.get(o);
-            return portfolioName.getText();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
+  @Override
+  public void addActionListener(ActionListener listener) {
+    BSVSave.addActionListener(listener);
+  }
 
-    @Override
-    public String getComboFieldData(String fieldName) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JComboBox<String> portfolioName = (JComboBox<String>) f.get(o);
-            return (String)portfolioName.getSelectedItem();
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
+  /**
+   * The following method dipslays the summary of the object.
+   * @param data the data of the stock.
+   */
+  @Override
+  public void setSummaryData(Map<String, Map<String, Double>> data) {
 
-    @Override
-    public void clearTextFieldData(String fieldName) {
-        try{
-               Object o = this; // The object you want to inspect
-               Class<?> c = o.getClass();
-               Field f = c.getDeclaredField(fieldName);
-               f.setAccessible(true);
-               JTextField portfolioName = (JTextField) f.get(o);
-               portfolioName.setText("");
-           }catch(NoSuchFieldException | IllegalAccessException i){
-               throw new IllegalArgumentException("No such field found.\n");
-           }
-    }
+  }
 
-  
-     @Override
-    public void setErrorMessage(String fieldName, String message) {
-        try{
-            Object o = this; // The object you want to inspect
-            Class<?> c = o.getClass();
-            Field f = c.getDeclaredField(fieldName);
-            f.setAccessible(true);
-            JLabel portfolioName = (JLabel) f.get(o);
-            portfolioName.setText(message);
-        }catch(NoSuchFieldException | IllegalAccessException i){
-            throw new IllegalArgumentException("No such field found.\n");
-        }
-    }
 
-    
+  /**
+   * This method is called from within the constructor to initialize the form. WARNING: Do NOT
+   * modify this code. The content of this method is always regenerated by the Form Editor.
+   */
+  @SuppressWarnings("unchecked")
+  private void initComponents() {
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    jTextField4 = new javax.swing.JTextField();
+    BSVPortfolioId = new javax.swing.JComboBox();
+    jLabel1 = new javax.swing.JLabel();
+    jLabel2 = new javax.swing.JLabel();
+    BSVTickerSymbolTxt = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
+    BSVDateTxt = new javax.swing.JTextField();
+    jLabel4 = new javax.swing.JLabel();
+    BSVVolumeTxt = new javax.swing.JTextField();
+    BSVSave = new javax.swing.JButton();
+    jLabel5 = new javax.swing.JLabel();
+    BSVCommissionRateTxt = new javax.swing.JTextField();
+    BSVErrorLbl = new javax.swing.JLabel();
 
-        jTextField4 = new javax.swing.JTextField();
-        BSVPortfolioId = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        BSVTickerSymbolTxt = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        BSVDateTxt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        BSVVolumeTxt = new javax.swing.JTextField();
-        BSVSave = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        BSVCommissionRateTxt = new javax.swing.JTextField();
-        BSVErrorLbl = new javax.swing.JLabel();
+    jTextField4.setText("jTextField4");
 
-        jTextField4.setText("jTextField4");
+    BSVPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[]
+            {"Item 1", "Item 2", "Item 3", "Item 4"}));
+    BSVPortfolioId.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BSVPortfolioIdActionPerformed(evt);
+      }
+    });
 
-        BSVPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        BSVPortfolioId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BSVPortfolioIdActionPerformed(evt);
-            }
-        });
+    jLabel1.setText("ENTER TICKER SYMBOL");
 
-        jLabel1.setText("ENTER TICKER SYMBOL");
+    jLabel2.setText("SELECT PORTFOLIO");
 
-        jLabel2.setText("SELECT PORTFOLIO");
+    jLabel3.setText("ENTER DATE (MM/DD/YYYY) ");
 
-        jLabel3.setText("ENTER DATE (MM/DD/YYYY) ");
+    jLabel4.setText("ENTER THE VOLUME");
 
-        jLabel4.setText("ENTER THE VOLUME");
+    BSVSave.setText("Save");
 
-        BSVSave.setText("Save");
+    jLabel5.setText("ENTER COMMISSION RATE");
 
-        jLabel5.setText("ENTER COMMISSION RATE");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+    this.setLayout(layout);
+    layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BSVCommissionRateTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BSVPortfolioId, javax.swing.GroupLayout.Alignment.LEADING, 0, 167, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BSVTickerSymbolTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(BSVSave, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BSVDateTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(79, 214, Short.MAX_VALUE))
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
+                                    .Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing
+                                                    .GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(BSVCommissionRateTxt,
+                                                            javax.swing.GroupLayout
+                                                                    .Alignment.LEADING)
+                                                    .addComponent(BSVPortfolioId,
+                                                            javax.swing.GroupLayout
+                                                                    .Alignment.LEADING,
+                                                            0, 167, Short.MAX_VALUE)
+                                                    .addComponent(jLabel1, javax.swing.GroupLayout
+                                                            .Alignment.LEADING)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout
+                                                            .Alignment.LEADING)
+                                                    .addComponent(BSVTickerSymbolTxt,
+                                                            javax.swing.GroupLayout.Alignment
+                                                                    .LEADING,
+                                                            javax.swing.GroupLayout
+                                                                    .DEFAULT_SIZE,
+                                                            167, Short.MAX_VALUE)
+                                                    .addComponent(BSVSave,
+                                                            javax.swing.GroupLayout
+                                                                    .Alignment.LEADING)
+                                                    .addComponent(BSVDateTxt, javax.swing
+                                                            .GroupLayout.Alignment.LEADING,
+                                                            javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                            166, javax.swing.GroupLayout
+                                                                    .PREFERRED_SIZE)
+                                                    .addComponent(jLabel3, javax.swing.GroupLayout
+                                                            .Alignment.LEADING))
+                                            .addGap(79, 214, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup().addGroup
+                                            (layout.createParallelGroup(javax.swing.GroupLayout
+                                                    .Alignment.LEADING)
+                                                    .addComponent(BSVVolumeTxt,
+                                                            javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                            166,
+                                                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel4)
+                                                    .addComponent(jLabel5)
+                                                    .addComponent(BSVErrorLbl))
+                                            .addGap(0, 0, Short.MAX_VALUE))))
+    );
+    layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
+                            .addContainerGap()
+                            .addComponent(jLabel2)
+                            .addGap(9, 9, 9)
+                            .addComponent(BSVPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BSVTickerSymbolTxt
+                                    ,javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel5)
-                            .addComponent(BSVErrorLbl))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(9, 9, 9)
-                .addComponent(BSVPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BSVTickerSymbolTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BSVCommissionRateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BSVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BSVSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BSVErrorLbl)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-    }// </editor-fold>//GEN-END:initComponents
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BSVCommissionRateTxt,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BSVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(BSVSave)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BSVErrorLbl)
+                            .addContainerGap(46, Short.MAX_VALUE))
+    );
+  }
 
-    private void BSVPortfolioIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSVPortfolioIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BSVPortfolioIdActionPerformed
+  /**
+   * The following method represents the Portfolio action performed.
+   * @param evt the ActionEvent object.
+   */
+  private void BSVPortfolioIdActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+  }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BSVCommissionRateTxt;
-    private javax.swing.JTextField BSVDateTxt;
-    private javax.swing.JLabel BSVErrorLbl;
-    private javax.swing.JComboBox BSVPortfolioId;
-    private javax.swing.JButton BSVSave;
-    private javax.swing.JTextField BSVTickerSymbolTxt;
-    private javax.swing.JTextField BSVVolumeTxt;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField4;
-    // End of variables declaration//GEN-END:variables
+  private javax.swing.JTextField BSVCommissionRateTxt;
+  private javax.swing.JTextField BSVDateTxt;
+  private javax.swing.JLabel BSVErrorLbl;
+  private javax.swing.JComboBox BSVPortfolioId;
+  private javax.swing.JButton BSVSave;
+  private javax.swing.JTextField BSVTickerSymbolTxt;
+  private javax.swing.JTextField BSVVolumeTxt;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JTextField jTextField4;
 }
