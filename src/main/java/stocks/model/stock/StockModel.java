@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -408,12 +407,7 @@ public class StockModel implements StockOperations<Stock> {
 
     validateDate(date);
 
-    LocalTime openingHours = LocalTime.now().withHour(9).withMinute(0).withSecond(0);
-    LocalTime closingHours = LocalTime.now().withHour(16).withMinute(0).withSecond(0);
-//    if (LocalTime.now().compareTo(openingHours) < 0
-//            || LocalTime.now().compareTo(closingHours) > 0) {
-//      throw new IllegalArgumentException(StockConstants.ERROR_MARKET_CLOSED);
-//    }
+
   }
 
   /**

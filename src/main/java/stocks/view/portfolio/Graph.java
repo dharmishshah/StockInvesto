@@ -6,9 +6,10 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+
 
 /**
  * The following class represents drawing of the graph for describing the valuation of the
@@ -19,15 +20,15 @@ public class Graph extends JPanel {
    * The following constructor initializes the Graph constructor.
    *
    * @param chartTitle the title of the graph.
-   * @param XAxis      the x axis of the graph.
-   * @param YAxis      the y axis of the graph.
+   * @param xAxis      the x axis of the graph.
+   * @param yAxis      the y axis of the graph.
    * @param dataset    the dataset of which the graph is to be drawn.
    */
-  public Graph(String chartTitle, String XAxis, String YAxis,
+  public Graph(String chartTitle, String xAxis, String yAxis,
                DefaultCategoryDataset dataset) {
     JFreeChart lineChart = ChartFactory.createLineChart3D(
             chartTitle,
-            XAxis, YAxis,
+            xAxis, yAxis,
             dataset,
             PlotOrientation.VERTICAL,
             false, false, false);

@@ -125,18 +125,18 @@ public class StockController implements IStockController {
             handleStrategyInput(scan);
             break;
           case 7:
-            try{
+            try {
               handlePortfolioSave(scan);
-            }catch(IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
               investmentViewOperations.displayMessage(appendable,
-                     iae.getMessage());
+                      iae.getMessage());
             }
 
             break;
           case 8:
-            try{
+            try {
               handlePortfolioLoad(scan);
-            }catch(IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
               investmentViewOperations.displayMessage(appendable,
                       iae.getMessage());
 
@@ -144,9 +144,9 @@ public class StockController implements IStockController {
 
             break;
           case 9:
-            try{
+            try {
               handleExistingDCAStrategy(scan);
-            }catch(IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
               investmentViewOperations.displayMessage(appendable,
                       iae.getMessage());
             }

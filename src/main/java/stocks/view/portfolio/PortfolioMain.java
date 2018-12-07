@@ -8,16 +8,13 @@ import stocks.controller.GUIController;
 public class PortfolioMain extends javax.swing.JSplitPane {
 
   GUIController controller;
-  private javax.swing.JButton PMGraphBtn;
-  private javax.swing.JButton PMLoad;
-  private javax.swing.JButton PMSave;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPanel jPanel3;
+
+
   private javax.swing.JSplitPane jSplitPane1;
-  private javax.swing.JButton portfolioCreateBtn;
-  private javax.swing.JButton portfolioViewBtn;
+
+
   /**
-   * Creates new form PortfolioMain
+   * Creates new form PortfolioMain.
    *
    * @param controller the GUIController object.
    */
@@ -33,13 +30,21 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   @SuppressWarnings("unchecked")
   private void initComponents() {
 
+    javax.swing.JButton pMGraphBtn;
+    javax.swing.JButton pMLoad;
+    javax.swing.JButton pMSave;
+    javax.swing.JPanel jPanel1;
+    javax.swing.JPanel jPanel3;
+    javax.swing.JButton portfolioCreateBtn;
+    javax.swing.JButton portfolioViewBtn;
+
     jSplitPane1 = new javax.swing.JSplitPane();
     jPanel1 = new javax.swing.JPanel();
     portfolioCreateBtn = new javax.swing.JButton();
     portfolioViewBtn = new javax.swing.JButton();
-    PMSave = new javax.swing.JButton();
-    PMLoad = new javax.swing.JButton();
-    PMGraphBtn = new javax.swing.JButton();
+    pMSave = new javax.swing.JButton();
+    pMLoad = new javax.swing.JButton();
+    pMGraphBtn = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
 
     portfolioCreateBtn.setText("Create");
@@ -56,22 +61,22 @@ public class PortfolioMain extends javax.swing.JSplitPane {
       }
     });
 
-    PMSave.setText("Save");
-    PMSave.addActionListener(new java.awt.event.ActionListener() {
+    pMSave.setText("Save");
+    pMSave.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         PMSaveActionPerformed(evt);
       }
     });
 
-    PMLoad.setText("Load");
-    PMLoad.addActionListener(new java.awt.event.ActionListener() {
+    pMLoad.setText("Load");
+    pMLoad.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         PMLoadActionPerformed(evt);
       }
     });
 
-    PMGraphBtn.setText("Graph");
-    PMGraphBtn.addActionListener(new java.awt.event.ActionListener() {
+    pMGraphBtn.setText("Graph");
+    pMGraphBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         PMGraphBtnActionPerformed(evt);
       }
@@ -87,8 +92,8 @@ public class PortfolioMain extends javax.swing.JSplitPane {
                                     .Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
-                                            .addGroup(jPanel1Layout.createParallelGroup
-                                                    (javax.swing.GroupLayout.Alignment.LEADING,
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax
+                                                            .swing.GroupLayout.Alignment.LEADING,
                                                             false)
                                                     .addComponent(portfolioCreateBtn,
                                                             javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -98,11 +103,11 @@ public class PortfolioMain extends javax.swing.JSplitPane {
                                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                                             Short.MAX_VALUE)))
-                                    .addComponent(PMSave, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    .addComponent(pMSave, javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PMGraphBtn, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    .addComponent(pMGraphBtn, javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PMLoad, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    .addComponent(pMLoad, javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addContainerGap())
     );
@@ -114,11 +119,11 @@ public class PortfolioMain extends javax.swing.JSplitPane {
                             .addGap(18, 18, 18)
                             .addComponent(portfolioViewBtn)
                             .addGap(18, 18, 18)
-                            .addComponent(PMSave)
+                            .addComponent(pMSave)
                             .addGap(18, 18, 18)
-                            .addComponent(PMLoad)
+                            .addComponent(pMLoad)
                             .addGap(18, 18, 18)
-                            .addComponent(PMGraphBtn)
+                            .addComponent(pMGraphBtn)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -152,7 +157,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   }
 
   /**
-   * The following method represents the action performed by create portfolio,
+   * The following method represents the action performed by create portfolio.
    *
    * @param evt the Action event object.
    */
@@ -161,7 +166,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   }
 
   /**
-   * The following method represents the action performed by create portfolio,
+   * The following method represents the action performed by create portfolio.
    *
    * @param evt the Action event object.
    */
@@ -170,7 +175,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   }
 
   /**
-   * The following method represents the action performed by create portfolio,
+   * The following method represents the action performed by create portfolio.
    *
    * @param evt the Action event object.
    */
@@ -179,7 +184,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   }
 
   /**
-   * The following method represents the action performed by create portfolio,
+   * The following method represents the action performed by create portfolio.
    *
    * @param evt the Action event object.
    */
@@ -189,7 +194,7 @@ public class PortfolioMain extends javax.swing.JSplitPane {
   }
 
   /**
-   * The following method represents the action performed by create portfolio,
+   * The following method represents the action performed by create portfolio.
    *
    * @param evt the Action event object.
    */

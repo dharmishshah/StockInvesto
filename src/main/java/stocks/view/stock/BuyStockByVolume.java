@@ -1,7 +1,6 @@
 package stocks.view.stock;
 
 import java.awt.event.ActionListener;
-import java.util.Map;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -12,19 +11,14 @@ import stocks.view.GUIView;
 public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-  private javax.swing.JTextField BSVCommissionRateTxt;
-  private javax.swing.JTextField BSVDateTxt;
-  private javax.swing.JLabel BSVErrorLbl;
-  private javax.swing.JComboBox BSVPortfolioId;
-  private javax.swing.JButton BSVSave;
-  private javax.swing.JTextField BSVTickerSymbolTxt;
-  private javax.swing.JTextField BSVVolumeTxt;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JTextField jTextField4;
+  private javax.swing.JComboBox bSVPortfolioId;
+  private javax.swing.JButton bSVSave;
+  private javax.swing.JTextField bSVCommissionRateTxt;
+  private javax.swing.JTextField bSVDateTxt;
+  private javax.swing.JLabel bSVErrorLbl;
+  private javax.swing.JTextField bSVTickerSymbolTxt;
+  private javax.swing.JTextField bSVVolumeTxt;
+
   /**
    * Creates new form BuyStockByVolume
    *
@@ -34,17 +28,23 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
     initComponents();
     this.controller = controller;
     controller.setBuyStockByVolumeView(this);
-    BSVSave.setActionCommand("BSVSave");
+    bSVSave.setActionCommand("bSVSave");
 
-    BSVPortfolioId.removeAllItems();
-    BSVPortfolioId.addItem("Select");
+    bSVPortfolioId.removeAllItems();
+    bSVPortfolioId.addItem("Select");
     String portfolios = controller.getExistingPortfolios();
     if (!portfolios.isEmpty()) {
       String[] portfolioList = portfolios.substring(1).split("\n");
       for (String port : portfolioList) {
-        BSVPortfolioId.addItem(port);
+        bSVPortfolioId.addItem(port);
       }
     }
+
+    this.bSVVolumeTxt = bSVVolumeTxt;
+    this.bSVCommissionRateTxt = bSVCommissionRateTxt;
+    this.bSVDateTxt = bSVDateTxt;
+    this.bSVErrorLbl = bSVErrorLbl;
+    this.bSVTickerSymbolTxt = bSVTickerSymbolTxt;
   }
 
   /**
@@ -55,18 +55,9 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
   @Override
   public void addActionListener(ActionListener listener) {
-    BSVSave.addActionListener(listener);
+    bSVSave.addActionListener(listener);
   }
 
-  /**
-   * The following method dipslays the summary of the object.
-   *
-   * @param data the data of the stock.
-   */
-  @Override
-  public void setSummaryData(Map<String, Map<String, Double>> data) {
-
-  }
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -75,25 +66,33 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
   @SuppressWarnings("unchecked")
   private void initComponents() {
 
+
+    javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel2;
+    javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
+    javax.swing.JTextField jTextField4;
+
     jTextField4 = new javax.swing.JTextField();
-    BSVPortfolioId = new javax.swing.JComboBox();
+    bSVPortfolioId = new javax.swing.JComboBox();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
-    BSVTickerSymbolTxt = new javax.swing.JTextField();
+    bSVTickerSymbolTxt = new javax.swing.JTextField();
     jLabel3 = new javax.swing.JLabel();
-    BSVDateTxt = new javax.swing.JTextField();
+    bSVDateTxt = new javax.swing.JTextField();
     jLabel4 = new javax.swing.JLabel();
-    BSVVolumeTxt = new javax.swing.JTextField();
-    BSVSave = new javax.swing.JButton();
+    bSVVolumeTxt = new javax.swing.JTextField();
+    bSVSave = new javax.swing.JButton();
     jLabel5 = new javax.swing.JLabel();
-    BSVCommissionRateTxt = new javax.swing.JTextField();
-    BSVErrorLbl = new javax.swing.JLabel();
+    bSVCommissionRateTxt = new javax.swing.JTextField();
+    bSVErrorLbl = new javax.swing.JLabel();
 
     jTextField4.setText("jTextField4");
 
-    BSVPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[]
+    bSVPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(new String[]
             {"Item 1", "Item 2", "Item 3", "Item 4"}));
-    BSVPortfolioId.addActionListener(new java.awt.event.ActionListener() {
+    bSVPortfolioId.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         BSVPortfolioIdActionPerformed(evt);
       }
@@ -107,7 +106,7 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
 
     jLabel4.setText("ENTER THE VOLUME");
 
-    BSVSave.setText("Save");
+    bSVSave.setText("Save");
 
     jLabel5.setText("ENTER COMMISSION RATE");
 
@@ -122,10 +121,10 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                                     .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing
                                                     .GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(BSVCommissionRateTxt,
+                                                    .addComponent(bSVCommissionRateTxt,
                                                             javax.swing.GroupLayout
                                                                     .Alignment.LEADING)
-                                                    .addComponent(BSVPortfolioId,
+                                                    .addComponent(bSVPortfolioId,
                                                             javax.swing.GroupLayout
                                                                     .Alignment.LEADING,
                                                             0, 167, Short.MAX_VALUE)
@@ -133,16 +132,16 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                                                             .Alignment.LEADING)
                                                     .addComponent(jLabel2, javax.swing.GroupLayout
                                                             .Alignment.LEADING)
-                                                    .addComponent(BSVTickerSymbolTxt,
+                                                    .addComponent(bSVTickerSymbolTxt,
                                                             javax.swing.GroupLayout.Alignment
                                                                     .LEADING,
                                                             javax.swing.GroupLayout
                                                                     .DEFAULT_SIZE,
                                                             167, Short.MAX_VALUE)
-                                                    .addComponent(BSVSave,
+                                                    .addComponent(bSVSave,
                                                             javax.swing.GroupLayout
                                                                     .Alignment.LEADING)
-                                                    .addComponent(BSVDateTxt, javax.swing
+                                                    .addComponent(bSVDateTxt, javax.swing
                                                                     .GroupLayout.Alignment.LEADING,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE,
                                                             166, javax.swing.GroupLayout
@@ -153,13 +152,13 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                                     .addGroup(layout.createSequentialGroup().addGroup
                                             (layout.createParallelGroup(javax.swing.GroupLayout
                                                     .Alignment.LEADING)
-                                                    .addComponent(BSVVolumeTxt,
+                                                    .addComponent(bSVVolumeTxt,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE,
                                                             166,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jLabel4)
                                                     .addComponent(jLabel5)
-                                                    .addComponent(BSVErrorLbl))
+                                                    .addComponent(bSVErrorLbl))
                                             .addGap(0, 0, Short.MAX_VALUE))))
     );
     layout.setVerticalGroup(
@@ -168,39 +167,39 @@ public class BuyStockByVolume extends javax.swing.JPanel implements GUIView {
                             .addContainerGap()
                             .addComponent(jLabel2)
                             .addGap(9, 9, 9)
-                            .addComponent(BSVPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            .addComponent(bSVPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BSVTickerSymbolTxt
+                            .addComponent(bSVTickerSymbolTxt
                                     , javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BSVCommissionRateTxt,
+                            .addComponent(bSVCommissionRateTxt,
                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            .addComponent(bSVVolumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BSVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            .addComponent(bSVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(BSVSave)
+                            .addComponent(bSVSave)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BSVErrorLbl)
+                            .addComponent(bSVErrorLbl)
                             .addContainerGap(46, Short.MAX_VALUE))
     );
   }

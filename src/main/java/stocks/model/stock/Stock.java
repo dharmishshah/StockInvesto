@@ -38,7 +38,7 @@ public class Stock {
   private double totalCommission;
 
   public Stock() {
-
+    System.out.println("Creating default constructor for JSON");
   }
 
   /**

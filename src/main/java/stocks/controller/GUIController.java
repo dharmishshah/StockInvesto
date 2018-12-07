@@ -200,7 +200,7 @@ public class GUIController {
     ButtonListener buttonListener = new ButtonListener();
     //Map the operations for the button.
     buttonClickedMap.put("createPortfolio", () -> {
-      createportfolioView.setErrorMessage("PCErrorLbl",
+      createportfolioView.setErrorMessage("pCErrorLbl",
               "");
       //Accept the portfolio name.
       String text =
@@ -208,10 +208,10 @@ public class GUIController {
 
       try {
         portfolioOperations.addPortfolio(text);
-        createportfolioView.setSuccessMessage("PCErrorLbl",
+        createportfolioView.setSuccessMessage("pCErrorLbl",
                 "Portfolio Created Successfully.");
       } catch (IllegalArgumentException iae) {
-        createportfolioView.setErrorMessage("PCErrorLbl",
+        createportfolioView.setErrorMessage("pCErrorLbl",
                 iae.getMessage());
 
       }
@@ -235,17 +235,17 @@ public class GUIController {
     ButtonListener buttonListener = new ButtonListener();
     buttonClickedMap.put("viewPortfolio", () -> {
       LocalDate d;
-      displayPortfolioView.setErrorMessage("PVErrorLbl",
+      displayPortfolioView.setErrorMessage("pVErrorLbl",
               "");
 
       try {
-        LocalDate date = validateDate(displayPortfolioView, "PVDateTxt");
+        LocalDate date = validateDate(displayPortfolioView, "pVDateTxt");
         Map<String, Map<String, Double>> resultMap =
                 portfolioOperations.displayPortfolios(date);
         this.displayPortfolioView.setSummaryData(resultMap);
 
       } catch (IllegalArgumentException iae) {
-        displayPortfolioView.setErrorMessage("PVErrorLbl",
+        displayPortfolioView.setErrorMessage("pVErrorLbl",
                 iae.getMessage());
 
       }
@@ -265,40 +265,40 @@ public class GUIController {
     Map<String, Runnable> buttonClickedMap =
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("BSASave", () -> {
+    buttonClickedMap.put("bSASave", () -> {
 
 
       try {
 
-        buyStockByAmountView.setErrorMessage("BSAErrorLbl",
+        buyStockByAmountView.setErrorMessage("bSAErrorLbl",
                 "");
         //Accept the portfolio.
-        int portId = validatePortfolio(buyStockByAmountView, "BSAPortfolioId");
+        int portId = validatePortfolio(buyStockByAmountView, "bSAPortfolioId");
         //Accept the ticker symbol.
-        String tickerSymbol = validateTickerSymbol(buyStockByAmountView, "BSATickerSymbolTxt");
+        String tickerSymbol = validateTickerSymbol(buyStockByAmountView, "bSATickerSymbolTxt");
         //Accept the commission rate.
         double commRate = validateValue(buyStockByAmountView,
-                "BSACommissionRateTxt", "commissionRate");
+                "bSACommissionRateTxt", "commissionRate");
         //Accept the amount invested.
         double amountInvested = validateValue(buyStockByAmountView,
-                "BSAAmountTxt", "amount");
+                "bSAAmountTxt", "amount");
         //Accept the date.
-        LocalDate d = validateDate(buyStockByAmountView, "BSADateTxt");
+        LocalDate d = validateDate(buyStockByAmountView, "bSADateTxt");
         //Use the addStockAmount of the portfolio operations.
         portfolioOperations.addStockByAmount(portId, tickerSymbol, amountInvested, d, commRate);
         //Clear the text field of ticker symbol.
-        buyStockByAmountView.clearTextFieldData("BSATickerSymbolTxt");
+        buyStockByAmountView.clearTextFieldData("bSATickerSymbolTxt");
         //Clear the text field of amount.
-        buyStockByAmountView.clearTextFieldData("BSAAmountTxt");
+        buyStockByAmountView.clearTextFieldData("bSAAmountTxt");
         //Clear the text field of date.
-        buyStockByAmountView.clearTextFieldData("BSADateTxt");
+        buyStockByAmountView.clearTextFieldData("bSADateTxt");
         //Clear the text field of commission rate.
-        buyStockByAmountView.clearTextFieldData("BSACommissionRateTxt");
-        buyStockByAmountView.setSuccessMessage("BSAErrorLbl",
+        buyStockByAmountView.clearTextFieldData("bSACommissionRateTxt");
+        buyStockByAmountView.setSuccessMessage("bSAErrorLbl",
                 "Stock bought successfully.");
 
       } catch (IllegalArgumentException iae) {
-        this.buyStockByAmountView.setErrorMessage("BSAErrorLbl", iae.getMessage());
+        this.buyStockByAmountView.setErrorMessage("bSAErrorLbl", iae.getMessage());
 
       }
 
@@ -318,38 +318,38 @@ public class GUIController {
             new HashMap<String, Runnable>();
 
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("BSVSave", () -> {
+    buttonClickedMap.put("bSVSave", () -> {
 
       try {
-        buyStockByVolumeView.setErrorMessage("BSVErrorLbl",
+        buyStockByVolumeView.setErrorMessage("bSVErrorLbl",
                 "");
         //Accept the ticker symbol.
-        String tickerSymbol = validateTickerSymbol(buyStockByVolumeView, "BSVTickerSymbolTxt");
+        String tickerSymbol = validateTickerSymbol(buyStockByVolumeView, "bSVTickerSymbolTxt");
         //Accept the portfolio.
-        int portId = validatePortfolio(buyStockByVolumeView, "BSVPortfolioId");
+        int portId = validatePortfolio(buyStockByVolumeView, "bSVPortfolioId");
         //Accept the volume to be bought.
         double volumeInvested = validateValue(buyStockByVolumeView,
-                "BSVVolumeTxt", "volume");
+                "bSVVolumeTxt", "volume");
         //Accept the date at which stock was bought.
-        LocalDate d = validateDate(buyStockByVolumeView, "BSVDateTxt");
+        LocalDate d = validateDate(buyStockByVolumeView, "bSVDateTxt");
         //Accept the commission rate.
         double commRate = validateValue(buyStockByVolumeView,
-                "BSVCommissionRateTxt", "commissionRate");
+                "bSVCommissionRateTxt", "commissionRate");
         //Use the add stock method.
         portfolioOperations.addStock(portId, tickerSymbol, volumeInvested, d, commRate);
         //Clear the ticker symbol text field.
-        buyStockByVolumeView.clearTextFieldData("BSVTickerSymbolTxt");
+        buyStockByVolumeView.clearTextFieldData("bSVTickerSymbolTxt");
         //Clear the volume text field.
-        buyStockByVolumeView.clearTextFieldData("BSVVolumeTxt");
+        buyStockByVolumeView.clearTextFieldData("bSVVolumeTxt");
         //Clear the date field.
-        buyStockByVolumeView.clearTextFieldData("BSVDateTxt");
+        buyStockByVolumeView.clearTextFieldData("bSVDateTxt");
         //Clear the commission rate text field.
-        buyStockByVolumeView.clearTextFieldData("BSVCommissionRateTxt");
-        buyStockByVolumeView.setSuccessMessage("BSVErrorLbl",
+        buyStockByVolumeView.clearTextFieldData("bSVCommissionRateTxt");
+        buyStockByVolumeView.setSuccessMessage("bSVErrorLbl",
                 "Stock bought successfully.");
 
       } catch (IllegalArgumentException iae) {
-        this.buyStockByVolumeView.setErrorMessage("BSVErrorLbl", iae.getMessage());
+        this.buyStockByVolumeView.setErrorMessage("bSVErrorLbl", iae.getMessage());
       }
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -365,21 +365,21 @@ public class GUIController {
     Map<String, Runnable> buttonClickedMap =
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("VPSViewStock", () -> {
+    buttonClickedMap.put("vPSViewStock", () -> {
       LocalDate d;
-      displayStockView.setErrorMessage("VPSErrorLbl",
+      displayStockView.setErrorMessage("vPSErrorLbl",
               "");
       try {
         //Accept the portfolio.
-        int portId = validatePortfolio(displayStockView, "VPSPortfolioId");
+        int portId = validatePortfolio(displayStockView, "vPSPortfolioId");
         //Accept the date.
-        LocalDate date = validateDate(displayStockView, "VPSDateTxt");
-        String portfolioId = displayStockView.getComboFieldData("VPSPortfolioId");
+        LocalDate date = validateDate(displayStockView, "vPSDateTxt");
+        String portfolioId = displayStockView.getComboFieldData("vPSPortfolioId");
         Map<String, Map<String, Double>> resultMap =
                 portfolioOperations.displayStocks(portId, date);
         this.displayStockView.setSummaryData(resultMap);
       } catch (IllegalArgumentException iae) {
-        displayStockView.setErrorMessage("VPSErrorLbl", iae.getMessage());
+        displayStockView.setErrorMessage("vPSErrorLbl", iae.getMessage());
       }
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -486,7 +486,7 @@ public class GUIController {
 
     comboBoxMap.put("EQUAL", () -> {
 
-      oneTimeInvestmentView.setErrorMessage("OneTimeCustomStocksLbl",
+      oneTimeInvestmentView.setErrorMessage("oneTimeCustomStocksLbl",
               "THE FOLLOWING TEXT BOX IS ONLY TO ENTER THE CUSTOM WEIGHTS!!!");
     });
 
@@ -652,22 +652,22 @@ public class GUIController {
     Map<String, Runnable> buttonClickedMap =
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("PGViewGraph", () -> {
+    buttonClickedMap.put("pGViewGraph", () -> {
       try {
         //Accept the portfolio.
-        int portId = validatePortfolio(portfolioGraphView, "PGPortfolioId");
+        int portId = validatePortfolio(portfolioGraphView, "pGPortfolioId");
         //Accept the start date.
-        LocalDate sdate = validateDate(portfolioGraphView, "PGStartDateTxt");
+        LocalDate sdate = validateDate(portfolioGraphView, "pGStartDateTxt");
         //Accept the end date.
-        LocalDate edate = validateDate(portfolioGraphView, "PGEndDateTxt");
+        LocalDate edate = validateDate(portfolioGraphView, "pGEndDateTxt");
         //Accept the frequency.
-        int frequency = validateIntValue(portfolioGraphView, "PGFrequencyTxt");
+        int frequency = validateIntValue(portfolioGraphView, "pGFrequencyTxt");
         DefaultCategoryDataset dataset = portfolioOperations.
                 getGraphDataset(sdate, edate, portId, frequency);
         portfolioGraphView.plotGraph("Performance", "Date",
                 "Total Stock Cost " + "& Total Stock Value", dataset);
       } catch (IllegalArgumentException iae) {
-        portfolioGraphView.setErrorMessage("PGErrorLbl", iae.getMessage());
+        portfolioGraphView.setErrorMessage("pGErrorLbl", iae.getMessage());
       }
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -681,25 +681,25 @@ public class GUIController {
     Map<String, Runnable> buttonClickedMap =
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("PLLoad", () -> {
+    buttonClickedMap.put("pLLoad", () -> {
       try {
         String portfolioName = validatePortfolioNameForFiles(portfolioLoadView,
-                "PLPortfolioId", "load");
+                "pLPortfolioId", "load");
         portfolioOperations.loadPortfolios(false, portfolioName);
-        portfolioLoadView.setSuccessMessage("PLErrorLbl",
+        portfolioLoadView.setSuccessMessage("pLErrorLbl",
                 "Portfolio loaded successfully.");
       } catch (IllegalArgumentException iae) {
-        portfolioLoadView.setErrorMessage("PLErrorLbl", iae.getMessage());
+        portfolioLoadView.setErrorMessage("pLErrorLbl", iae.getMessage());
       }
     });
 
-    buttonClickedMap.put("PLLoadAll", () -> {
+    buttonClickedMap.put("pLLoadAll", () -> {
       try {
         portfolioOperations.loadPortfolios(true, null);
-        portfolioLoadView.setSuccessMessage("PLErrorLbl",
+        portfolioLoadView.setSuccessMessage("pLErrorLbl",
                 "All Portfolios loaded successfully.");
       } catch (IllegalArgumentException iae) {
-        portfolioLoadView.setErrorMessage("PLErrorLbl", iae.getMessage());
+        portfolioLoadView.setErrorMessage("pLErrorLbl", iae.getMessage());
       }
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);
@@ -715,27 +715,27 @@ public class GUIController {
     Map<String, Runnable> buttonClickedMap =
             new HashMap<String, Runnable>();
     ButtonListener buttonListener = new ButtonListener();
-    buttonClickedMap.put("PSSave", () -> {
+    buttonClickedMap.put("pSSave", () -> {
       try {
         //Accept the portfolio name.
         String portfolioName = validatePortfolioNameForFiles(portfolioSaveView,
-                "PSPortfolioId", "save");
+                "pSPortfolioId", "save");
         //Save portfolio.
         portfolioOperations.savePortfolios(false, portfolioName, -1);
-        portfolioSaveView.setSuccessMessage("PSErrorLbl",
+        portfolioSaveView.setSuccessMessage("pSErrorLbl",
                 "Portfolio saved successfully.");
       } catch (IllegalArgumentException iae) {
-        portfolioSaveView.setErrorMessage("PSErrorLbl", iae.getMessage());
+        portfolioSaveView.setErrorMessage("pSErrorLbl", iae.getMessage());
       }
     });
 
-    buttonClickedMap.put("PSSaveAll", () -> {
+    buttonClickedMap.put("pSSaveAll", () -> {
       try {
         portfolioOperations.savePortfolios(true, null, -1);
-        portfolioSaveView.setSuccessMessage("PSErrorLbl",
+        portfolioSaveView.setSuccessMessage("pSErrorLbl",
                 "All Portfolios saved successfully.");
       } catch (IllegalArgumentException iae) {
-        portfolioSaveView.setErrorMessage("PSErrorLbl", iae.getMessage());
+        portfolioSaveView.setErrorMessage("pSErrorLbl", iae.getMessage());
       }
     });
     buttonListener.setButtonClickedActionMap(buttonClickedMap);

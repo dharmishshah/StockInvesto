@@ -2,16 +2,16 @@ package stocks.view;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
 
-import stocks.model.stock.Stock;
 
 /**
  * The following interface represents the action performed by the GUI.
@@ -22,6 +22,7 @@ public interface GUIView {
   void addActionListener(ActionListener listener);
 
   default void addComboBoxListener(ItemListener listener) {
+    throw new UnsupportedOperationException("Need to implement this method");
   }
 
   /**
@@ -29,8 +30,16 @@ public interface GUIView {
    *
    * @param data the data in the portfolio.
    */
-  void setSummaryData(Map<String, Map<String, Double>> data);
+  default void setSummaryData(Map<String, Map<String, Double>> data) {
+    throw new UnsupportedOperationException("Need to implement this method");
+  }
 
+  /**
+   * The following method gets the text field data.
+   *
+   * @param fieldName the string input.
+   * @return value of fieldName
+   */
   default String getTextFieldData(String fieldName) {
     try {
       Object o = this; // The object you want to inspect
@@ -51,7 +60,7 @@ public interface GUIView {
    * @param value     the value of the stock.
    */
   default void setTextFieldData(String fieldName, String value) {
-
+    throw new UnsupportedOperationException("Need to implement this method");
   }
 
   /**
@@ -149,26 +158,18 @@ public interface GUIView {
     }
   }
 
-  /**
-   * The following method updates the combox.
-   *
-   * @param stocksInPortfolio the stocks in the portfolio.
-   */
-  default void updateStockComboBox(List<Stock> stocksInPortfolio) {
-
-  }
 
   /**
    * The following plots the graph.
    *
    * @param plotName the name of the plot.
-   * @param XAxis    the x axis of the plot.
-   * @param YAxis    the y axis of the plot.
+   * @param xAxis    the x axis of the plot.
+   * @param yAxis    the y axis of the plot.
    * @param dataset  the dataset of the plot.
    */
-  default void plotGraph(String plotName, String XAxis, String YAxis,
+  default void plotGraph(String plotName, String xAxis, String yAxis,
                          DefaultCategoryDataset dataset) {
-
+    throw new UnsupportedOperationException("Need to implement this method");
   }
 
 

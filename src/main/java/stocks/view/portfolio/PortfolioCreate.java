@@ -1,7 +1,6 @@
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
-import java.util.Map;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -11,18 +10,26 @@ import stocks.view.GUIView;
  */
 public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
   GUIController controller;
-  private javax.swing.JLabel PCErrorLbl;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JTextField portfolioNameTxt;
+
   private javax.swing.JButton savePortfolioBtn;
 
+  private javax.swing.JLabel pCErrorLbl;
+
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JTextField portfolioNameTxt;
+
+
   /**
-   * Creates new form PortfolioCreate
+   * Creates new form PortfolioCreate.
    */
   public PortfolioCreate(GUIController controller) {
     initComponents();
-    controller.setPortfolioCreateView(this);
+    this.controller = controller;
+    this.controller.setPortfolioCreateView(this);
     savePortfolioBtn.setActionCommand("createPortfolio");
+    this.pCErrorLbl = pCErrorLbl;
+    this.jLabel1 = jLabel1;
+    this.portfolioNameTxt = portfolioNameTxt;
   }
 
   /**
@@ -31,23 +38,26 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
   @SuppressWarnings("unchecked")
   private void initComponents() {
 
+
+
+
     jLabel1 = new javax.swing.JLabel();
     portfolioNameTxt = new javax.swing.JTextField();
     savePortfolioBtn = new javax.swing.JButton();
-    PCErrorLbl = new javax.swing.JLabel();
+    pCErrorLbl = new javax.swing.JLabel();
 
     jLabel1.setText("Enter portfolio name");
 
     portfolioNameTxt.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        portfolioNameTxtActionPerformed(evt);
+        //portfolioNameTxtActionPerformed(evt);
       }
     });
 
     savePortfolioBtn.setText("Save");
     savePortfolioBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        savePortfolioBtnActionPerformed(evt);
+        //savePortfolioBtnActionPerformed(evt);
       }
     });
 
@@ -64,7 +74,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                             125, Short.MAX_VALUE)
                                     .addComponent(savePortfolioBtn)
-                                    .addComponent(PCErrorLbl, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    .addComponent(pCErrorLbl, javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addContainerGap(265, Short.MAX_VALUE))
     );
@@ -80,7 +90,7 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(savePortfolioBtn)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PCErrorLbl)
+                            .addComponent(pCErrorLbl)
                             .addContainerGap(204, Short.MAX_VALUE))
     );
   }
@@ -92,32 +102,5 @@ public class PortfolioCreate extends javax.swing.JPanel implements GUIView {
    */
   public void addActionListener(ActionListener listener) {
     savePortfolioBtn.addActionListener(listener);
-  }
-
-  /**
-   * The following method represents the summary data method.
-   *
-   * @param data the data of the stock.
-   */
-  @Override
-  public void setSummaryData(Map<String, Map<String, Double>> data) {
-  }
-
-  /**
-   * The following method represents the save portfolio method.
-   *
-   * @param evt the action event object.
-   */
-
-  private void savePortfolioBtnActionPerformed(java.awt.event.ActionEvent evt) {
-  }
-
-  /**
-   * The following method represents the portfolio name method.
-   *
-   * @param evt the action event object.
-   */
-  private void portfolioNameTxtActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
   }
 }

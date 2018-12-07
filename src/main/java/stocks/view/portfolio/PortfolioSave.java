@@ -1,7 +1,6 @@
 package stocks.view.portfolio;
 
 import java.awt.event.ActionListener;
-import java.util.Map;
 
 import stocks.controller.GUIController;
 import stocks.view.GUIView;
@@ -12,14 +11,14 @@ import stocks.view.GUIView;
 public class PortfolioSave extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JLabel PSErrorLbl;
-  private javax.swing.JComboBox<String> PSPortfolioId;
-  private javax.swing.JButton PSSaveAllBtn;
-  private javax.swing.JButton PSSaveBtn;
+  private javax.swing.JComboBox<String> pSPortfolioId;
+  private javax.swing.JButton pSSaveAllBtn;
+  private javax.swing.JButton pSSaveBtn;
+  private javax.swing.JLabel pSErrorLbl;
   private javax.swing.JLabel jLabel1;
+
   /**
-   * Creates new form PortfolioSave
+   * Creates new form PortfolioSave.
    *
    * @param controller the GUIController object.
    */
@@ -27,18 +26,24 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
     initComponents();
     this.controller = controller;
     controller.setPortfolioSaveView(this);
-    PSSaveBtn.setActionCommand("PSSave");
-    PSSaveAllBtn.setActionCommand("PSSaveAll");
+    pSSaveBtn.setActionCommand("PSSave");
+    pSSaveAllBtn.setActionCommand("PSSaveAll");
 
-    PSPortfolioId.removeAllItems();
-    PSPortfolioId.addItem("Select");
+    pSPortfolioId.removeAllItems();
+    pSPortfolioId.addItem("Select");
     String portfolios = controller.getExistingPortfolios();
     if (!portfolios.isEmpty()) {
       String[] portfolioList = portfolios.substring(1).split("\n");
       for (String port : portfolioList) {
-        PSPortfolioId.addItem(port);
+        pSPortfolioId.addItem(port);
       }
     }
+
+     this.pSPortfolioId = pSPortfolioId;
+     this.pSSaveAllBtn = pSSaveAllBtn;
+     this.pSSaveBtn = pSSaveBtn;
+    this.pSErrorLbl = pSErrorLbl;
+    this.jLabel1 = jLabel1;
 
   }
 
@@ -49,19 +54,11 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
    */
   @Override
   public void addActionListener(ActionListener listener) {
-    PSSaveBtn.addActionListener(listener);
-    PSSaveAllBtn.addActionListener(listener);
+    pSSaveBtn.addActionListener(listener);
+    pSSaveAllBtn.addActionListener(listener);
   }
 
-  /**
-   * The following method displays the summary of the stock.
-   *
-   * @param data the data of the stock.
-   */
-  @Override
-  public void setSummaryData(Map<String, Map<String, Double>> data) {
 
-  }
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -70,17 +67,19 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
   @SuppressWarnings("unchecked")
   private void initComponents() {
 
-    PSSaveAllBtn = new javax.swing.JButton();
-    PSSaveBtn = new javax.swing.JButton();
-    PSPortfolioId = new javax.swing.JComboBox<>();
+
+
+    pSSaveAllBtn = new javax.swing.JButton();
+    pSSaveBtn = new javax.swing.JButton();
+    pSPortfolioId = new javax.swing.JComboBox<>();
     jLabel1 = new javax.swing.JLabel();
-    PSErrorLbl = new javax.swing.JLabel();
+    pSErrorLbl = new javax.swing.JLabel();
 
-    PSSaveAllBtn.setText("Save All");
+    pSSaveAllBtn.setText("Save All");
 
-    PSSaveBtn.setText("Save");
+    pSSaveBtn.setText("Save");
 
-    PSPortfolioId.setModel(new javax.swing.DefaultComboBoxModel<>
+    pSPortfolioId.setModel(new javax.swing.DefaultComboBoxModel<>
             (new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
 
     jLabel1.setText("SELECT PORTFOLIO");
@@ -94,16 +93,16 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
                             .addGroup(layout.createParallelGroup
                                     (javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                            .addComponent(PSSaveBtn,
+                                            .addComponent(pSSaveBtn,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                     57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle
                                                     .ComponentPlacement.UNRELATED)
-                                            .addComponent(PSSaveAllBtn))
-                                    .addComponent(PSErrorLbl)
+                                            .addComponent(pSSaveAllBtn))
+                                    .addComponent(pSErrorLbl)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                             .Alignment.TRAILING, false)
-                                            .addComponent(PSPortfolioId, javax.swing.GroupLayout
+                                            .addComponent(pSPortfolioId, javax.swing.GroupLayout
                                                             .Alignment.LEADING, 0,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)
@@ -120,16 +119,16 @@ public class PortfolioSave extends javax.swing.JPanel implements GUIView {
                             .addGap(27, 27, 27)
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(PSPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            .addComponent(pSPortfolioId, javax.swing.GroupLayout.PREFERRED_SIZE,
                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                     .Alignment.BASELINE)
-                                    .addComponent(PSSaveBtn)
-                                    .addComponent(PSSaveAllBtn))
+                                    .addComponent(pSSaveBtn)
+                                    .addComponent(pSSaveAllBtn))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PSErrorLbl)
+                            .addComponent(pSErrorLbl)
                             .addContainerGap(188, Short.MAX_VALUE))
     );
   }

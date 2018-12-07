@@ -8,12 +8,10 @@ import stocks.controller.GUIController;
 public class StockMain extends javax.swing.JPanel {
 
   GUIController controller;
-  private javax.swing.JButton buyStockByAmountBtn;
-  private javax.swing.JButton buyStockByVolumeBtn;
-  private javax.swing.JPanel jPanel3;
-  private javax.swing.JPanel jPanel4;
-  private javax.swing.JSplitPane jSplitPane1;
-  private javax.swing.JButton viewStocksBtn;
+
+  private  javax.swing.JSplitPane jSplitPane1;
+
+
   /**
    * Creates new form StockMain
    *
@@ -30,6 +28,12 @@ public class StockMain extends javax.swing.JPanel {
    */
   @SuppressWarnings("unchecked")
   private void initComponents() {
+
+    javax.swing.JButton buyStockByAmountBtn;
+    javax.swing.JButton buyStockByVolumeBtn;
+    javax.swing.JPanel jPanel3;
+    javax.swing.JPanel jPanel4;
+    javax.swing.JButton viewStocksBtn;
 
     jSplitPane1 = new javax.swing.JSplitPane();
     jPanel3 = new javax.swing.JPanel();

@@ -3,7 +3,7 @@ package stocks.view.portfolio;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -16,17 +16,13 @@ import stocks.view.GUIView;
 public class PortfolioView extends javax.swing.JPanel implements GUIView {
 
   GUIController controller;
-  private javax.swing.JTextField PVDateTxt;
-  private javax.swing.JLabel PVErrorLbl;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JScrollPane jScrollPane2;
-  private javax.swing.JTable jTable1;
-  private javax.swing.JTable jTable2;
   private javax.swing.JButton summaryViewBtn;
+  private javax.swing.JTextField pVDateTxt;
+  private javax.swing.JLabel pVErrorLbl;
+
   /**
-   * Creates new form PortfolioView
+   * Creates new form PortfolioView.
    *
    * @param controller the GUIController object.
    */
@@ -42,15 +38,22 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
   @SuppressWarnings("unchecked")
   private void initComponents() {
 
+
+    javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel2;
+    javax.swing.JScrollPane jScrollPane2;
+    javax.swing.JTable jTable1;
+    javax.swing.JTable jTable2;
+
     jScrollPane2 = new javax.swing.JScrollPane();
     jTable2 = new javax.swing.JTable();
     jLabel1 = new javax.swing.JLabel();
     summaryViewBtn = new javax.swing.JButton();
     jLabel2 = new javax.swing.JLabel();
-    PVDateTxt = new javax.swing.JTextField();
+    pVDateTxt = new javax.swing.JTextField();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
-    PVErrorLbl = new javax.swing.JLabel();
+    pVErrorLbl = new javax.swing.JLabel();
 
     jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][]{
@@ -102,7 +105,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
                                     .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup
                                                     (javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(PVErrorLbl)
+                                                    .addComponent(pVErrorLbl)
                                                     .addGroup(layout.createSequentialGroup()
                                                             .addGroup(layout.createParallelGroup
                                                                     (javax.swing.GroupLayout
@@ -115,7 +118,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
                                                                             javax.swing.GroupLayout
                                                                                     .DEFAULT_SIZE,
                                                                             Short.MAX_VALUE)
-                                                                    .addComponent(PVDateTxt))
+                                                                    .addComponent(pVDateTxt))
                                                             .addGap(18, 18, 18)
                                                             .addComponent(summaryViewBtn,
                                                                     javax.swing.GroupLayout
@@ -134,7 +137,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout
                                     .Alignment.BASELINE)
-                                    .addComponent(PVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    .addComponent(pVDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(summaryViewBtn))
@@ -144,7 +147,7 @@ public class PortfolioView extends javax.swing.JPanel implements GUIView {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                     227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(PVErrorLbl)
+                            .addComponent(pVErrorLbl)
                             .addContainerGap(26, Short.MAX_VALUE))
     );
   }

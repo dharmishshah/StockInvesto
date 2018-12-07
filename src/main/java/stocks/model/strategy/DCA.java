@@ -90,7 +90,7 @@ public class DCA implements StrategyOperations {
       out.newLine();
       out.close();
     } catch (IOException io) {
-
+      throw new IllegalArgumentException("Invalid file directory path while saving strategy.");
     }
   }
 
@@ -116,6 +116,7 @@ public class DCA implements StrategyOperations {
       }
 
     } catch (IOException ioe) {
+      throw new IllegalArgumentException("Invalid file directory path while loading strategy.");
     }
 
     return savedStrategies;

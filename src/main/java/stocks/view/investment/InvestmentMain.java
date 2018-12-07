@@ -1,30 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package stocks.view.investment;
 
 import stocks.controller.GUIController;
 
 /**
+ * This class implements an investment view for portfolios.
+ *
  * @author Dharmish
  */
 public class InvestmentMain extends javax.swing.JPanel {
 
   GUIController controller;
-  // Variables declaration - do not modify//GEN-BEGIN:variables
+
+  private javax.swing.JSplitPane jSplitPane1;
   private javax.swing.JButton dcaBtn;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
-  private javax.swing.JSplitPane jSplitPane1;
   private javax.swing.JButton oneTimeBtn;
+
   /**
-   * Creates new form InvestmentMain
+   * Creates new form InvestmentMain with default initialization.
    */
   public InvestmentMain(GUIController controller) {
     initComponents();
     this.controller = controller;
+    this.jSplitPane1 = jSplitPane1;
+    this.dcaBtn = dcaBtn;
+    this.jPanel1 = jPanel1;
+    this.jPanel2 = jPanel2;
+    this.oneTimeBtn = oneTimeBtn;
   }
 
   /**
@@ -34,6 +37,9 @@ public class InvestmentMain extends javax.swing.JPanel {
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+
+
+
 
     jSplitPane1 = new javax.swing.JSplitPane();
     jPanel1 = new javax.swing.JPanel();
@@ -61,9 +67,12 @@ public class InvestmentMain extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(oneTimeBtn)
-                                    .addComponent(dcaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout
+                                            .Alignment.LEADING)
+                                            .addComponent(oneTimeBtn)
+                                            .addComponent(dcaBtn,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -101,16 +110,15 @@ public class InvestmentMain extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSplitPane1)
     );
-  }// </editor-fold>//GEN-END:initComponents
+  }
 
-  private void dcaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dcaBtnActionPerformed
+  private void dcaBtnActionPerformed(java.awt.event.ActionEvent evt) {
     DCA dca = new DCA(controller);
     jSplitPane1.setRightComponent(dca);
-  }//GEN-LAST:event_dcaBtnActionPerformed
+  }
 
-  private void oneTimeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneTimeBtnActionPerformed
+  private void oneTimeBtnActionPerformed(java.awt.event.ActionEvent evt) {
     OneTime oneTime = new OneTime(controller);
     jSplitPane1.setRightComponent(oneTime);
-  }//GEN-LAST:event_oneTimeBtnActionPerformed
-  // End of variables declaration//GEN-END:variables
+  }
 }

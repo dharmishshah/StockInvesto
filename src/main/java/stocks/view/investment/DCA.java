@@ -4,12 +4,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JTextField;
 
 import stocks.controller.GUIController;
-import stocks.model.stock.Stock;
 import stocks.view.GUIView;
 
 /**
@@ -18,11 +16,19 @@ import stocks.view.GUIView;
 public class DCA extends javax.swing.JPanel implements GUIView {
   //The following variable represents the GUIController object.
   GUIController controller;
-  private javax.swing.ButtonGroup buttonGroup1;
-  //The following variable represents the amount invested text field.
-  private javax.swing.JTextField dcaAmountInvested;
+
+  private javax.swing.JComboBox<String> dcaExistingStrategies;
+  //The following variable represents the combo box.
+  private javax.swing.JComboBox dcaInvestmentOption;
+  //The following variable represents the combo box.
+  private javax.swing.JComboBox dcaPortfolioId;
+  //The following method represents the save button.
+  private javax.swing.JButton dcaSave;
   //The following variable represents dca apply button.
   private javax.swing.JButton dcaApplyBtn;
+  //The following variable represents the amount invested text field.
+  private javax.swing.JTextField dcaAmountInvested;
+
   //The following variable represents the commission rate text field.
   private javax.swing.JTextField dcaCommissionRate;
   //The following variable represents custom stock label.
@@ -35,26 +41,9 @@ public class DCA extends javax.swing.JPanel implements GUIView {
   private javax.swing.JTextField dcaEndDate;
   //The following variable represents error label.
   private javax.swing.JLabel dcaError;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox<String> dcaExistingStrategies;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox dcaInvestmentOption;
-  //The following variable represents the combo box.
-  private javax.swing.JComboBox dcaPortfolioId;
-  //The following method represents the save button.
-  private javax.swing.JButton dcaSave;
-  //The following variable represents the start date text field.
-  private javax.swing.JTextField dcaStartDate;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel10;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel7;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
+
+
+
   /**
    * The following constructor initializes the DCA panel.
    *
@@ -84,13 +73,38 @@ public class DCA extends javax.swing.JPanel implements GUIView {
     for (String strategy : strategies) {
       dcaExistingStrategies.addItem(strategy);
     }
+
+    this.dcaAmountInvested = dcaAmountInvested;
+    this.dcaCommissionRate = dcaCommissionRate;
+    this.dcaCustomStocksLbl = dcaCustomStocksLbl;
+    this.dcaCustomWeight = dcaCustomWeight;
+    this.dcaDayFrequency = dcaDayFrequency;
+    this.dcaEndDate = dcaEndDate;
+    this.dcaError = dcaError;
   }
 
   /**
-   * The following method initializes the panel components
+   * The following method initializes the panel components.
    */
   @SuppressWarnings("unchecked")
   private void initComponents() {
+
+
+    javax.swing.ButtonGroup buttonGroup1;
+
+    //The following variable represents the start date text field.
+    javax.swing.JTextField dcaStartDate;
+    javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel10;
+    javax.swing.JLabel jLabel2;
+    javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
+    javax.swing.JLabel jLabel6;
+    javax.swing.JLabel jLabel7;
+    javax.swing.JLabel jLabel8;
+    javax.swing.JLabel jLabel9;
+
     buttonGroup1 = new javax.swing.ButtonGroup();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
@@ -125,14 +139,14 @@ public class DCA extends javax.swing.JPanel implements GUIView {
     dcaPortfolioId.setModel(new javax.swing.DefaultComboBoxModel(
             new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
     jLabel7.setText("ENTER THE COMMISSION RATE");
-    dcaInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel
-            (new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+    dcaInvestmentOption.setModel(new javax.swing.DefaultComboBoxModel(new String[]
+            {"Item 1", "Item 2", "Item 3", "Item 4"}));
     dcaCustomStocksLbl.setText("Enter the custom Weight seperated by commas");
     jLabel8.setText("ENTER THE DAY FREQUENCY");
     dcaSave.setText("SAVE");
     jLabel9.setText("USE EXISTING STRATEGY");
-    dcaExistingStrategies.setModel(new javax.swing.DefaultComboBoxModel<>
-            (new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+    dcaExistingStrategies.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]
+            {"Item 1", "Item 2", "Item 3", "Item 4"}));
     jLabel10.setText("(AMOUNT_COMMISSION_START DATE_END DATE_FREQUENCY)");
     dcaApplyBtn.setText("Apply");
 
@@ -142,8 +156,8 @@ public class DCA extends javax.swing.JPanel implements GUIView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(layout.createParallelGroup
-                                    (javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing
+                                    .GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel5)
@@ -161,8 +175,8 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                                             javax.swing.GroupLayout.PREFERRED_SIZE,
                                             150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dcaCustomStocksLbl)
-                                    .addGroup(layout.createParallelGroup
-                                            (javax.swing.GroupLayout.Alignment.TRAILING,
+                                    .addGroup(layout.createParallelGroup(javax.swing
+                                                    .GroupLayout.Alignment.TRAILING,
                                                     false)
                                             .addComponent(dcaCustomWeight,
                                                     javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,8 +196,8 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                                     .addComponent(dcaError)
                                     .addComponent(dcaSave)
                                     .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup
-                                                    (javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing
+                                                    .GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel6)
                                                     .addComponent(dcaPortfolioId,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -191,8 +205,8 @@ public class DCA extends javax.swing.JPanel implements GUIView {
                                                             javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jLabel3))
                                             .addGap(108, 108, 108)
-                                            .addGroup(layout.createParallelGroup
-                                                    (javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing
+                                                    .GroupLayout.Alignment.LEADING)
                                                     .addComponent(dcaApplyBtn)
                                                     .addGroup(layout.createParallelGroup
                                                             (javax.swing.GroupLayout
@@ -311,24 +325,6 @@ public class DCA extends javax.swing.JPanel implements GUIView {
     dcaInvestmentOption.addItemListener(listener);
   }
 
-  /**
-   * The following method represents the summary data.
-   *
-   * @param data the stock data.
-   */
-  @Override
-  public void setSummaryData(Map<String, Map<String, Double>> data) {
-  }
-
-  /**
-   * The following method represents update stock conmbo box method.
-   *
-   * @param stocksInPortfolio the stocks in portfolio.
-   */
-  @Override
-  public void updateStockComboBox(List<Stock> stocksInPortfolio) {
-
-  }
 
   /**
    * The following method represents the text field data.

@@ -15,6 +15,10 @@ public class Portfolio {
   //The variable represents the list of stocks in the portfolio.
   private Map<String, Stock> stocks;
 
+  public Portfolio() {
+    System.out.println("Creating default constructor for JSON");
+  }
+
   /**
    * The following constructor initializes the portfolio.
    *

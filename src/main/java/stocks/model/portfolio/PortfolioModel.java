@@ -434,14 +434,15 @@ public class PortfolioModel implements PortfolioOperations<Portfolio> {
   }
 
   /**
-   * This method creates the graph dataset
-   * @param sdate
-   * @param edate
-   * @param portId
-   * @param frequency
-   * @return
+   * This method creates the graph dataset for performance evaluation.
+   *
+   * @param sdate     start date of portfolio
+   * @param edate     end date of portfolio
+   * @param portId    portfolio Id
+   * @param frequency frequency in days
    */
-  public DefaultCategoryDataset getGraphDataset(LocalDate sdate, LocalDate edate, int portId, int frequency) {
+  public DefaultCategoryDataset getGraphDataset(LocalDate sdate, LocalDate edate,
+                                                int portId, int frequency) {
     LocalDate currentDate = sdate;
 
     String series1 = "Cost";

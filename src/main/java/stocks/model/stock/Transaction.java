@@ -29,7 +29,7 @@ public class Transaction {
   private double transactionCommission;
 
   public Transaction() {
-
+    System.out.println("Creating default constructor for JSON");
   }
 
   /**
